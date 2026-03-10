@@ -7,6 +7,7 @@ import WelcomeView from "./pages/onboarding/welcome/WelcomeView";
 import ProfileView from "./pages/onboarding/profile/ProfileView";
 import GoalsView from "./pages/onboarding/goals/GoalsView";
 import LocationView from "./pages/onboarding/location/LocationView";
+import NotificationsView from "./pages/onboarding/notifications/NotificationsView";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Route path="/onboarding/profile" element={<ProfileView />} />
       <Route path="/onboarding/goals" element={<GoalsView />} />
       <Route path="/onboarding/location" element={<LocationView />} />
+      <Route path="/onboarding/notifications" element={<NotificationsView />} />
       <Route path="/components" element={<ComponentLibraryView />} />
     </Routes>
   );
