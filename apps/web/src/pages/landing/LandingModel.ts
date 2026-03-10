@@ -63,6 +63,6 @@ export function getHeroContent() {
     subheadline:
       "Browse verified Kirkland-area financial and insurance professionals matched to your goals, communication style, and location.",
     ctaLabel: "Continue with work email",
-    secondaryCta: "Browse sample profiles",
+    secondaryCta: "Log in",
   };
 }

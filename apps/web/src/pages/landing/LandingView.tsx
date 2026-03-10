@@ -4,7 +4,7 @@ import HushhAgentCTA from "../../components/HushhAgentCTA";
 import { useLandingViewModel } from "./LandingViewModel";
 
 export default function LandingView() {
-  const { agentCards, heroContent, trustChips, onContinue, onLogin, onBrowseProfiles } =
+  const { agentCards, heroContent, trustChips, onContinue, onLogin } =
     useLandingViewModel();
 
   return (
@@ -59,7 +59,7 @@ export default function LandingView() {
           <div className="flex flex-col items-center gap-4 w-full mb-8 sm:mb-12 px-4 sm:px-0">
             <HushhAgentCTA label={heroContent.ctaLabel} onClick={onContinue} />
             <button
-              onClick={onBrowseProfiles}
+              onClick={onLogin}
               className="text-sm text-white/50 hover:text-white transition-colors underline underline-offset-4"
             >
               {heroContent.secondaryCta}
