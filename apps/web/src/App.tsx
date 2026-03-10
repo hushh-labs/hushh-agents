@@ -4,6 +4,7 @@ import ComponentLibraryView from "./pages/component-library/ComponentLibraryView
 import LoginView from "./pages/login/LoginView";
 import VerifyView from "./pages/verify/VerifyView";
 import WelcomeView from "./pages/onboarding/welcome/WelcomeView";
+import ProfileView from "./pages/onboarding/profile/ProfileView";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Route path="/login/email" element={<LoginView />} />
       <Route path="/login/verify" element={<VerifyView />} />
       <Route path="/onboarding/welcome" element={<WelcomeView />} />
+      <Route path="/onboarding/profile" element={<ProfileView />} />
       <Route path="/components" element={<ComponentLibraryView />} />
     </Routes>
   );
