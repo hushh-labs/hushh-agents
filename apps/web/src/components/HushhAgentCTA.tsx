@@ -1,4 +1,4 @@
-interface HushhAgentCTAProps {
+export interface HushhAgentCTAProps {
   label: string;
   onClick?: () => void;
   variant?: "primary" | "outline";
@@ -6,6 +6,7 @@ interface HushhAgentCTAProps {
   showArrow?: boolean;
   className?: string;
   type?: "button" | "submit";
+  disabled?: boolean;
 }
 
 export default function HushhAgentCTA({
@@ -16,6 +17,7 @@ export default function HushhAgentCTA({
   showArrow = true,
   className = "",
   type = "button",
+  disabled = false,
 }: HushhAgentCTAProps) {
   const baseClasses =
     "inline-flex items-center justify-center gap-2 font-bold transition-all rounded-custom";
@@ -36,7 +38,8 @@ export default function HushhAgentCTA({
     <button
       type={type}
       onClick={onClick}
-      className={`${baseClasses} ${variantClasses} ${sizeClasses} ${className}`}
+      disabled={disabled}
+      className={`${baseClasses} ${variantClasses} ${sizeClasses} ${disabled ? "opacity-40 cursor-not-allowed" : ""} ${className}`}
     >
       {label}
       {showArrow && (

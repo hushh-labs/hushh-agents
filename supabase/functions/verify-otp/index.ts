@@ -45,7 +45,6 @@ serve(async (req: Request) => {
 
     // Check expiry
     if (new Date(data.expires_at) < new Date()) {
-      // Clean up expired OTP
       await supabase.from("otp_codes").delete().eq("id", data.id);
       return new Response(
         JSON.stringify({ error: "OTP has expired. Please request a new one." }),
@@ -59,11 +58,65 @@ serve(async (req: Request) => {
     // Clean up old OTPs for this email
     await supabase.from("otp_codes").delete().eq("email", email).neq("id", data.id);
 
+    /* ── Create or find Supabase Auth user ── */
+    const normalizedEmail = email.trim().toLowerCase();
+    let userId: string | null = null;
+
+    // Try to create auth user (idempotent — if exists, we catch the error)
+    const tempPassword = crypto.randomUUID();
+    const { data: newUser, error: createErr } = await supabase.auth.admin.createUser({
+      email: normalizedEmail,
+      email_confirm: true,
+      password: tempPassword,
+    });
+
+    if (!createErr && newUser?.user?.id) {
+      userId = newUser.user.id;
+    } else {
+      // User already exists — find them
+      const { data: listData } = await supabase.auth.admin.listUsers();
+      const found = listData?.users?.find((u: any) => u.email === normalizedEmail);
+      if (found) {
+        userId = found.id;
+      }
+    }
+
+    /* ── Generate magic link token for frontend session ── */
+    let accessToken: string | null = null;
+    let refreshToken: string | null = null;
+
+    if (userId) {
+      try {
+        const { data: linkData } = await supabase.auth.admin.generateLink({
+          type: "magiclink",
+          email: normalizedEmail,
+        });
+
+        if (linkData?.properties?.hashed_token) {
+          // Return the hashed token so frontend can exchange it for a session
+          return new Response(
+            JSON.stringify({
+              success: true,
+              message: "OTP verified successfully",
+              email: normalizedEmail,
+              user_id: userId,
+              token_hash: linkData.properties.hashed_token,
+            }),
+            { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          );
+        }
+      } catch (e) {
+        console.error("Failed to generate link:", e);
+      }
+    }
+
+    // Fallback: return success without token (email-based flow continues to work)
     return new Response(
       JSON.stringify({
         success: true,
         message: "OTP verified successfully",
-        email: data.email,
+        email: normalizedEmail,
+        user_id: userId,
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );

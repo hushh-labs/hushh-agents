@@ -6,6 +6,12 @@ import {
   getHouseRules,
 } from "./WelcomeModel";
 
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://gsqmwxqgqrgzhlhmbscg.supabase.co";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
+const authHeaders: Record<string, string> = SUPABASE_ANON_KEY
+  ? { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` }
+  : {};
+
 /** Simple analytics stub */
 function trackEvent(event: string, data?: Record<string, unknown>) {
   console.log(`[analytics] ${event}`, data ?? "");
@@ -33,9 +39,9 @@ export function useWelcomeViewModel() {
 
     // POST /consents
     try {
-      await fetch("https://gsqmwxqgqrgzhlhmbscg.supabase.co/functions/v1/save-consent", {
+      await fetch(`${SUPABASE_URL}/functions/v1/save-consent`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify({
           email,
           policy_version: "1.0",
