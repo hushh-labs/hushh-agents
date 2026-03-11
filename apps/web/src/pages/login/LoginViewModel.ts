@@ -2,7 +2,8 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getLoginContent, validateEmail } from "./LoginModel";
 
-const SUPABASE_URL = "https://gsqmwxqgqrgzhlhmbscg.supabase.co";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://gsqmwxqgqrgzhlhmbscg.supabase.co";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
 
 /** Simple analytics stub */
 function trackEvent(event: string, data?: Record<string, unknown>) {
@@ -70,7 +71,10 @@ export function useLoginViewModel() {
     try {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/send-otp`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(SUPABASE_ANON_KEY ? { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` } : {}),
+        },
         body: JSON.stringify({ email: email.trim() }),
       });
       const data = await res.json();

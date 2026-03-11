@@ -1,8 +1,13 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getVerifyContent, validateOtp } from "./VerifyModel";
+import { supabase } from "../../lib/supabase";
 
-const SUPABASE_URL = "https://gsqmwxqgqrgzhlhmbscg.supabase.co";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://gsqmwxqgqrgzhlhmbscg.supabase.co";
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
+const authHeaders: Record<string, string> = SUPABASE_ANON_KEY
+  ? { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` }
+  : {};
 const RESEND_COOLDOWN = 30; // seconds
 
 /** Simple analytics stub */
@@ -111,7 +116,7 @@ export function useVerifyViewModel() {
       try {
         const res = await fetch(`${SUPABASE_URL}/functions/v1/verify-otp`, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", ...authHeaders },
           body: JSON.stringify({ email, otp: currentOtp.join("") }),
         });
         const data = await res.json();
@@ -125,10 +130,27 @@ export function useVerifyViewModel() {
         }
 
         trackEvent("auth_success", { email });
-        trackEvent("session_created");
 
         // Persist email for onboarding flow
         localStorage.setItem("hushh_user_email", email);
+
+        // Exchange token_hash for a real Supabase session (JWT)
+        if (data.token_hash) {
+          try {
+            const { error: sessionErr } = await supabase.auth.verifyOtp({
+              token_hash: data.token_hash,
+              type: "magiclink",
+            });
+            if (!sessionErr) {
+              trackEvent("session_created");
+            } else {
+              console.warn("Session exchange failed:", sessionErr.message);
+            }
+          } catch (e) {
+            console.warn("Session exchange error:", e);
+          }
+        }
+
         setSuccess(true);
 
         // Brief success state then navigate to S4 Welcome
@@ -156,7 +178,7 @@ export function useVerifyViewModel() {
     try {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/send-otp`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify({ email }),
       });
       if (!res.ok) throw new Error("Failed to resend");

@@ -49,7 +49,7 @@ export default function WelcomeView() {
   return (
     <div className="bg-brand-dark text-white font-sans antialiased overflow-x-hidden min-h-screen flex flex-col">
       {/* Header — Progress step, no back button */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-center bg-transparent">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-center bg-brand-dark/95 backdrop-blur-md border-b border-white/5">
         <span className="text-xs sm:text-sm font-medium text-white/50 tracking-widest uppercase">
           {content.headerStep}
         </span>
