@@ -149,7 +149,7 @@ export function useGoalsViewModel() {
       });
 
       trackEvent("goals_skipped");
-      localStorage.removeItem("hushh_goals_draft");
+      // Keep draft alive for back-navigation — cleared only at onboarding end
       navigate("/onboarding/location");
     } catch {
       navigate("/onboarding/location");

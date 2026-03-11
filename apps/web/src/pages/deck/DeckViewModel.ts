@@ -3,6 +3,19 @@ import { useNavigate } from "react-router-dom";
 import type { DeckAgent, DeckState, SwipeAction } from "./DeckModel";
 import { supabase } from "../../lib/supabase";
 
+/* ── Analytics: log events to console + localStorage for audit trail ── */
+function trackEvent(event: string, data?: Record<string, unknown>) {
+  const entry = { event, ...data, ts: new Date().toISOString() };
+  console.log(`[analytics] ${event}`, data ?? "");
+  try {
+    const log: unknown[] = JSON.parse(localStorage.getItem("hushh_analytics_log") || "[]");
+    log.push(entry);
+    // Keep last 500 events to avoid storage bloat
+    if (log.length > 500) log.splice(0, log.length - 500);
+    localStorage.setItem("hushh_analytics_log", JSON.stringify(log));
+  } catch { /* silent */ }
+}
+
 /* ── Fisher-Yates shuffle (client-side double-shuffle for extra randomness) ── */
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -50,6 +63,7 @@ export function useDeckViewModel() {
       /* ── Client-side shuffle for extra randomness ── */
       const shuffled = shuffle(agents);
 
+      trackEvent("deck_loaded", { agentCount: shuffled.length });
       setState({ agents: shuffled, currentIndex: 0, loading: false, error: null, animatingDirection: null });
     } catch (err: any) {
       setState(s => ({ ...s, loading: false, error: err?.message || "Failed to load agents" }));
@@ -70,8 +84,21 @@ export function useDeckViewModel() {
 
   const onPass = useCallback(() => {
     if (!current) return;
+    trackEvent("deck_pass", { agentId: current.id, agentName: current.name });
     setState(s => ({ ...s, animatingDirection: "left" }));
     recordAction("pass");
+
+    // Override handling: if previously liked, remove from liked list (Bug 4)
+    try {
+      const liked: string[] = JSON.parse(localStorage.getItem("hushh_liked_agents") || "[]");
+      if (liked.includes(current.id)) {
+        const updated = liked.filter((id: string) => id !== current.id);
+        localStorage.setItem("hushh_liked_agents", JSON.stringify(updated));
+        window.dispatchEvent(new Event("hushh_liked_update"));
+        trackEvent("deck_override", { agentId: current.id, from: "save", to: "pass" });
+      }
+    } catch { /* silent */ }
+
     setTimeout(() => {
       setState(s => ({ ...s, currentIndex: s.currentIndex + 1, animatingDirection: null }));
     }, 300);
@@ -79,6 +106,7 @@ export function useDeckViewModel() {
 
   const onSave = useCallback(() => {
     if (!current) return;
+    trackEvent("deck_save", { agentId: current.id, agentName: current.name });
     setState(s => ({ ...s, animatingDirection: "right" }));
     recordAction("save");
 
@@ -97,19 +125,21 @@ export function useDeckViewModel() {
 
   const onViewProfile = useCallback(() => {
     if (!current) return;
+    trackEvent("deck_view_profile", { agentId: current.id, agentName: current.name });
     recordAction("view");
     navigate(`/agents/${current.id}`);
   }, [current, navigate, recordAction]);
 
   /* ── Shuffle & Start Over: reshuffle all agents, reset index ── */
   const onStartOver = useCallback(() => {
+    trackEvent("deck_reshuffle", { agentCount: state.agents.length });
     setState(s => ({
       ...s,
       agents: shuffle(s.agents),
       currentIndex: 0,
       animatingDirection: null,
     }));
-  }, []);
+  }, [state.agents.length]);
 
   /* ── Retry: reload from API ── */
   const onRetry = useCallback(() => {

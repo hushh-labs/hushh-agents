@@ -10,6 +10,16 @@ export interface UserProfile {
 
 export interface SettingsData {
   profile: UserProfile;
+  /* ── Onboarding-sourced fields ── */
+  goals: string[];
+  primaryGoal: string;
+  timeline: string;
+  communicationStyle: string;
+  connectPrefs: string[];
+  coverageTimeline: string;
+  insuredStatus: string;
+  householdSize: string;
+  /* ── Notification & privacy ── */
   notificationEmail: boolean;
   notificationPush: boolean;
   quietHoursStart: string;
@@ -32,6 +42,14 @@ export interface SettingsState {
 export function getDefaultSettings(): SettingsData {
   return {
     profile: { fullName: "", email: "", zip: "", contactPref: "email", avatarUrl: "" },
+    goals: [],
+    primaryGoal: "",
+    timeline: "",
+    communicationStyle: "",
+    connectPrefs: [],
+    coverageTimeline: "",
+    insuredStatus: "",
+    householdSize: "",
     notificationEmail: true,
     notificationPush: true,
     quietHoursStart: "",
@@ -45,11 +63,8 @@ export function getSettingsContent() {
   return {
     title: "My Profile",
     saveLabel: "Save changes",
-    savedMsg: "Changes saved",
-    exportLabel: "Export my data",
     deleteLabel: "Delete account",
-    deleteWarning: "Your account will be scheduled for deletion in 30 days. You can recover it within this window.",
-    deleteConfirmLabel: "Yes, delete my account",
-    cancelLabel: "Cancel",
+    exportLabel: "Export my data",
+    signOutLabel: "Sign out",
   };
 }
