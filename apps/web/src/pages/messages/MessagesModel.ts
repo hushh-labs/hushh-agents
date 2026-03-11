@@ -34,7 +34,7 @@ export const statusLabels: Record<ConversationStatus, string> = {
 export const statusColors: Record<ConversationStatus, string> = {
   requested: "bg-yellow-500/20 text-yellow-300",
   replied: "bg-green-500/20 text-green-300",
-  waiting_on_you: "bg-[#e6ff00]/20 text-[#e6ff00]",
+  waiting_on_you: "bg-brand-primary/20 text-brand-primary",
   closed: "bg-white/10 text-white/40",
 };
 

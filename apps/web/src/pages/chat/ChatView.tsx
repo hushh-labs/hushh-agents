@@ -8,7 +8,7 @@ import HushhAgentText from "../../components/HushhAgentText";
 const statusColors: Record<string, string> = {
   requested: "bg-yellow-500/20 text-yellow-300",
   replied: "bg-green-500/20 text-green-300",
-  waiting_on_you: "bg-[#e6ff00]/20 text-[#e6ff00]",
+  waiting_on_you: "bg-brand-primary/20 text-brand-primary",
   closed: "bg-white/10 text-white/40",
 };
 
@@ -17,14 +17,14 @@ export default function ChatView() {
 
   if (vm.loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a]">
+      <div className="flex items-center justify-center min-h-screen bg-brand-dark">
         <div className="animate-pulse text-white/60 text-lg">Loading thread…</div>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a] text-white">
+    <div className="flex flex-col min-h-screen bg-brand-dark text-white">
       {/* ── Header ── */}
       <div className="flex items-center gap-3 px-4 pt-12 pb-3 border-b border-white/10">
         <button onClick={vm.onBack} className="text-white/60 hover:text-white text-xl" aria-label="Back">
@@ -41,10 +41,23 @@ export default function ChatView() {
             </span>
           )}
         </div>
+        {/* ── Call & Email buttons (Bug 8) ── */}
+        {vm.agentPhone && (
+          <a href={`tel:${vm.agentPhone}`} className="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white/50 hover:text-brand-primary transition-colors" aria-label="Call agent">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.86 19.86 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.86 19.86 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.37 1.61.7 2.38a2 2 0 01-.45 2.11L8.09 9.47a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.77.33 1.57.57 2.38.7A2 2 0 0122 16.92z" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5"/></svg>
+          </a>
+        )}
+        {vm.agentEmail && (
+          <a href={`mailto:${vm.agentEmail}`} className="w-8 h-8 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white/50 hover:text-brand-primary transition-colors" aria-label="Email agent">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.5"/><path d="M22 7l-10 7L2 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+          </a>
+        )}
         <div className="relative">
-          <button onClick={vm.onToggleMenu} className="text-white/40 hover:text-white text-lg px-1" aria-label="Menu">⋯</button>
+          <button onClick={vm.onToggleMenu} className="text-white/40 hover:text-white text-lg px-1" aria-label="Menu">
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </button>
           {vm.menuOpen && (
-            <div className="absolute right-0 top-8 bg-[#1a0533] border border-white/15 rounded-xl shadow-xl z-20 min-w-[180px] py-1">
+            <div className="absolute right-0 top-8 bg-brand-dark border border-white/15 rounded-xl shadow-xl z-20 min-w-[180px] py-1">
               <button onClick={vm.onRequestCallback} className="w-full text-left px-4 py-2.5 text-sm text-white/70 hover:bg-white/5">
                 Request callback
               </button>
@@ -61,8 +74,8 @@ export default function ChatView() {
       </div>
 
       {/* ── Trust banner ── */}
-      <div className="mx-4 mt-3 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-2.5">
-        <p className="text-[11px] text-blue-300/80 leading-relaxed">{getTrustBanner()}</p>
+      <div className="mx-4 mt-3 bg-brand-primary/10 border border-brand-primary/20 rounded-xl px-4 py-2.5">
+        <p className="text-[11px] text-brand-primary/80 leading-relaxed">{getTrustBanner()}</p>
       </div>
 
       {/* ── Messages area ── */}
@@ -76,9 +89,9 @@ export default function ChatView() {
         {vm.messages.map((msg: ChatMessage) => (
           <div key={msg.id} className={`flex ${msg.sender_type === "user" ? "justify-end" : "justify-start"}`}>
             <div
-              className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+              className={`max-w-[80%] px-4 py-2.5 rounded-custom text-sm leading-relaxed ${
                 msg.sender_type === "user"
-                  ? "bg-[#e6ff00] text-black rounded-br-md"
+                  ? "bg-brand-primary text-black rounded-br-md"
                   : msg.sender_type === "system"
                     ? "bg-white/5 text-white/50 text-xs italic"
                     : "bg-white/10 text-white rounded-bl-md"
@@ -133,12 +146,12 @@ export default function ChatView() {
             onChange={e => vm.onChangeDraft(e.target.value)}
             onKeyDown={e => e.key === "Enter" && !e.shiftKey && vm.onSend()}
             placeholder="Write a message…"
-            className="flex-1 bg-white/5 border border-white/15 rounded-2xl px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#e6ff00]/40"
+            className="flex-1 bg-white/5 border border-white/15 rounded-custom px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-primary/40"
           />
           <button
             onClick={vm.onSend}
             disabled={!vm.draft.trim() || vm.sending}
-            className="w-10 h-10 rounded-full bg-[#e6ff00] flex items-center justify-center text-black disabled:opacity-30 active:scale-90 transition-transform flex-shrink-0"
+            className="w-10 h-10 rounded-full bg-brand-primary flex items-center justify-center text-black disabled:opacity-30 active:scale-90 transition-transform flex-shrink-0"
             aria-label="Send"
           >
             ↑

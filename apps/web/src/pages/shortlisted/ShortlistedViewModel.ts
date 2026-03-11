@@ -95,6 +95,14 @@ export function useShortlistedViewModel() {
         
       });
       setState(s => ({ ...s, agents: s.agents.filter(a => a.id !== agentId) }));
+
+      // Decrement badge count in localStorage + notify AppShell
+      try {
+        const liked: string[] = JSON.parse(localStorage.getItem("hushh_liked_agents") || "[]");
+        const updated = liked.filter((id: string) => id !== agentId);
+        localStorage.setItem("hushh_liked_agents", JSON.stringify(updated));
+        window.dispatchEvent(new Event("hushh_liked_update"));
+      } catch { /* silent */ }
     } catch { /* silent */ }
   }, []);
 

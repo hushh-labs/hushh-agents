@@ -35,10 +35,10 @@ export interface LeadTrackerState {
 
 export const statusSteps: { key: LeadStatus; label: string; color: string }[] = [
   { key: "requested", label: "Requested", color: "bg-yellow-500/20 text-yellow-300" },
-  { key: "viewed", label: "Viewed", color: "bg-blue-500/20 text-blue-300" },
+  { key: "viewed", label: "Viewed", color: "bg-brand-primary/20 text-brand-primary" },
   { key: "need_more_info", label: "Need more info", color: "bg-orange-500/20 text-orange-300" },
   { key: "quoting", label: "Quoting", color: "bg-purple-500/20 text-purple-300" },
-  { key: "quote_sent", label: "Quote sent", color: "bg-[#e6ff00]/20 text-[#e6ff00]" },
+  { key: "quote_sent", label: "Quote sent", color: "bg-brand-primary/20 text-brand-primary" },
   { key: "closed_won", label: "Closed won", color: "bg-green-500/20 text-green-300" },
   { key: "closed_lost", label: "Closed lost", color: "bg-red-500/20 text-red-300" },
   { key: "archived", label: "Archived", color: "bg-white/10 text-white/30" },

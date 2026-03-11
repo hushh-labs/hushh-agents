@@ -14,7 +14,7 @@ export default function LeadTrackerView() {
 
   if (vm.loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a]">
+      <div className="flex items-center justify-center min-h-screen bg-brand-dark">
         <div className="animate-pulse text-white/60 text-lg">Loading leads…</div>
       </div>
     );
@@ -22,7 +22,7 @@ export default function LeadTrackerView() {
 
   if (vm.isEmpty) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a] px-6 text-center gap-5">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-brand-dark px-6 text-center gap-5">
         <div className="text-5xl">📊</div>
         <HushhAgentHeading>{emptyContent.title}</HushhAgentHeading>
         <HushhAgentText className="text-white/50">{emptyContent.copy}</HushhAgentText>
@@ -32,7 +32,7 @@ export default function LeadTrackerView() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a] text-white pb-24">
+    <div className="min-h-screen bg-brand-dark text-white pb-24">
       {/* header */}
       <div className="px-5 pt-12 pb-2">
         <HushhAgentHeading className="text-xl">{content.title}</HushhAgentHeading>
@@ -46,7 +46,7 @@ export default function LeadTrackerView() {
           const isExpanded = vm.selectedLeadId === lead.id;
 
           return (
-            <div key={lead.id} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
+            <div key={lead.id} className="bg-white/5 border border-white/10 rounded-custom overflow-hidden">
               {/* summary row */}
               <button
                 onClick={() => vm.onSelectLead(lead.id)}
@@ -115,7 +115,7 @@ export default function LeadTrackerView() {
                   {/* actions */}
                   <div className="flex gap-2">
                     {lead.status === "need_more_info" && (
-                      <button onClick={() => vm.onProvideInfo(lead.id)} className="flex-1 bg-[#e6ff00]/15 text-[#e6ff00] text-xs font-medium py-2.5 rounded-xl">
+                      <button onClick={() => vm.onProvideInfo(lead.id)} className="flex-1 bg-brand-primary/15 text-brand-primary text-xs font-medium py-2.5 rounded-xl">
                         Upload info
                       </button>
                     )}

@@ -118,7 +118,7 @@ export function useProfileViewModel() {
       });
 
       // Clear draft
-      localStorage.removeItem("hushh_profile_draft");
+      // Keep draft alive for back-navigation
 
       // Navigate to S6 Insurance Goals
       navigate("/onboarding/goals");

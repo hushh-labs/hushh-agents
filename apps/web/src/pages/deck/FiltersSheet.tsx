@@ -24,7 +24,7 @@ export default function FiltersSheet({ vm }: { vm: FiltersVM }) {
         {/* header */}
         <div className="flex items-center justify-between px-5 pb-4">
           <h2 className="text-lg font-bold text-white">Filters & Sorting</h2>
-          <button onClick={vm.onReset} className="text-xs text-[#e6ff00] font-medium">
+          <button onClick={vm.onReset} className="text-xs text-brand-primary font-medium">
             Reset to recommended
           </button>
         </div>
@@ -42,7 +42,7 @@ export default function FiltersSheet({ vm }: { vm: FiltersVM }) {
                     onClick={() => vm.onToggleCategory(cat)}
                     className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
                       active
-                        ? "bg-[#e6ff00]/20 border-[#e6ff00]/40 text-[#e6ff00]"
+                        ? "bg-brand-primary/20 border-brand-primary/40 text-brand-primary"
                         : "border-white/15 text-white/50 hover:text-white/70"
                     }`}
                   >
@@ -62,7 +62,7 @@ export default function FiltersSheet({ vm }: { vm: FiltersVM }) {
                   type="checkbox"
                   checked={vm.draft.remote_ok}
                   onChange={vm.onToggleRemote}
-                  className="rounded bg-white/10 border-white/20 text-[#e6ff00] focus:ring-[#e6ff00]"
+                  className="rounded bg-white/10 border-white/20 text-brand-primary focus:ring-[#e6ff00]"
                 />
                 <span className="text-sm text-white/70">Remote / Virtual</span>
               </label>
@@ -71,7 +71,7 @@ export default function FiltersSheet({ vm }: { vm: FiltersVM }) {
                   type="checkbox"
                   checked={vm.draft.in_person_ok}
                   onChange={vm.onToggleInPerson}
-                  className="rounded bg-white/10 border-white/20 text-[#e6ff00] focus:ring-[#e6ff00]"
+                  className="rounded bg-white/10 border-white/20 text-brand-primary focus:ring-[#e6ff00]"
                 />
                 <span className="text-sm text-white/70">In-person</span>
               </label>

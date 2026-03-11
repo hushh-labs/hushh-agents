@@ -150,7 +150,7 @@ export function useLocationViewModel() {
       }
 
       trackEvent("context_saved", { location_source: form.locationSource });
-      localStorage.removeItem("hushh_location_draft");
+      // Keep draft alive for back-navigation
       navigate("/onboarding/notifications");
     } catch (err) {
       console.error("Save location error:", err);

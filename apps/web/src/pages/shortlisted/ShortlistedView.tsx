@@ -16,8 +16,8 @@ const filters: { label: string; value: FilterStatus }[] = [
 ];
 
 const statusColors: Record<string, string> = {
-  Saved: "bg-[#e6ff00]/20 text-[#e6ff00]",
-  Contacted: "bg-blue-500/20 text-blue-300",
+  Saved: "bg-brand-primary/20 text-brand-primary",
+  Contacted: "bg-brand-primary/20 text-brand-primary",
   Replied: "bg-green-500/20 text-green-300",
   Archived: "bg-white/10 text-white/30",
 };
@@ -42,7 +42,7 @@ export default function ShortlistedView() {
 
   if (vm.loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a]">
+      <div className="flex items-center justify-center min-h-screen bg-brand-dark">
         <div className="animate-pulse text-white/60 text-lg">Loading saved agents…</div>
       </div>
     );
@@ -50,7 +50,7 @@ export default function ShortlistedView() {
 
   if (vm.isEmpty) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a] px-6 text-center gap-5">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-brand-dark px-6 text-center gap-5">
         <div className="text-5xl">📋</div>
         <HushhAgentHeading>{emptyContent.title}</HushhAgentHeading>
         <HushhAgentText className="text-white/50">{emptyContent.copy}</HushhAgentText>
@@ -60,7 +60,7 @@ export default function ShortlistedView() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a] text-white pb-24">
+    <div className="min-h-screen bg-brand-dark text-white pb-24">
       {/* header */}
       <div className="flex items-center justify-between px-5 pt-12 pb-2">
         <HushhAgentHeading className="text-xl">{content.title}</HushhAgentHeading>
@@ -75,7 +75,7 @@ export default function ShortlistedView() {
           <button
             onClick={vm.onToggleEdit}
             className={`text-xs font-medium px-3 py-1.5 rounded-full transition-colors ${
-              vm.editMode ? "bg-[#e6ff00]/20 text-[#e6ff00]" : "text-white/50 hover:text-white/80"
+              vm.editMode ? "bg-brand-primary/20 text-brand-primary" : "text-white/50 hover:text-white/80"
             }`}
           >
             {vm.editMode ? "Done" : "Edit"}
@@ -105,7 +105,7 @@ export default function ShortlistedView() {
         {vm.filteredAgents.map((agent: ShortlistedAgent) => (
           <div
             key={agent.id}
-            className={`bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-colors ${
+            className={`bg-white/5 border border-white/10 rounded-custom overflow-hidden transition-colors ${
               agent.status === "Archived" ? "opacity-50" : ""
             }`}
           >
@@ -168,7 +168,7 @@ export default function ShortlistedView() {
                   className={`flex-1 py-2.5 text-xs font-medium transition-colors ${
                     agent.status === "Contacted" || agent.leadStatus === "pending"
                       ? "text-white/20"
-                      : "text-[#e6ff00] hover:bg-[#e6ff00]/10"
+                      : "text-brand-primary hover:bg-brand-primary/10"
                   }`}
                 >
                   Connect

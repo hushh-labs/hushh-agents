@@ -19,7 +19,7 @@ export default function MessagesView() {
 
   if (vm.loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a]">
+      <div className="flex items-center justify-center min-h-screen bg-brand-dark">
         <div className="animate-pulse text-white/60 text-lg">Loading messages…</div>
       </div>
     );
@@ -27,7 +27,7 @@ export default function MessagesView() {
 
   if (vm.isEmpty) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a] px-6 text-center gap-5">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-brand-dark px-6 text-center gap-5">
         <div className="text-5xl">💬</div>
         <HushhAgentHeading>{emptyContent.title}</HushhAgentHeading>
         <HushhAgentText className="text-white/50">{emptyContent.copy}</HushhAgentText>
@@ -37,7 +37,7 @@ export default function MessagesView() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1a0533] to-[#0d001a] text-white pb-24">
+    <div className="min-h-screen bg-brand-dark text-white pb-24">
       {/* header */}
       <div className="px-5 pt-12 pb-2">
         <HushhAgentHeading className="text-xl">Messages</HushhAgentHeading>
@@ -45,8 +45,8 @@ export default function MessagesView() {
 
       {/* system banner */}
       {vm.waitingOnYou > 0 && (
-        <div className="mx-5 mb-3 bg-[#e6ff00]/10 border border-[#e6ff00]/20 rounded-xl px-4 py-2.5">
-          <p className="text-sm text-[#e6ff00]/90 font-medium">
+        <div className="mx-5 mb-3 bg-brand-primary/10 border border-brand-primary/20 rounded-xl px-4 py-2.5">
+          <p className="text-sm text-brand-primary/90 font-medium">
             {vm.waitingOnYou} request{vm.waitingOnYou > 1 ? "s" : ""} need a response from you.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function MessagesView() {
           <button
             key={c.id}
             onClick={() => vm.onOpenThread(c.id)}
-            className="w-full flex items-center gap-3.5 p-4 bg-white/5 border border-white/10 rounded-2xl text-left active:bg-white/10 transition-colors"
+            className="w-full flex items-center gap-3.5 p-4 bg-white/5 border border-white/10 rounded-custom text-left active:bg-white/10 transition-colors"
             aria-label={`Conversation with ${c.agentName}`}
           >
             {/* thumbnail */}

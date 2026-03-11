@@ -16,7 +16,7 @@ export function useChatViewModel() {
 
   const [state, setState] = useState<ChatState>({
     conversationId: conversationId ?? null,
-    agentName: "", agentPhotoUrl: "", status: "",
+    agentName: "", agentPhotoUrl: "", agentPhone: "", agentEmail: "", status: "",
     messages: [], loading: true, error: null,
     draft: savedDraft, sending: false, menuOpen: false,
   });

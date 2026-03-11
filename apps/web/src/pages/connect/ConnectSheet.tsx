@@ -56,7 +56,7 @@ export default function ConnectSheet({ vm }: ConnectSheetProps) {
               onChange={e => vm.onChangeMessage(e.target.value)}
               placeholder={content.messagePlaceholder}
               rows={3}
-              className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#e6ff00]/40 resize-none"
+              className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-primary/40 resize-none"
             />
           </div>
 
@@ -70,7 +70,7 @@ export default function ConnectSheet({ vm }: ConnectSheetProps) {
                   onClick={() => vm.onSetChannel(ch.value)}
                   className={`flex-1 text-xs py-2.5 rounded-xl border transition-colors ${
                     vm.draft.channelPref === ch.value
-                      ? "bg-[#e6ff00]/15 border-[#e6ff00]/40 text-[#e6ff00]"
+                      ? "bg-brand-primary/15 border-brand-primary/40 text-brand-primary"
                       : "bg-white/5 border-white/10 text-white/50 hover:text-white/70"
                   }`}
                 >
@@ -110,7 +110,7 @@ export default function ConnectSheet({ vm }: ConnectSheetProps) {
                   onClick={() => vm.onSetUrgency(u.value)}
                   className={`flex-1 text-center py-2.5 rounded-xl border transition-colors ${
                     vm.draft.urgency === u.value
-                      ? "bg-[#e6ff00]/15 border-[#e6ff00]/40 text-[#e6ff00]"
+                      ? "bg-brand-primary/15 border-brand-primary/40 text-brand-primary"
                       : "bg-white/5 border-white/10 text-white/50"
                   }`}
                 >

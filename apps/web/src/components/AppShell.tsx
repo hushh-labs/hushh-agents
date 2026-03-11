@@ -1,5 +1,6 @@
 /* ── App Shell — Bottom Tab Navigation ── */
 
+import { useState, useEffect } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 /* ── Duo-tone Filled SVG Icons ── */
@@ -95,6 +96,19 @@ export default function AppShell() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  /* ── Badge count for Interested tab ── */
+  const [likedCount, setLikedCount] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("hushh_liked_agents") || "[]").length; } catch { return 0; }
+  });
+
+  useEffect(() => {
+    const handler = () => {
+      try { setLikedCount(JSON.parse(localStorage.getItem("hushh_liked_agents") || "[]").length); } catch { /* */ }
+    };
+    window.addEventListener("hushh_liked_update", handler);
+    return () => window.removeEventListener("hushh_liked_update", handler);
+  }, []);
+
   // Hide bottom tabs on full-screen pages (chat thread, agent profile)
   const hideTabPaths = ["/messages/", "/agents/"];
   const shouldHideTabs = hideTabPaths.some(p => location.pathname.startsWith(p) && location.pathname !== p.replace("/", ""));
@@ -117,11 +131,19 @@ export default function AppShell() {
                 <button
                   key={tab.path}
                   onClick={() => navigate(tab.path)}
-                  className={`flex flex-col items-center py-2.5 px-3 min-w-[56px] transition-colors ${
+                  className={`relative flex flex-col items-center py-2.5 px-3 min-w-[56px] transition-colors ${
                     isActive ? "text-brand-primary" : "text-white/30 hover:text-white/50"
                   }`}
                 >
-                  {IconComp && <IconComp active={isActive} />}
+                  <div className="relative">
+                    {IconComp && <IconComp active={isActive} />}
+                    {/* Badge count for Interested tab */}
+                    {tab.path === "/shortlisted" && likedCount > 0 && (
+                      <span className="absolute -top-1.5 -right-2.5 min-w-[16px] h-4 flex items-center justify-center bg-brand-primary text-brand-dark text-[9px] font-bold rounded-full px-1">
+                        {likedCount > 99 ? "99+" : likedCount}
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[9px] font-medium mt-1">{tab.label}</span>
                 </button>
               );

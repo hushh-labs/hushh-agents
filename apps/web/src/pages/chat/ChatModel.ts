@@ -15,6 +15,8 @@ export interface ChatState {
   conversationId: string | null;
   agentName: string;
   agentPhotoUrl: string;
+  agentPhone: string;
+  agentEmail: string;
   status: string;
   messages: ChatMessage[];
   loading: boolean;
