@@ -1,0 +1,994 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0182B4324C2F3683F5F0BC28 /* yelp_biz_photo_049_Kk988BeMWkjXHVAhx81F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B93D64E3850DC51C731E00D /* yelp_biz_photo_049_Kk988BeMWkjXHVAhx81F.jpg */; };
+		0470454A98C2620A4F6B68A2 /* ConsumerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1332F931AA4C4966A1670C /* ConsumerProfile.swift */; };
+		07964A6781FB66C60D829C8D /* yelp_biz_photo_069_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 185DBAD6EA4EDC73D5FDDD75 /* yelp_biz_photo_069_180s.jpg */; };
+		0D82EA480054618D8E063D3A /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA7C393F96867D4DEFF11 /* ChatService.swift */; };
+		0DEFD020B16B2D9877DC889D /* yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB15102CF1CFB89AA7B3673C /* yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg */; };
+		11DA514407437B8576A06DA1 /* yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0B7D993EF4A6A6C2C6A5E8DB /* yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg */; };
+		14BFBD6A8521F2F5E8C24210 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B53BF43EE077B3FAE1E5F0 /* CardStackView.swift */; };
+		157EEEAC337070C340ADB074 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90A48619F0E6CFB07D6A9959 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg */; };
+		1625ECC08D5D392F225CD07B /* yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90A42D2A365F56813EE70E82 /* yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg */; };
+		1783E2D00CA46A38014EC23B /* yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43C1F1989B1195952EE278ED /* yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg */; };
+		1832C73BCE168F2AC2EFF67A /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1DAE770E431AD77073733 /* DeckView.swift */; };
+		1DD1BA2EFC58F16B763F4512 /* kirkland_agents_seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F50C7B0784C77D1810E659F /* kirkland_agents_seed.json */; };
+		20793AE7DD096EECF32C88AF /* SwipeActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9930F47FC214CDADFE2F5 /* SwipeActionButtons.swift */; };
+		24041272A01530BB9AF3CD98 /* HushhAgentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC678E64E4DFD31E2C2DBC98 /* HushhAgentProfile.swift */; };
+		247A81DCDE97D758824540CC /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3847096D149D61B3BDF80F0 /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg */; };
+		2D972E8333EC360689D83692 /* PassedAgentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA0F84709B2E7C1F15E31BA /* PassedAgentsView.swift */; };
+		2EF598A7D7C52402E1EF52DA /* yelp_biz_photo_090_wAuEpOW8dyfET85XSjO9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92DF6B0A04832699F118D7FA /* yelp_biz_photo_090_wAuEpOW8dyfET85XSjO9.jpg */; };
+		309A758BB80B534E4DC6993E /* yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AB1096AAB8893B08E89778D /* yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg */; };
+		3172F6B665EF56A2F597CFD1 /* ActivityHubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB8680BFD1455F5F64D7A8F /* ActivityHubViewModel.swift */; };
+		31D44D8B32905290D349C4D1 /* ActivityHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6774C1995889F35DF0E2D7 /* ActivityHubView.swift */; };
+		3687EE7FE91DEB009827121B /* ProfileImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D835862AEA1B22FF16E414 /* ProfileImageUploadService.swift */; };
+		37458DD25DF8DEF1C5560D46 /* yelp_biz_photo_060_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B73186AC6B0ADE2F30D758E /* yelp_biz_photo_060_180s.jpg */; };
+		392F8AE1CAA7780E2090B055 /* EmptyDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3C93EFC78D818529AD41FA /* EmptyDeckView.swift */; };
+		3A13875465966EC2C5686BCF /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5709656D0DB84AF1F277776A /* SwipeDirection.swift */; };
+		3FD0972AC3F777057166CE74 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36E3BC83A700FEEC013531D /* AuthService.swift */; };
+		411590E8E5AA345E56C934BA /* yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 21D78C4244D69E1A5858DBE8 /* yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg */; };
+		47EDD4B35589B1A56E78776C /* yelp_biz_photo_038_rt3hNSy7Y-vlEh_-ZEtH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A848574E2F34247943F8C1B7 /* yelp_biz_photo_038_rt3hNSy7Y-vlEh_-ZEtH.jpg */; };
+		4B02DD5A490E132BA0FE914B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D3C9D615AA01FFD49EC35 /* ContentView.swift */; };
+		4B2FD2E99F081B07B590CE56 /* yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 296516CA1ED092167FA87E05 /* yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg */; };
+		4C65C80C60D6BA48A3E06694 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485A69889A5D987600E58CD4 /* PreviewData.swift */; };
+		4CCBF8262CEC5B6ABBD2E4F8 /* HushhAgentSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEFBF4D1C2787912C1BB706 /* HushhAgentSwipe.swift */; };
+		4D10B4D550BFD8B130F1616F /* View+Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F769E21F26DBD3CB9A436 /* View+Haptics.swift */; };
+		51EDEF1933F5674BD78F2CE1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C698D552E934A8DEE4731993 /* AppState.swift */; };
+		5498BE9435B62AF3138F0561 /* yelp_biz_photo_067_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9981D1B19E8A96D4198DAFB8 /* yelp_biz_photo_067_180s.jpg */; };
+		54C982C067001C47E12C165A /* AuthGateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28A3155488C419E6413789D /* AuthGateModifier.swift */; };
+		55F635B4FB8AF1790D0DD236 /* SwipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FBAC9AFBDF02D69BEB69D8 /* SwipeService.swift */; };
+		56AE5C1E6ACBD1A971884091 /* MyClaimsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998191931F7F47FF3C14EC80 /* MyClaimsView.swift */; };
+		5BC48FDFEA80EE0C9C0F5513 /* yelp_biz_photo_068_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D416A7308D31782216437040 /* yelp_biz_photo_068_180s.jpg */; };
+		5DDA198032929339B377E56A /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B080C11F2FC5F76974F1D3F /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg */; };
+		5DDDDD29E8D3ECFF6271A4D1 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3E6610ACDB0A0D3636073 /* AppUser.swift */; };
+		624A09F2BBBB295DC0C84FD3 /* RatingStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93EC9E20FC6920DE7E2942 /* RatingStarsView.swift */; };
+		624DB46B68C6F639183026A3 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AF802A90249A2543BBB28 /* OnboardingViewModel.swift */; };
+		62D362FD9FAAD5F571EFE41F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267507D13FE904C3A18169E /* SettingsView.swift */; };
+		6413E62B55485181DE3F7582 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B881D36A17C89365469547 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg */; };
+		658ACB4DC39592114D6D0899 /* yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B7020B9845C5DDFF5ACEBCF /* yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg */; };
+		67320084B417402F503E936A /* yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95B2C77AA0D21CF51544CB01 /* yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg */; };
+		69767CFA39794A7BC81379FD /* AgentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950B346993F85105C2D9DE5A /* AgentDetailView.swift */; };
+		6AD8E95B35276C1C0390BB5E /* LikedAgentsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6AF9432EB96645176A4EBB /* LikedAgentsStore.swift */; };
+		6E3D8AB04CAF8C61ED3D03B2 /* yelp_biz_photo_077_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CB7A581BFD11D6588CFE12D /* yelp_biz_photo_077_180s.jpg */; };
+		6FBA2F5A982C6C6968B3FB6A /* yelp_biz_photo_071_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5BE78583CCB7FCD02D215A8A /* yelp_biz_photo_071_180s.jpg */; };
+		6FBDF5D7917CCDADDD5659BD /* AgentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D7AC5282D42CB2A422FE5 /* AgentCardView.swift */; };
+		72AE03B713C82947130595F9 /* KirklandAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5F47C7F1492AAD23767DD8 /* KirklandAgent.swift */; };
+		737853AB05473D3DE9E45E67 /* yelp_biz_photo_062_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF6523938565C672B6B4277B /* yelp_biz_photo_062_180s.jpg */; };
+		73FD0E499D5FBE790846EAC9 /* yelp_biz_photo_053_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D635E1B70F23F59133384B08 /* yelp_biz_photo_053_180s.jpg */; };
+		7827CC4CA41931D6D055E27E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A3FE9B0710F9A5BA1C001 /* ProfileViewModel.swift */; };
+		79F0B3CDCB73BA97457EEB2E /* HushhAgentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5A147D3122D2821E9E5517 /* HushhAgentsApp.swift */; };
+		7B558F73C71753D2AD730903 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B28BB8604A7747F3400983 /* OnboardingView.swift */; };
+		7B8F818F21DB85B04DB4B4B3 /* yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F4BC820628C6CE327E2928D7 /* yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg */; };
+		7D1D31477CD900490F9440E6 /* AgentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39538E391D6B0A3DD10D16C6 /* AgentService.swift */; };
+		7E558F30290B5BF940833DC5 /* yelp_biz_photo_075_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A300BA6F1DC01F3899AD8BF /* yelp_biz_photo_075_180s.jpg */; };
+		7F4CCD67A757EA4415170D39 /* yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0323DB7337005801A411AC3C /* yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg */; };
+		7FF7F918D1F0F1FAB87D70E4 /* yelp_biz_photo_070_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 659453CD9EEB22992B892524 /* yelp_biz_photo_070_180s.jpg */; };
+		82882058ABA40BD878F522EE /* LeadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F5037794F93686BEFE97D /* LeadRequest.swift */; };
+		86A18AABC52E277BCDBCBB52 /* AuthProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B086EE229A93CD0BB5681724 /* AuthProviderConfig.swift */; };
+		889C782FD9C8D745A66EA204 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2A10D34B14633BC3C7DD7918 /* Supabase */; };
+		8988ED8832F8499DEC8B625B /* Color+Hushh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1606E84E266B1DCB6A66759 /* Color+Hushh.swift */; };
+		8B50F3BCCCCFB227D0ABAC93 /* yelp_biz_photo_066_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 529B2E5D21E28341B1BC2F9D /* yelp_biz_photo_066_180s.jpg */; };
+		8C3077272B4B77F390606ABA /* yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BB698E779CB0C6933C244F95 /* yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg */; };
+		8C6491B9F2AAE5A0647DB3A7 /* UserAgentSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92CDC4C9BBDAC4BBDD501DB /* UserAgentSelection.swift */; };
+		8FDE61412000AFCEC1C648A3 /* GatedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D56B769FE33F5AE01C8493B /* GatedAction.swift */; };
+		91292CA3329DDA4E97B270D8 /* yelp_biz_photo_074_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AF42AED976E9D15145218 /* yelp_biz_photo_074_180s.jpg */; };
+		917D8F26DBB6214892372971 /* LeadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04A1BFB690DA4A0824D1AC4 /* LeadService.swift */; };
+		9288851B20BC5CC9E378FFA6 /* CategoryBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441E2BD7D34007D599AD096 /* CategoryBadge.swift */; };
+		9489D05A6E45F23C4F275310 /* SupabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09916F6E2E1946205A9B9AA2 /* SupabaseService.swift */; };
+		95179FF53F45FCE8CEFF73D2 /* yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8304AFE1C255E341A66A767F /* yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg */; };
+		95DA383237B8B3B8A5FBAC5A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA756D19890D65B96247C907 /* UserService.swift */; };
+		97A323F27CF00E4B1AD01D51 /* yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA0AD9A336A5F63104650EE1 /* yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg */; };
+		985D87BB4BDF9DE5AC6D661C /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C3501E3AB6BC4C82C3673 /* AuthView.swift */; };
+		9DB022C385D7E0BC647F22DF /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 196FD3CED9B12D5A0E6E5370 /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg */; };
+		9E662B8DE230C2921306215C /* yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8C7DA5CCF66A45626A01DF2 /* yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg */; };
+		A22B5796BB2DBE3154CFD0F5 /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E36C8D5C2DD3B37A6CD84A4C /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg */; };
+		A7DA7D0BC59E469ECFABA7A1 /* ProfileHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7815E67B85D3EF833684E201 /* ProfileHomeView.swift */; };
+		AB47DD4C6C1C246163AAD920 /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6744A30138C9AD6ACE2445F /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg */; };
+		ABC8EA19582ABA24E736816B /* yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2320AA8E889CFB1A4BF2950 /* yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg */; };
+		AEEBB9A433201DEDF1833386 /* AgentImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7374D86EAE8210107B6F7A63 /* AgentImageView.swift */; };
+		B0EAB2B9AE0E90E51D5B0E2D /* yelp_biz_photo_098_RDA9VqrDYLH-ViilGWnQ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8A6B0C689C09C7917468803 /* yelp_biz_photo_098_RDA9VqrDYLH-ViilGWnQ.jpg */; };
+		B1272B87570E090A04B2338F /* yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A30FE8F164339696A7B07E47 /* yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg */; };
+		B4DF15151496D594A7FC7367 /* yelp_biz_photo_017_Lu5JRWx5b7f4yTSsTfIV.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E813C01C18DB0191DE3A3F23 /* yelp_biz_photo_017_Lu5JRWx5b7f4yTSsTfIV.jpg */; };
+		B9AAD5C8A952883FC193A201 /* yelp_biz_photo_039_3n4Wsr34h37aS7Ji8DMl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01DAD8CF6E10F03B60DC93C7 /* yelp_biz_photo_039_3n4Wsr34h37aS7Ji8DMl.jpg */; };
+		BC038C15D04F4A1BEE06C4C8 /* yelp_biz_photo_072_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E99D6E9130E01B6E9E46857D /* yelp_biz_photo_072_180s.jpg */; };
+		BF3BFF1AACD822FE1FD66CB9 /* yelp_biz_photo_033_sl_OxP_e0sL4Vhu5rKaB.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5DF0FCD92C57BDDAEC9197C1 /* yelp_biz_photo_033_sl_OxP_e0sL4Vhu5rKaB.jpg */; };
+		C2012287A7D7047E911C75DB /* HushhAgentConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA0F3A6A703925BECF78661 /* HushhAgentConversation.swift */; };
+		C38B1804530167C6CD362751 /* yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCEC7ACF96A6B4794DFF7C47 /* yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg */; };
+		C6DFFBA46EBBA9BF66816822 /* yelp_biz_photo_061_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5BA36DC67A8FC112FF5432 /* yelp_biz_photo_061_180s.jpg */; };
+		C950E5D4A15B019E06F03349 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0EBC6D76EFBF21CDFC396315 /* GoogleSignIn */; };
+		CE6035BB95B869D3181BB443 /* DeckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C856C005AEF56009D8EF8AFD /* DeckViewModel.swift */; };
+		CE8E4179091584EC65CC2FD0 /* yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D12531D273162F4346AC373 /* yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg */; };
+		D03E8EB4EDC7CC6B9F61883A /* yelp_biz_photo_056_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05238D2B57E50388EC70CCAA /* yelp_biz_photo_056_180s.jpg */; };
+		D0B1CF12E57847815072EF83 /* SelectedAgentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF87C0450ADE9BF90A44C75 /* SelectedAgentsView.swift */; };
+		D67A0BEB871D173F6E752BA2 /* ZipLocationResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7495B8A92A6571FE24DFEAC /* ZipLocationResolver.swift */; };
+		D68DAA13614BE1381FBB9600 /* ChatThreadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B435144A200354C333F1C7 /* ChatThreadViewModel.swift */; };
+		D9AEA63DEA2D1ECF7B21FB38 /* yelp_biz_photo_045_JQZgXtzmbFi6nQ9TOzLg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD46EED7613A5A365D35A62A /* yelp_biz_photo_045_JQZgXtzmbFi6nQ9TOzLg.jpg */; };
+		DA870C035371E4A5F3975459 /* yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B53E377365FF7198289B3881 /* yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg */; };
+		DD0AFC7AFFDEA4580598E44D /* yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C908DB14B2AD3D28A5CF5530 /* yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg */; };
+		DF4029E2D074595CCD4FA7B8 /* Agents.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C82BB9B9B881906EB9DE138 /* Agents.json */; };
+		DFA12FDBE15C05677F80EFDF /* yelp_biz_photo_088_bDjBj-By-bn7cgigAlJq.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6964A58CDD304394ACBBA0B0 /* yelp_biz_photo_088_bDjBj-By-bn7cgigAlJq.jpg */; };
+		E0F74AF0DC1F073FB56BD17A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDFFCF693C9A61E645B4365B /* Assets.xcassets */; };
+		E2094E992EA8F23308B9646E /* yelp_biz_photo_093_u3spmWNXWaOxFIhmN0tF.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 805D8686C881CAEA6CBBA10A /* yelp_biz_photo_093_u3spmWNXWaOxFIhmN0tF.jpg */; };
+		E4800B33B0DBBB3814A99595 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68191DF55145AFF7F97898E9 /* AuthViewModel.swift */; };
+		E62496723465905669E31AF1 /* yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F335E8C4192441AF3F3D8DD5 /* yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg */; };
+		E7CFA74BA1D4AB28417A19E3 /* yelp_biz_photo_073_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 657F6FCB5EDA945F108997E1 /* yelp_biz_photo_073_180s.jpg */; };
+		EBEA8DF358EFEFFBCAB82AFC /* yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6E2D038F6055EC7C5AB7782 /* yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg */; };
+		EC1A278E0CEE4FA147B91A9B /* yelp_biz_photo_064_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDACFB10E3E19338A022D788 /* yelp_biz_photo_064_180s.jpg */; };
+		EC8AFF2A15A2C29B04128950 /* LegalSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188FC8E1E92B371B7B68FDDD /* LegalSheetView.swift */; };
+		ECCC4BD14C8BB8F82716E28A /* yelp_biz_photo_082_3n4Wsr34h37aS7Ji8DMl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0FAB5131D5FAB946DBEC4CA7 /* yelp_biz_photo_082_3n4Wsr34h37aS7Ji8DMl.jpg */; };
+		ED9CC509FE71668CCAFAE04C /* ChatThreadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF00BA2AB5EAE8AF7F842A /* ChatThreadView.swift */; };
+		EE8EC373EACB2EDEE9BB5768 /* yelp_biz_photo_065_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05C898F1473F36C2C58A1BB1 /* yelp_biz_photo_065_180s.jpg */; };
+		EF1DCA01C9A371C2FE718348 /* yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8661A82DD1A89C426582E3A9 /* yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg */; };
+		F0A2F170C036A86BF3B81B73 /* Supabase.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29419BE94376F1D66F052BA5 /* Supabase.plist */; };
+		F1B62FF1C4619B670996BE83 /* yelp_biz_photo_095_1AQwwBdQM129iOCJRQrR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F03AEADA26011A67E7E2C /* yelp_biz_photo_095_1AQwwBdQM129iOCJRQrR.jpg */; };
+		F5020EF868F3AE8F727E7B61 /* yelp_biz_photo_063_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 100D6C6342C877C56A25C710 /* yelp_biz_photo_063_180s.jpg */; };
+		F51C606906E723B5B9F6CEEF /* yelp_biz_photo_047_tZf_8LLmkkeqSTglOnGJ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94F8934409A2735F5375CCF8 /* yelp_biz_photo_047_tZf_8LLmkkeqSTglOnGJ.jpg */; };
+		F5F4D24C6A065139DB8BF0F8 /* yelp_biz_photo_096_doTrISeHbcz896rFERUi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D296113A66717E56D0C12000 /* yelp_biz_photo_096_doTrISeHbcz896rFERUi.jpg */; };
+		F6AD5B54A70C11319F86204D /* yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DB4AE16CB3118199DB3EFDC /* yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg */; };
+		FCA44FB03829B7BDD4BE2CD7 /* yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F58772CBC8F9120B0D06C6F8 /* yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01DAD8CF6E10F03B60DC93C7 /* yelp_biz_photo_039_3n4Wsr34h37aS7Ji8DMl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_039_3n4Wsr34h37aS7Ji8DMl.jpg; sourceTree = "<group>"; };
+		0323DB7337005801A411AC3C /* yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg; sourceTree = "<group>"; };
+		05238D2B57E50388EC70CCAA /* yelp_biz_photo_056_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_056_180s.jpg; sourceTree = "<group>"; };
+		05C898F1473F36C2C58A1BB1 /* yelp_biz_photo_065_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_065_180s.jpg; sourceTree = "<group>"; };
+		09916F6E2E1946205A9B9AA2 /* SupabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseService.swift; sourceTree = "<group>"; };
+		0B7D993EF4A6A6C2C6A5E8DB /* yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg; sourceTree = "<group>"; };
+		0C5F47C7F1492AAD23767DD8 /* KirklandAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KirklandAgent.swift; sourceTree = "<group>"; };
+		0CC3E6610ACDB0A0D3636073 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		0FAB5131D5FAB946DBEC4CA7 /* yelp_biz_photo_082_3n4Wsr34h37aS7Ji8DMl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_082_3n4Wsr34h37aS7Ji8DMl.jpg; sourceTree = "<group>"; };
+		100D6C6342C877C56A25C710 /* yelp_biz_photo_063_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_063_180s.jpg; sourceTree = "<group>"; };
+		185DBAD6EA4EDC73D5FDDD75 /* yelp_biz_photo_069_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_069_180s.jpg; sourceTree = "<group>"; };
+		188FC8E1E92B371B7B68FDDD /* LegalSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalSheetView.swift; sourceTree = "<group>"; };
+		196FD3CED9B12D5A0E6E5370 /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg; sourceTree = "<group>"; };
+		1B080C11F2FC5F76974F1D3F /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg; sourceTree = "<group>"; };
+		1B3AF42AED976E9D15145218 /* yelp_biz_photo_074_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_074_180s.jpg; sourceTree = "<group>"; };
+		1B4FA7C393F96867D4DEFF11 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		1C82BB9B9B881906EB9DE138 /* Agents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Agents.json; sourceTree = "<group>"; };
+		1D56B769FE33F5AE01C8493B /* GatedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatedAction.swift; sourceTree = "<group>"; };
+		1DA0F84709B2E7C1F15E31BA /* PassedAgentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassedAgentsView.swift; sourceTree = "<group>"; };
+		1EEFBF4D1C2787912C1BB706 /* HushhAgentSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HushhAgentSwipe.swift; sourceTree = "<group>"; };
+		21D78C4244D69E1A5858DBE8 /* yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg; sourceTree = "<group>"; };
+		29419BE94376F1D66F052BA5 /* Supabase.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Supabase.plist; sourceTree = "<group>"; };
+		296516CA1ED092167FA87E05 /* yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg; sourceTree = "<group>"; };
+		37D835862AEA1B22FF16E414 /* ProfileImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageUploadService.swift; sourceTree = "<group>"; };
+		384C3501E3AB6BC4C82C3673 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		39538E391D6B0A3DD10D16C6 /* AgentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentService.swift; sourceTree = "<group>"; };
+		3B4D7AC5282D42CB2A422FE5 /* AgentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentCardView.swift; sourceTree = "<group>"; };
+		3B73186AC6B0ADE2F30D758E /* yelp_biz_photo_060_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_060_180s.jpg; sourceTree = "<group>"; };
+		3C3C93EFC78D818529AD41FA /* EmptyDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDeckView.swift; sourceTree = "<group>"; };
+		3D12531D273162F4346AC373 /* yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg; sourceTree = "<group>"; };
+		3F1332F931AA4C4966A1670C /* ConsumerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumerProfile.swift; sourceTree = "<group>"; };
+		42E9B2116409D19D33294787 /* HushhAgents.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HushhAgents.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43C1F1989B1195952EE278ED /* yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg; sourceTree = "<group>"; };
+		485A69889A5D987600E58CD4 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		4A8F03AEADA26011A67E7E2C /* yelp_biz_photo_095_1AQwwBdQM129iOCJRQrR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_095_1AQwwBdQM129iOCJRQrR.jpg; sourceTree = "<group>"; };
+		4AB1096AAB8893B08E89778D /* yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg; sourceTree = "<group>"; };
+		4B93D64E3850DC51C731E00D /* yelp_biz_photo_049_Kk988BeMWkjXHVAhx81F.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_049_Kk988BeMWkjXHVAhx81F.jpg; sourceTree = "<group>"; };
+		4CB7A581BFD11D6588CFE12D /* yelp_biz_photo_077_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_077_180s.jpg; sourceTree = "<group>"; };
+		5267507D13FE904C3A18169E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		528F5037794F93686BEFE97D /* LeadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadRequest.swift; sourceTree = "<group>"; };
+		529B2E5D21E28341B1BC2F9D /* yelp_biz_photo_066_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_066_180s.jpg; sourceTree = "<group>"; };
+		5709656D0DB84AF1F277776A /* SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
+		5BB8680BFD1455F5F64D7A8F /* ActivityHubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHubViewModel.swift; sourceTree = "<group>"; };
+		5BE78583CCB7FCD02D215A8A /* yelp_biz_photo_071_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_071_180s.jpg; sourceTree = "<group>"; };
+		5DF0FCD92C57BDDAEC9197C1 /* yelp_biz_photo_033_sl_OxP_e0sL4Vhu5rKaB.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_033_sl_OxP_e0sL4Vhu5rKaB.jpg; sourceTree = "<group>"; };
+		5F6AF9432EB96645176A4EBB /* LikedAgentsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedAgentsStore.swift; sourceTree = "<group>"; };
+		657F6FCB5EDA945F108997E1 /* yelp_biz_photo_073_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_073_180s.jpg; sourceTree = "<group>"; };
+		659453CD9EEB22992B892524 /* yelp_biz_photo_070_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_070_180s.jpg; sourceTree = "<group>"; };
+		68191DF55145AFF7F97898E9 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		6964A58CDD304394ACBBA0B0 /* yelp_biz_photo_088_bDjBj-By-bn7cgigAlJq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_088_bDjBj-By-bn7cgigAlJq.jpg"; sourceTree = "<group>"; };
+		69B435144A200354C333F1C7 /* ChatThreadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatThreadViewModel.swift; sourceTree = "<group>"; };
+		6B7020B9845C5DDFF5ACEBCF /* yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg; sourceTree = "<group>"; };
+		7374D86EAE8210107B6F7A63 /* AgentImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentImageView.swift; sourceTree = "<group>"; };
+		7441E2BD7D34007D599AD096 /* CategoryBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBadge.swift; sourceTree = "<group>"; };
+		7815E67B85D3EF833684E201 /* ProfileHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeView.swift; sourceTree = "<group>"; };
+		7D5AF802A90249A2543BBB28 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		7DB4AE16CB3118199DB3EFDC /* yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg; sourceTree = "<group>"; };
+		7FC9930F47FC214CDADFE2F5 /* SwipeActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtons.swift; sourceTree = "<group>"; };
+		805D8686C881CAEA6CBBA10A /* yelp_biz_photo_093_u3spmWNXWaOxFIhmN0tF.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_093_u3spmWNXWaOxFIhmN0tF.jpg; sourceTree = "<group>"; };
+		8304AFE1C255E341A66A767F /* yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg; sourceTree = "<group>"; };
+		8661A82DD1A89C426582E3A9 /* yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg; sourceTree = "<group>"; };
+		8A300BA6F1DC01F3899AD8BF /* yelp_biz_photo_075_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_075_180s.jpg; sourceTree = "<group>"; };
+		904A3FE9B0710F9A5BA1C001 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		90A42D2A365F56813EE70E82 /* yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg; sourceTree = "<group>"; };
+		90A48619F0E6CFB07D6A9959 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg; sourceTree = "<group>"; };
+		92DF6B0A04832699F118D7FA /* yelp_biz_photo_090_wAuEpOW8dyfET85XSjO9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_090_wAuEpOW8dyfET85XSjO9.jpg; sourceTree = "<group>"; };
+		94F8934409A2735F5375CCF8 /* yelp_biz_photo_047_tZf_8LLmkkeqSTglOnGJ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_047_tZf_8LLmkkeqSTglOnGJ.jpg; sourceTree = "<group>"; };
+		950B346993F85105C2D9DE5A /* AgentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDetailView.swift; sourceTree = "<group>"; };
+		95B2C77AA0D21CF51544CB01 /* yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg; sourceTree = "<group>"; };
+		998191931F7F47FF3C14EC80 /* MyClaimsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClaimsView.swift; sourceTree = "<group>"; };
+		9981D1B19E8A96D4198DAFB8 /* yelp_biz_photo_067_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_067_180s.jpg; sourceTree = "<group>"; };
+		9A6774C1995889F35DF0E2D7 /* ActivityHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHubView.swift; sourceTree = "<group>"; };
+		9F50C7B0784C77D1810E659F /* kirkland_agents_seed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kirkland_agents_seed.json; sourceTree = "<group>"; };
+		A21D3C9D615AA01FFD49EC35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A30FE8F164339696A7B07E47 /* yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg; sourceTree = "<group>"; };
+		A3847096D149D61B3BDF80F0 /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg; sourceTree = "<group>"; };
+		A6744A30138C9AD6ACE2445F /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg"; sourceTree = "<group>"; };
+		A6A7AC3749705F848486DE7F /* HushhAgentsDeviceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HushhAgentsDeviceDebug.entitlements; sourceTree = "<group>"; };
+		A6E2D038F6055EC7C5AB7782 /* yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg; sourceTree = "<group>"; };
+		A7495B8A92A6571FE24DFEAC /* ZipLocationResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipLocationResolver.swift; sourceTree = "<group>"; };
+		A848574E2F34247943F8C1B7 /* yelp_biz_photo_038_rt3hNSy7Y-vlEh_-ZEtH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_038_rt3hNSy7Y-vlEh_-ZEtH.jpg"; sourceTree = "<group>"; };
+		A8C7DA5CCF66A45626A01DF2 /* yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg; sourceTree = "<group>"; };
+		AAF87C0450ADE9BF90A44C75 /* SelectedAgentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAgentsView.swift; sourceTree = "<group>"; };
+		AB15102CF1CFB89AA7B3673C /* yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg; sourceTree = "<group>"; };
+		AC93EC9E20FC6920DE7E2942 /* RatingStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarsView.swift; sourceTree = "<group>"; };
+		AE5BA36DC67A8FC112FF5432 /* yelp_biz_photo_061_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_061_180s.jpg; sourceTree = "<group>"; };
+		B04A1BFB690DA4A0824D1AC4 /* LeadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadService.swift; sourceTree = "<group>"; };
+		B086EE229A93CD0BB5681724 /* AuthProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProviderConfig.swift; sourceTree = "<group>"; };
+		B0E1DAE770E431AD77073733 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		B53E377365FF7198289B3881 /* yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg; sourceTree = "<group>"; };
+		B92CDC4C9BBDAC4BBDD501DB /* UserAgentSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgentSelection.swift; sourceTree = "<group>"; };
+		BA0AD9A336A5F63104650EE1 /* yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg; sourceTree = "<group>"; };
+		BA756D19890D65B96247C907 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		BB698E779CB0C6933C244F95 /* yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg; sourceTree = "<group>"; };
+		BEEF00BA2AB5EAE8AF7F842A /* ChatThreadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatThreadView.swift; sourceTree = "<group>"; };
+		C1606E84E266B1DCB6A66759 /* Color+Hushh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hushh.swift"; sourceTree = "<group>"; };
+		C3B881D36A17C89365469547 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg"; sourceTree = "<group>"; };
+		C698D552E934A8DEE4731993 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		C856C005AEF56009D8EF8AFD /* DeckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewModel.swift; sourceTree = "<group>"; };
+		C908DB14B2AD3D28A5CF5530 /* yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg; sourceTree = "<group>"; };
+		C9B28BB8604A7747F3400983 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		CCEC7ACF96A6B4794DFF7C47 /* yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg; sourceTree = "<group>"; };
+		CF6523938565C672B6B4277B /* yelp_biz_photo_062_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_062_180s.jpg; sourceTree = "<group>"; };
+		D296113A66717E56D0C12000 /* yelp_biz_photo_096_doTrISeHbcz896rFERUi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_096_doTrISeHbcz896rFERUi.jpg; sourceTree = "<group>"; };
+		D416A7308D31782216437040 /* yelp_biz_photo_068_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_068_180s.jpg; sourceTree = "<group>"; };
+		D5B53BF43EE077B3FAE1E5F0 /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
+		D635E1B70F23F59133384B08 /* yelp_biz_photo_053_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_053_180s.jpg; sourceTree = "<group>"; };
+		DD46EED7613A5A365D35A62A /* yelp_biz_photo_045_JQZgXtzmbFi6nQ9TOzLg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_045_JQZgXtzmbFi6nQ9TOzLg.jpg; sourceTree = "<group>"; };
+		DE0F769E21F26DBD3CB9A436 /* View+Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Haptics.swift"; sourceTree = "<group>"; };
+		DE5A147D3122D2821E9E5517 /* HushhAgentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HushhAgentsApp.swift; sourceTree = "<group>"; };
+		E28A3155488C419E6413789D /* AuthGateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGateModifier.swift; sourceTree = "<group>"; };
+		E36C8D5C2DD3B37A6CD84A4C /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg; sourceTree = "<group>"; };
+		E36E3BC83A700FEEC013531D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		E813C01C18DB0191DE3A3F23 /* yelp_biz_photo_017_Lu5JRWx5b7f4yTSsTfIV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_017_Lu5JRWx5b7f4yTSsTfIV.jpg; sourceTree = "<group>"; };
+		E8A6B0C689C09C7917468803 /* yelp_biz_photo_098_RDA9VqrDYLH-ViilGWnQ.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_098_RDA9VqrDYLH-ViilGWnQ.jpg"; sourceTree = "<group>"; };
+		E8FBAC9AFBDF02D69BEB69D8 /* SwipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeService.swift; sourceTree = "<group>"; };
+		E99D6E9130E01B6E9E46857D /* yelp_biz_photo_072_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_072_180s.jpg; sourceTree = "<group>"; };
+		EA4D4F301D83A8B42DE83674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EC678E64E4DFD31E2C2DBC98 /* HushhAgentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HushhAgentProfile.swift; sourceTree = "<group>"; };
+		EDACFB10E3E19338A022D788 /* yelp_biz_photo_064_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_064_180s.jpg; sourceTree = "<group>"; };
+		EEA0F3A6A703925BECF78661 /* HushhAgentConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HushhAgentConversation.swift; sourceTree = "<group>"; };
+		F2320AA8E889CFB1A4BF2950 /* yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg"; sourceTree = "<group>"; };
+		F335E8C4192441AF3F3D8DD5 /* yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg; sourceTree = "<group>"; };
+		F4BC820628C6CE327E2928D7 /* yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg; sourceTree = "<group>"; };
+		F58772CBC8F9120B0D06C6F8 /* yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg; sourceTree = "<group>"; };
+		FDFFCF693C9A61E645B4365B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FFCB70CF321FD6391EDAFE50 /* HushhAgents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HushhAgents.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5E58A2E0532DE0B8D5F5289 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				889C782FD9C8D745A66EA204 /* Supabase in Frameworks */,
+				C950E5D4A15B019E06F03349 /* GoogleSignIn in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02C7F64455D7BDB17DAE2927 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				998191931F7F47FF3C14EC80 /* MyClaimsView.swift */,
+				1DA0F84709B2E7C1F15E31BA /* PassedAgentsView.swift */,
+				7815E67B85D3EF833684E201 /* ProfileHomeView.swift */,
+				AAF87C0450ADE9BF90A44C75 /* SelectedAgentsView.swift */,
+				5267507D13FE904C3A18169E /* SettingsView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		04837E011C158A213C75B278 /* Deck */ = {
+			isa = PBXGroup;
+			children = (
+				3B4D7AC5282D42CB2A422FE5 /* AgentCardView.swift */,
+				D5B53BF43EE077B3FAE1E5F0 /* CardStackView.swift */,
+				B0E1DAE770E431AD77073733 /* DeckView.swift */,
+				3C3C93EFC78D818529AD41FA /* EmptyDeckView.swift */,
+				7FC9930F47FC214CDADFE2F5 /* SwipeActionButtons.swift */,
+			);
+			path = Deck;
+			sourceTree = "<group>";
+		};
+		04E838FDBAD00E435EB79528 /* AgentDetail */ = {
+			isa = PBXGroup;
+			children = (
+				950B346993F85105C2D9DE5A /* AgentDetailView.swift */,
+			);
+			path = AgentDetail;
+			sourceTree = "<group>";
+		};
+		0B217DA4AEF0356284C8A7B6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C698D552E934A8DEE4731993 /* AppState.swift */,
+				A21D3C9D615AA01FFD49EC35 /* ContentView.swift */,
+				DE5A147D3122D2821E9E5517 /* HushhAgentsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		178A371FD6EC94F536E966D0 = {
+			isa = PBXGroup;
+			children = (
+				2091F7B67C4CD46578EC66C0 /* HushhAgents */,
+				DD23411698A77F853EE4838B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E185516EF143657F6FB9BAC /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				384C3501E3AB6BC4C82C3673 /* AuthView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		20605F403E4B534DB8411BB7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C9B28BB8604A7747F3400983 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2091F7B67C4CD46578EC66C0 /* HushhAgents */ = {
+			isa = PBXGroup;
+			children = (
+				FFCB70CF321FD6391EDAFE50 /* HushhAgents.entitlements */,
+				A6A7AC3749705F848486DE7F /* HushhAgentsDeviceDebug.entitlements */,
+				0B217DA4AEF0356284C8A7B6 /* App */,
+				E8BC370BE882BEA9FFD7A62F /* Config */,
+				BA7F45A764CB43FB32FC2F24 /* Extensions */,
+				35F5978FE9B6E8D93F5A7A1E /* Models */,
+				21A9730C95D2AF9BB2987FD3 /* Preview Content */,
+				DFD9D328094D201667680679 /* Resources */,
+				52C707E0C144A1E3EFDAE143 /* Services */,
+				8C8D0B185172ACCEB00040EC /* ViewModels */,
+				B8714B4B5A319C3ACAC2C1A1 /* Views */,
+			);
+			path = HushhAgents;
+			sourceTree = "<group>";
+		};
+		21A9730C95D2AF9BB2987FD3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				485A69889A5D987600E58CD4 /* PreviewData.swift */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		35F5978FE9B6E8D93F5A7A1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0CC3E6610ACDB0A0D3636073 /* AppUser.swift */,
+				3F1332F931AA4C4966A1670C /* ConsumerProfile.swift */,
+				1D56B769FE33F5AE01C8493B /* GatedAction.swift */,
+				EEA0F3A6A703925BECF78661 /* HushhAgentConversation.swift */,
+				EC678E64E4DFD31E2C2DBC98 /* HushhAgentProfile.swift */,
+				1EEFBF4D1C2787912C1BB706 /* HushhAgentSwipe.swift */,
+				0C5F47C7F1492AAD23767DD8 /* KirklandAgent.swift */,
+				528F5037794F93686BEFE97D /* LeadRequest.swift */,
+				5709656D0DB84AF1F277776A /* SwipeDirection.swift */,
+				B92CDC4C9BBDAC4BBDD501DB /* UserAgentSelection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		52C707E0C144A1E3EFDAE143 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				39538E391D6B0A3DD10D16C6 /* AgentService.swift */,
+				B086EE229A93CD0BB5681724 /* AuthProviderConfig.swift */,
+				E36E3BC83A700FEEC013531D /* AuthService.swift */,
+				1B4FA7C393F96867D4DEFF11 /* ChatService.swift */,
+				B04A1BFB690DA4A0824D1AC4 /* LeadService.swift */,
+				5F6AF9432EB96645176A4EBB /* LikedAgentsStore.swift */,
+				37D835862AEA1B22FF16E414 /* ProfileImageUploadService.swift */,
+				09916F6E2E1946205A9B9AA2 /* SupabaseService.swift */,
+				E8FBAC9AFBDF02D69BEB69D8 /* SwipeService.swift */,
+				BA756D19890D65B96247C907 /* UserService.swift */,
+				A7495B8A92A6571FE24DFEAC /* ZipLocationResolver.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		579DE18A8F26E6E9C208F35C /* agent_photos */ = {
+			isa = PBXGroup;
+			children = (
+				E36C8D5C2DD3B37A6CD84A4C /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg */,
+				A30FE8F164339696A7B07E47 /* yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg */,
+				E813C01C18DB0191DE3A3F23 /* yelp_biz_photo_017_Lu5JRWx5b7f4yTSsTfIV.jpg */,
+				196FD3CED9B12D5A0E6E5370 /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg */,
+				A6744A30138C9AD6ACE2445F /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg */,
+				7DB4AE16CB3118199DB3EFDC /* yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg */,
+				5DF0FCD92C57BDDAEC9197C1 /* yelp_biz_photo_033_sl_OxP_e0sL4Vhu5rKaB.jpg */,
+				F58772CBC8F9120B0D06C6F8 /* yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg */,
+				21D78C4244D69E1A5858DBE8 /* yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg */,
+				B53E377365FF7198289B3881 /* yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg */,
+				90A42D2A365F56813EE70E82 /* yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg */,
+				A848574E2F34247943F8C1B7 /* yelp_biz_photo_038_rt3hNSy7Y-vlEh_-ZEtH.jpg */,
+				01DAD8CF6E10F03B60DC93C7 /* yelp_biz_photo_039_3n4Wsr34h37aS7Ji8DMl.jpg */,
+				1B080C11F2FC5F76974F1D3F /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg */,
+				0B7D993EF4A6A6C2C6A5E8DB /* yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg */,
+				A8C7DA5CCF66A45626A01DF2 /* yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg */,
+				F335E8C4192441AF3F3D8DD5 /* yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg */,
+				F2320AA8E889CFB1A4BF2950 /* yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg */,
+				DD46EED7613A5A365D35A62A /* yelp_biz_photo_045_JQZgXtzmbFi6nQ9TOzLg.jpg */,
+				A3847096D149D61B3BDF80F0 /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg */,
+				94F8934409A2735F5375CCF8 /* yelp_biz_photo_047_tZf_8LLmkkeqSTglOnGJ.jpg */,
+				4AB1096AAB8893B08E89778D /* yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg */,
+				4B93D64E3850DC51C731E00D /* yelp_biz_photo_049_Kk988BeMWkjXHVAhx81F.jpg */,
+				95B2C77AA0D21CF51544CB01 /* yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg */,
+				43C1F1989B1195952EE278ED /* yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg */,
+				D635E1B70F23F59133384B08 /* yelp_biz_photo_053_180s.jpg */,
+				05238D2B57E50388EC70CCAA /* yelp_biz_photo_056_180s.jpg */,
+				3B73186AC6B0ADE2F30D758E /* yelp_biz_photo_060_180s.jpg */,
+				AE5BA36DC67A8FC112FF5432 /* yelp_biz_photo_061_180s.jpg */,
+				CF6523938565C672B6B4277B /* yelp_biz_photo_062_180s.jpg */,
+				100D6C6342C877C56A25C710 /* yelp_biz_photo_063_180s.jpg */,
+				EDACFB10E3E19338A022D788 /* yelp_biz_photo_064_180s.jpg */,
+				05C898F1473F36C2C58A1BB1 /* yelp_biz_photo_065_180s.jpg */,
+				529B2E5D21E28341B1BC2F9D /* yelp_biz_photo_066_180s.jpg */,
+				9981D1B19E8A96D4198DAFB8 /* yelp_biz_photo_067_180s.jpg */,
+				D416A7308D31782216437040 /* yelp_biz_photo_068_180s.jpg */,
+				185DBAD6EA4EDC73D5FDDD75 /* yelp_biz_photo_069_180s.jpg */,
+				659453CD9EEB22992B892524 /* yelp_biz_photo_070_180s.jpg */,
+				5BE78583CCB7FCD02D215A8A /* yelp_biz_photo_071_180s.jpg */,
+				E99D6E9130E01B6E9E46857D /* yelp_biz_photo_072_180s.jpg */,
+				657F6FCB5EDA945F108997E1 /* yelp_biz_photo_073_180s.jpg */,
+				1B3AF42AED976E9D15145218 /* yelp_biz_photo_074_180s.jpg */,
+				8A300BA6F1DC01F3899AD8BF /* yelp_biz_photo_075_180s.jpg */,
+				4CB7A581BFD11D6588CFE12D /* yelp_biz_photo_077_180s.jpg */,
+				6B7020B9845C5DDFF5ACEBCF /* yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg */,
+				F4BC820628C6CE327E2928D7 /* yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg */,
+				0323DB7337005801A411AC3C /* yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg */,
+				8304AFE1C255E341A66A767F /* yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg */,
+				0FAB5131D5FAB946DBEC4CA7 /* yelp_biz_photo_082_3n4Wsr34h37aS7Ji8DMl.jpg */,
+				C3B881D36A17C89365469547 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg */,
+				A6E2D038F6055EC7C5AB7782 /* yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg */,
+				296516CA1ED092167FA87E05 /* yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg */,
+				90A48619F0E6CFB07D6A9959 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg */,
+				BB698E779CB0C6933C244F95 /* yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg */,
+				6964A58CDD304394ACBBA0B0 /* yelp_biz_photo_088_bDjBj-By-bn7cgigAlJq.jpg */,
+				C908DB14B2AD3D28A5CF5530 /* yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg */,
+				92DF6B0A04832699F118D7FA /* yelp_biz_photo_090_wAuEpOW8dyfET85XSjO9.jpg */,
+				3D12531D273162F4346AC373 /* yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg */,
+				8661A82DD1A89C426582E3A9 /* yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg */,
+				805D8686C881CAEA6CBBA10A /* yelp_biz_photo_093_u3spmWNXWaOxFIhmN0tF.jpg */,
+				CCEC7ACF96A6B4794DFF7C47 /* yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg */,
+				4A8F03AEADA26011A67E7E2C /* yelp_biz_photo_095_1AQwwBdQM129iOCJRQrR.jpg */,
+				D296113A66717E56D0C12000 /* yelp_biz_photo_096_doTrISeHbcz896rFERUi.jpg */,
+				AB15102CF1CFB89AA7B3673C /* yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg */,
+				E8A6B0C689C09C7917468803 /* yelp_biz_photo_098_RDA9VqrDYLH-ViilGWnQ.jpg */,
+				BA0AD9A336A5F63104650EE1 /* yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg */,
+			);
+			path = agent_photos;
+			sourceTree = "<group>";
+		};
+		8C8D0B185172ACCEB00040EC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5BB8680BFD1455F5F64D7A8F /* ActivityHubViewModel.swift */,
+				68191DF55145AFF7F97898E9 /* AuthViewModel.swift */,
+				69B435144A200354C333F1C7 /* ChatThreadViewModel.swift */,
+				C856C005AEF56009D8EF8AFD /* DeckViewModel.swift */,
+				7D5AF802A90249A2543BBB28 /* OnboardingViewModel.swift */,
+				904A3FE9B0710F9A5BA1C001 /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B8714B4B5A319C3ACAC2C1A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C412FB41E395CAB66AA34D7F /* Activity */,
+				04E838FDBAD00E435EB79528 /* AgentDetail */,
+				1E185516EF143657F6FB9BAC /* Auth */,
+				CDA5014662638A1D236CEA36 /* Components */,
+				04837E011C158A213C75B278 /* Deck */,
+				20605F403E4B534DB8411BB7 /* Onboarding */,
+				02C7F64455D7BDB17DAE2927 /* Profile */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BA7F45A764CB43FB32FC2F24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1606E84E266B1DCB6A66759 /* Color+Hushh.swift */,
+				DE0F769E21F26DBD3CB9A436 /* View+Haptics.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C412FB41E395CAB66AA34D7F /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				9A6774C1995889F35DF0E2D7 /* ActivityHubView.swift */,
+				BEEF00BA2AB5EAE8AF7F842A /* ChatThreadView.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		CDA5014662638A1D236CEA36 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7374D86EAE8210107B6F7A63 /* AgentImageView.swift */,
+				E28A3155488C419E6413789D /* AuthGateModifier.swift */,
+				7441E2BD7D34007D599AD096 /* CategoryBadge.swift */,
+				188FC8E1E92B371B7B68FDDD /* LegalSheetView.swift */,
+				AC93EC9E20FC6920DE7E2942 /* RatingStarsView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD23411698A77F853EE4838B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42E9B2116409D19D33294787 /* HushhAgents.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFD9D328094D201667680679 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C82BB9B9B881906EB9DE138 /* Agents.json */,
+				FDFFCF693C9A61E645B4365B /* Assets.xcassets */,
+				9F50C7B0784C77D1810E659F /* kirkland_agents_seed.json */,
+				579DE18A8F26E6E9C208F35C /* agent_photos */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E8BC370BE882BEA9FFD7A62F /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				EA4D4F301D83A8B42DE83674 /* Info.plist */,
+				29419BE94376F1D66F052BA5 /* Supabase.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1C1A82E6170E0B2C6BCBBCA /* HushhAgents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE0C2ACE39349788656BD7DE /* Build configuration list for PBXNativeTarget "HushhAgents" */;
+			buildPhases = (
+				00EEEB8332CDAFC9CBD87DED /* Sources */,
+				6EEB41060246CD097D70C46E /* Resources */,
+				B5E58A2E0532DE0B8D5F5289 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HushhAgents;
+			packageProductDependencies = (
+				2A10D34B14633BC3C7DD7918 /* Supabase */,
+				0EBC6D76EFBF21CDFC396315 /* GoogleSignIn */,
+			);
+			productName = HushhAgents;
+			productReference = 42E9B2116409D19D33294787 /* HushhAgents.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07A12138A8DB49F775A17DE3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E1C1A82E6170E0B2C6BCBBCA = {
+						DevelopmentTeam = WVDK9JW99C;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A692F1A976B3569B764612FA /* Build configuration list for PBXProject "HushhAgents" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 178A371FD6EC94F536E966D0;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				161DE3BF61BEC7C858615F6C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				EB8239F580467C159AC81B54 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DD23411698A77F853EE4838B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1C1A82E6170E0B2C6BCBBCA /* HushhAgents */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6EEB41060246CD097D70C46E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF4029E2D074595CCD4FA7B8 /* Agents.json in Resources */,
+				E0F74AF0DC1F073FB56BD17A /* Assets.xcassets in Resources */,
+				F0A2F170C036A86BF3B81B73 /* Supabase.plist in Resources */,
+				1DD1BA2EFC58F16B763F4512 /* kirkland_agents_seed.json in Resources */,
+				A22B5796BB2DBE3154CFD0F5 /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg in Resources */,
+				B1272B87570E090A04B2338F /* yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg in Resources */,
+				B4DF15151496D594A7FC7367 /* yelp_biz_photo_017_Lu5JRWx5b7f4yTSsTfIV.jpg in Resources */,
+				9DB022C385D7E0BC647F22DF /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg in Resources */,
+				AB47DD4C6C1C246163AAD920 /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg in Resources */,
+				F6AD5B54A70C11319F86204D /* yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg in Resources */,
+				BF3BFF1AACD822FE1FD66CB9 /* yelp_biz_photo_033_sl_OxP_e0sL4Vhu5rKaB.jpg in Resources */,
+				FCA44FB03829B7BDD4BE2CD7 /* yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg in Resources */,
+				411590E8E5AA345E56C934BA /* yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg in Resources */,
+				DA870C035371E4A5F3975459 /* yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg in Resources */,
+				1625ECC08D5D392F225CD07B /* yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg in Resources */,
+				47EDD4B35589B1A56E78776C /* yelp_biz_photo_038_rt3hNSy7Y-vlEh_-ZEtH.jpg in Resources */,
+				B9AAD5C8A952883FC193A201 /* yelp_biz_photo_039_3n4Wsr34h37aS7Ji8DMl.jpg in Resources */,
+				5DDA198032929339B377E56A /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg in Resources */,
+				11DA514407437B8576A06DA1 /* yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg in Resources */,
+				9E662B8DE230C2921306215C /* yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg in Resources */,
+				E62496723465905669E31AF1 /* yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg in Resources */,
+				ABC8EA19582ABA24E736816B /* yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg in Resources */,
+				D9AEA63DEA2D1ECF7B21FB38 /* yelp_biz_photo_045_JQZgXtzmbFi6nQ9TOzLg.jpg in Resources */,
+				247A81DCDE97D758824540CC /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg in Resources */,
+				F51C606906E723B5B9F6CEEF /* yelp_biz_photo_047_tZf_8LLmkkeqSTglOnGJ.jpg in Resources */,
+				309A758BB80B534E4DC6993E /* yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg in Resources */,
+				0182B4324C2F3683F5F0BC28 /* yelp_biz_photo_049_Kk988BeMWkjXHVAhx81F.jpg in Resources */,
+				67320084B417402F503E936A /* yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg in Resources */,
+				1783E2D00CA46A38014EC23B /* yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg in Resources */,
+				73FD0E499D5FBE790846EAC9 /* yelp_biz_photo_053_180s.jpg in Resources */,
+				D03E8EB4EDC7CC6B9F61883A /* yelp_biz_photo_056_180s.jpg in Resources */,
+				37458DD25DF8DEF1C5560D46 /* yelp_biz_photo_060_180s.jpg in Resources */,
+				C6DFFBA46EBBA9BF66816822 /* yelp_biz_photo_061_180s.jpg in Resources */,
+				737853AB05473D3DE9E45E67 /* yelp_biz_photo_062_180s.jpg in Resources */,
+				F5020EF868F3AE8F727E7B61 /* yelp_biz_photo_063_180s.jpg in Resources */,
+				EC1A278E0CEE4FA147B91A9B /* yelp_biz_photo_064_180s.jpg in Resources */,
+				EE8EC373EACB2EDEE9BB5768 /* yelp_biz_photo_065_180s.jpg in Resources */,
+				8B50F3BCCCCFB227D0ABAC93 /* yelp_biz_photo_066_180s.jpg in Resources */,
+				5498BE9435B62AF3138F0561 /* yelp_biz_photo_067_180s.jpg in Resources */,
+				5BC48FDFEA80EE0C9C0F5513 /* yelp_biz_photo_068_180s.jpg in Resources */,
+				07964A6781FB66C60D829C8D /* yelp_biz_photo_069_180s.jpg in Resources */,
+				7FF7F918D1F0F1FAB87D70E4 /* yelp_biz_photo_070_180s.jpg in Resources */,
+				6FBA2F5A982C6C6968B3FB6A /* yelp_biz_photo_071_180s.jpg in Resources */,
+				BC038C15D04F4A1BEE06C4C8 /* yelp_biz_photo_072_180s.jpg in Resources */,
+				E7CFA74BA1D4AB28417A19E3 /* yelp_biz_photo_073_180s.jpg in Resources */,
+				91292CA3329DDA4E97B270D8 /* yelp_biz_photo_074_180s.jpg in Resources */,
+				7E558F30290B5BF940833DC5 /* yelp_biz_photo_075_180s.jpg in Resources */,
+				6E3D8AB04CAF8C61ED3D03B2 /* yelp_biz_photo_077_180s.jpg in Resources */,
+				658ACB4DC39592114D6D0899 /* yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg in Resources */,
+				7B8F818F21DB85B04DB4B4B3 /* yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg in Resources */,
+				7F4CCD67A757EA4415170D39 /* yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg in Resources */,
+				95179FF53F45FCE8CEFF73D2 /* yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg in Resources */,
+				ECCC4BD14C8BB8F82716E28A /* yelp_biz_photo_082_3n4Wsr34h37aS7Ji8DMl.jpg in Resources */,
+				6413E62B55485181DE3F7582 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg in Resources */,
+				EBEA8DF358EFEFFBCAB82AFC /* yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg in Resources */,
+				4B2FD2E99F081B07B590CE56 /* yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg in Resources */,
+				157EEEAC337070C340ADB074 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg in Resources */,
+				8C3077272B4B77F390606ABA /* yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg in Resources */,
+				DFA12FDBE15C05677F80EFDF /* yelp_biz_photo_088_bDjBj-By-bn7cgigAlJq.jpg in Resources */,
+				DD0AFC7AFFDEA4580598E44D /* yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg in Resources */,
+				2EF598A7D7C52402E1EF52DA /* yelp_biz_photo_090_wAuEpOW8dyfET85XSjO9.jpg in Resources */,
+				CE8E4179091584EC65CC2FD0 /* yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg in Resources */,
+				EF1DCA01C9A371C2FE718348 /* yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg in Resources */,
+				E2094E992EA8F23308B9646E /* yelp_biz_photo_093_u3spmWNXWaOxFIhmN0tF.jpg in Resources */,
+				C38B1804530167C6CD362751 /* yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg in Resources */,
+				F1B62FF1C4619B670996BE83 /* yelp_biz_photo_095_1AQwwBdQM129iOCJRQrR.jpg in Resources */,
+				F5F4D24C6A065139DB8BF0F8 /* yelp_biz_photo_096_doTrISeHbcz896rFERUi.jpg in Resources */,
+				0DEFD020B16B2D9877DC889D /* yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg in Resources */,
+				B0EAB2B9AE0E90E51D5B0E2D /* yelp_biz_photo_098_RDA9VqrDYLH-ViilGWnQ.jpg in Resources */,
+				97A323F27CF00E4B1AD01D51 /* yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00EEEB8332CDAFC9CBD87DED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31D44D8B32905290D349C4D1 /* ActivityHubView.swift in Sources */,
+				3172F6B665EF56A2F597CFD1 /* ActivityHubViewModel.swift in Sources */,
+				6FBDF5D7917CCDADDD5659BD /* AgentCardView.swift in Sources */,
+				69767CFA39794A7BC81379FD /* AgentDetailView.swift in Sources */,
+				AEEBB9A433201DEDF1833386 /* AgentImageView.swift in Sources */,
+				7D1D31477CD900490F9440E6 /* AgentService.swift in Sources */,
+				51EDEF1933F5674BD78F2CE1 /* AppState.swift in Sources */,
+				5DDDDD29E8D3ECFF6271A4D1 /* AppUser.swift in Sources */,
+				54C982C067001C47E12C165A /* AuthGateModifier.swift in Sources */,
+				86A18AABC52E277BCDBCBB52 /* AuthProviderConfig.swift in Sources */,
+				3FD0972AC3F777057166CE74 /* AuthService.swift in Sources */,
+				985D87BB4BDF9DE5AC6D661C /* AuthView.swift in Sources */,
+				E4800B33B0DBBB3814A99595 /* AuthViewModel.swift in Sources */,
+				14BFBD6A8521F2F5E8C24210 /* CardStackView.swift in Sources */,
+				9288851B20BC5CC9E378FFA6 /* CategoryBadge.swift in Sources */,
+				0D82EA480054618D8E063D3A /* ChatService.swift in Sources */,
+				ED9CC509FE71668CCAFAE04C /* ChatThreadView.swift in Sources */,
+				D68DAA13614BE1381FBB9600 /* ChatThreadViewModel.swift in Sources */,
+				8988ED8832F8499DEC8B625B /* Color+Hushh.swift in Sources */,
+				0470454A98C2620A4F6B68A2 /* ConsumerProfile.swift in Sources */,
+				4B02DD5A490E132BA0FE914B /* ContentView.swift in Sources */,
+				1832C73BCE168F2AC2EFF67A /* DeckView.swift in Sources */,
+				CE6035BB95B869D3181BB443 /* DeckViewModel.swift in Sources */,
+				392F8AE1CAA7780E2090B055 /* EmptyDeckView.swift in Sources */,
+				8FDE61412000AFCEC1C648A3 /* GatedAction.swift in Sources */,
+				C2012287A7D7047E911C75DB /* HushhAgentConversation.swift in Sources */,
+				24041272A01530BB9AF3CD98 /* HushhAgentProfile.swift in Sources */,
+				4CCBF8262CEC5B6ABBD2E4F8 /* HushhAgentSwipe.swift in Sources */,
+				79F0B3CDCB73BA97457EEB2E /* HushhAgentsApp.swift in Sources */,
+				72AE03B713C82947130595F9 /* KirklandAgent.swift in Sources */,
+				82882058ABA40BD878F522EE /* LeadRequest.swift in Sources */,
+				917D8F26DBB6214892372971 /* LeadService.swift in Sources */,
+				EC8AFF2A15A2C29B04128950 /* LegalSheetView.swift in Sources */,
+				6AD8E95B35276C1C0390BB5E /* LikedAgentsStore.swift in Sources */,
+				56AE5C1E6ACBD1A971884091 /* MyClaimsView.swift in Sources */,
+				7B558F73C71753D2AD730903 /* OnboardingView.swift in Sources */,
+				624DB46B68C6F639183026A3 /* OnboardingViewModel.swift in Sources */,
+				2D972E8333EC360689D83692 /* PassedAgentsView.swift in Sources */,
+				4C65C80C60D6BA48A3E06694 /* PreviewData.swift in Sources */,
+				A7DA7D0BC59E469ECFABA7A1 /* ProfileHomeView.swift in Sources */,
+				3687EE7FE91DEB009827121B /* ProfileImageUploadService.swift in Sources */,
+				7827CC4CA41931D6D055E27E /* ProfileViewModel.swift in Sources */,
+				624A09F2BBBB295DC0C84FD3 /* RatingStarsView.swift in Sources */,
+				D0B1CF12E57847815072EF83 /* SelectedAgentsView.swift in Sources */,
+				62D362FD9FAAD5F571EFE41F /* SettingsView.swift in Sources */,
+				9489D05A6E45F23C4F275310 /* SupabaseService.swift in Sources */,
+				20793AE7DD096EECF32C88AF /* SwipeActionButtons.swift in Sources */,
+				3A13875465966EC2C5686BCF /* SwipeDirection.swift in Sources */,
+				55F635B4FB8AF1790D0DD236 /* SwipeService.swift in Sources */,
+				8C6491B9F2AAE5A0647DB3A7 /* UserAgentSelection.swift in Sources */,
+				95DA383237B8B3B8A5FBAC5A /* UserService.swift in Sources */,
+				4D10B4D550BFD8B130F1616F /* View+Haptics.swift in Sources */,
+				D67A0BEB871D173F6E752BA2 /* ZipLocationResolver.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		13575B13040FE45C28B64540 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		292CA9917F6E817977CBD999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgents.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 142;
+				DEVELOPMENT_TEAM = WVDK9JW99C;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HushhAgents/Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hushhone.hushh.agent;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		440A3EF8B29066552D8CB15B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E607025702B925E8C81D4A2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgents.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 142;
+				DEVELOPMENT_TEAM = WVDK9JW99C;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = HushhAgents/Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hushhone.hushh.agent;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A692F1A976B3569B764612FA /* Build configuration list for PBXProject "HushhAgents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				440A3EF8B29066552D8CB15B /* Debug */,
+				13575B13040FE45C28B64540 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AE0C2ACE39349788656BD7DE /* Build configuration list for PBXNativeTarget "HushhAgents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E607025702B925E8C81D4A2C /* Debug */,
+				292CA9917F6E817977CBD999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		161DE3BF61BEC7C858615F6C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		EB8239F580467C159AC81B54 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0EBC6D76EFBF21CDFC396315 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 161DE3BF61BEC7C858615F6C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		2A10D34B14633BC3C7DD7918 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB8239F580467C159AC81B54 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 07A12138A8DB49F775A17DE3 /* Project object */;
+}

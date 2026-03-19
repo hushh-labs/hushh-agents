@@ -1,0 +1,2179 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-11T01:08:14.251667",
+    "source": "Yelp MITM Capture",
+    "search_query": "Registered Investment Advisor",
+    "search_location": "Kirkland, WA 98033",
+    "total_yelp_results": 240,
+    "agents_captured": 21,
+    "data_model_version": "1.0"
+  },
+  "data_model_schema": {
+    "id": "string - Yelp encrypted business ID",
+    "name": "string - Business name",
+    "alias": "string - URL-friendly slug",
+    "location": {
+      "address1": "string",
+      "address2": "string",
+      "address3": "string",
+      "city": "string",
+      "state": "string",
+      "zip": "string",
+      "country": "string",
+      "latitude": "number | null",
+      "longitude": "number | null",
+      "formatted_address": "string",
+      "short_address": "string"
+    },
+    "contact": {
+      "phone": "string",
+      "formatted_phone": "string",
+      "website_url": "string"
+    },
+    "ratings": {
+      "average_rating": "number (0-5)",
+      "rounded_rating": "number (0-5, in 0.5 steps)",
+      "review_count": "number"
+    },
+    "categories": "string[] - Category names",
+    "services": "string[] - Services offered",
+    "photos": {
+      "primary_photo_url": "string | null",
+      "photo_count": "number",
+      "photo_list": [
+        {
+          "id": "string",
+          "url": "string - Full size URL",
+          "thumbnail_url": "string - 258px thumbnail",
+          "width": "number | null",
+          "height": "number | null",
+          "caption": "string | null"
+        }
+      ]
+    },
+    "business_details": {
+      "is_closed": "boolean",
+      "is_chain": "boolean",
+      "is_yelp_guaranteed": "boolean",
+      "hours": "string[] - Formatted hours",
+      "year_established": "number | null",
+      "specialties": "string",
+      "history": "string"
+    },
+    "representative": {
+      "name": "string",
+      "bio": "string",
+      "role": "string",
+      "photo_url": "string | null"
+    },
+    "messaging": {
+      "is_enabled": "boolean",
+      "type": "string",
+      "display_text": "string",
+      "response_time": "string",
+      "reply_rate": "string"
+    },
+    "annotations": [
+      {
+        "type": "string",
+        "title": "string"
+      }
+    ],
+    "yelp_urls": {
+      "business_url": "string",
+      "share_url": "string"
+    },
+    "source": "string - 'organic' | 'sponsored'"
+  },
+  "agents": [
+    {
+      "id": "bFonJrvPDL9xQyKzwnf18g",
+      "name": "Sound Planning Group",
+      "alias": "sound-planning-group-kirkland-2",
+      "location": {
+        "address1": "11411 NE 124th St",
+        "address2": "",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98034",
+        "country": "US",
+        "latitude": 47.7104089,
+        "longitude": -122.1885144,
+        "formatted_address": "11411 NE 124th St, Kirkland, WA 98034",
+        "short_address": "11411 NE 124th St, Kirkland"
+      },
+      "contact": {
+        "phone": "4258219442",
+        "formatted_phone": "(425) 821-9442",
+        "website_url": "https://myspg.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 8
+      },
+      "categories": [
+        "Financial Advising"
+      ],
+      "services": [
+        "Wealth Management Services",
+        "Trust Planning",
+        "Investment Management",
+        "Financial Planning Services",
+        "Retirement Planning",
+        "Insurance Planning",
+        "Estate Planning"
+      ],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/ZICxBk4t2Y-px5ukoqthOA/ms.jpg",
+        "photo_count": 15,
+        "photo_list": [
+          {
+            "id": "4TQfHEGcKmyPOd9Tmsj3sA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/4TQfHEGcKmyPOd9Tmsj3sA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/4TQfHEGcKmyPOd9Tmsj3sA/258s.jpg",
+            "width": 3000,
+            "height": 4200,
+            "caption": "CJ Lovsted, CFP®\r\nInvestment Advisor Representative"
+          },
+          {
+            "id": "hgqpc6jT72KTHgGXP-HbCQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/hgqpc6jT72KTHgGXP-HbCQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/hgqpc6jT72KTHgGXP-HbCQ/258s.jpg",
+            "width": 6067,
+            "height": 4334,
+            "caption": "CEO, David Stryzewski at our offices in Kirkland, WA"
+          },
+          {
+            "id": "-rJhl5HB-x3P5V0d1awQDA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/-rJhl5HB-x3P5V0d1awQDA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/-rJhl5HB-x3P5V0d1awQDA/258s.jpg",
+            "width": 3000,
+            "height": 4200,
+            "caption": "Loren Downs, \r\nInvestment Advisor Representative"
+          },
+          {
+            "id": "eydjL3DoO6AqVhKXdGeFwQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/eydjL3DoO6AqVhKXdGeFwQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/eydjL3DoO6AqVhKXdGeFwQ/258s.jpg",
+            "width": 4200,
+            "height": 3000,
+            "caption": "Joe Duncan,\r\nInvestment Advisor Representative"
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 8:30 am - 5:00 pm"
+        ],
+        "year_established": 1998,
+        "specialties": "Specialize in income planning, investment planning, tax-forward planning, health and LTC, Medicare, and real estate.",
+        "history": "Serving the Pacific Northwest Since 1998, Sound Planning Group specializes in providing Retirees and Pre-Retirees with security, consistency, and predictability in their retirement, through sound strategies proven to last a lifetime.\n\nAt Sound Planning Group, we have a 7-step process for building a financial strategy that gives you a firm foundation for pursuing your goals. We call it the R.E.T.I.R.E process, which stands for Retirement Education with a Time-tested, Independent, Rational Evaluation - something that we consider indispensable to every retiree."
+      },
+      "representative": {
+        "name": "David S.",
+        "bio": "David is an educator, author, and regular contributor to various news and media outlets. He is the CEO of Sound Planning Group, founder of SPG Advisors LLC and Sound Tax Planning, and a mentor to various advisory firms across the country. \n\nFor more than a decade, David has been guiding and educating retirees as they transition into retirement. He was named the “Advisor of the Year” by the Society of National Social Security Advisors based on his knowledge of Social Security, wealth management, and retirement planning. He has led his firm to become one of the fastest-growing firms, earning SPG a ranking of no. 1453 on Inc. 5000’s list of the fastest-growing private companies in America. David’s visionary attitude also helped Sound Planning Group to be named “Best of Kirkland” for Insurance and Financial Services, 7 years running.",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/u73bw-KSDKpy09AZ46Qphg/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "My financial advisor, Joe Duncan, is an effective, honest, knowledgeable and professional advisor."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/sound-planning-group-kirkland-2",
+        "share_url": "https://www.yelp.com/biz/sound-planning-group-kirkland-2?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "Jp7A0Tr371KXqvi0oWLk5g",
+      "name": "Snider Financial Group",
+      "alias": "snider-financial-group-bellevue",
+      "location": {
+        "address1": "12505 Bel Red Rd",
+        "address2": "Ste 200",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98005",
+        "country": "US",
+        "latitude": 47.6199906,
+        "longitude": -122.1720184,
+        "formatted_address": "12505 Bel Red Rd, Ste 200, Bellevue, WA 98005",
+        "short_address": "12505 Bel Red Rd, Ste 200, Bellevue"
+      },
+      "contact": {
+        "phone": "4254537080",
+        "formatted_phone": "(425) 453-7080",
+        "website_url": "http://www.sniderfinancialgroup.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 1
+      },
+      "categories": [
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/SfWptRgnIlREsGTXUtw7Rg/ms.jpg",
+        "photo_count": 8,
+        "photo_list": [
+          {
+            "id": "CSJQ5c4HPNPC7H7mnLch3g",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/CSJQ5c4HPNPC7H7mnLch3g/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/CSJQ5c4HPNPC7H7mnLch3g/258s.jpg",
+            "width": 2400,
+            "height": 3600,
+            "caption": null
+          },
+          {
+            "id": "BYtqeFQ6xQDWN7Jgno-R4w",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/BYtqeFQ6xQDWN7Jgno-R4w/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/BYtqeFQ6xQDWN7Jgno-R4w/258s.jpg",
+            "width": 500,
+            "height": 645,
+            "caption": null
+          },
+          {
+            "id": "9FBINi0a_9q7HoVX6R7utA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/9FBINi0a_9q7HoVX6R7utA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/9FBINi0a_9q7HoVX6R7utA/258s.jpg",
+            "width": 2912,
+            "height": 4368,
+            "caption": null
+          },
+          {
+            "id": "SfWptRgnIlREsGTXUtw7Rg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/SfWptRgnIlREsGTXUtw7Rg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/SfWptRgnIlREsGTXUtw7Rg/258s.jpg",
+            "width": 2912,
+            "height": 4368,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 8:00 am - 4:30 pm"
+        ],
+        "year_established": null,
+        "specialties": "\nOur goal at Snider Financial Group is to be your most trusted financial advisory team for investments, knowledge and advice. We understand the importance of preparing for future retirement and planning while in retirement. Snider Financial Group is here to assist you.",
+        "history": ""
+      },
+      "representative": {
+        "name": "Monte S.",
+        "bio": "Monte Snider, President of Snider Financial Group Inc. and financial advisor began his education in 1988 as finance major at the University of Arkansas and graduated in 1992. He earned the Chartered Financial Consultant designation in 2000, and became a Life Underwriter Training Council Fellow (LUTCF). He continued his financial education at the American College taking courses about income taxation, investments, risk management, and financial planning. He graduated from MetLife's Financial Planning School in 1999. He is currently holds FINRA series 6, 63, 7, 65, 24, 53, and 3 with LPL Financial. He is also Life, Disability and Property and Casualty licensed.\n\nSecurities offered through LPL Financial, Member FINRA/SIPC. Investment advice offered through Snider Financial Group, a Registered Investment Advisor and separate entity from LPL Financial",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/Xt7hkUZNZso4O9YqkvQbiA/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "WEBSITE_MENTION",
+          "title": "On their website: registered investment advisor"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "I have known Monte Snider for 6 years. He is one of the few Financial Planners I have recommended to..."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/snider-financial-group-bellevue",
+        "share_url": "https://www.yelp.com/biz/snider-financial-group-bellevue?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "QgpwBegvxMjyxhJdwU_bgw",
+      "name": "Elite Wealth Management",
+      "alias": "elite-wealth-management-kirkland",
+      "location": {
+        "address1": "1014 Market St",
+        "address2": "",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": 47.6833596,
+        "longitude": -122.20932895555269,
+        "formatted_address": "1014 Market St, Kirkland, WA 98033",
+        "short_address": "1014 Market St, Kirkland"
+      },
+      "contact": {
+        "phone": "4258284300",
+        "formatted_phone": "(425) 828-4300",
+        "website_url": "http://www.elitewm.com"
+      },
+      "ratings": {
+        "average_rating": 4.3,
+        "rounded_rating": 4.5,
+        "review_count": 14
+      },
+      "categories": [
+        "Financial Advising",
+        "Investing"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/sl_OxP_e0sL4Vhu5rKaBRA/ms.jpg",
+        "photo_count": 15,
+        "photo_list": [
+          {
+            "id": "_6Hr6osveQNZHFZyOj18pw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/_6Hr6osveQNZHFZyOj18pw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/_6Hr6osveQNZHFZyOj18pw/258s.jpg",
+            "width": 480,
+            "height": 640,
+            "caption": null
+          },
+          {
+            "id": "uwkFBG3CBhhC-2naFSBrvA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/uwkFBG3CBhhC-2naFSBrvA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/uwkFBG3CBhhC-2naFSBrvA/258s.jpg",
+            "width": 4300,
+            "height": 2321,
+            "caption": "Investment advisor Kirkland"
+          },
+          {
+            "id": "bBwZnxaDRVPoHkIA9NaoJQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/bBwZnxaDRVPoHkIA9NaoJQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/bBwZnxaDRVPoHkIA9NaoJQ/258s.jpg",
+            "width": 851,
+            "height": 314,
+            "caption": "Financial asset management Kirkland, WA"
+          },
+          {
+            "id": "0jRaY_WFbIsJxratgq4wxg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/0jRaY_WFbIsJxratgq4wxg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/0jRaY_WFbIsJxratgq4wxg/258s.jpg",
+            "width": 1116,
+            "height": 786,
+            "caption": "Financial consulting"
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 8:00 am - 5:00 pm"
+        ],
+        "year_established": null,
+        "specialties": "Financial advisors in Kirkland | Investment advisor Kirkland | Financial consultant | Estate planner\n\n- Financial advising in Kirkland Washington\n- Financial planning Kirkland\n- Investment strategies\n- Financial consulting\n- Financial asset management Kirkland, WA\n- Risk management\n- Investment strategy\n- Alternative investment\n- Retirement planning\n- Estate planning in Kirkland, Washington\n\nOur clients deserve nothing less than a proactive partner who is vigilant in serving their interests. At Elite Wealth Management, we provide investment advice and cutting-edge solutions that best meet the needs of the individuals, families, and institutions whose assets we manage. By offering a full range of financial services and partners, we provide sound investment advice, implement strategic planning, and utilize the expertise of our analysts to ensure our clients always have the upper hand.\n\nElite Wealth Management serves a broad base of clients, including newly affluent individuals and families with a long history of wealth and complex financial needs. We are a full-service financial firm that provides comprehensive solutions and services designed to help our clients achieve their goals. We believe in the power of truth to enhance value and we aim to provide them with the peace of mind that their financial future is secure. All of our clients are put into Separately Managed Accounts at a major online brokerage. This ensures strict control and transparency over their accounts.",
+        "history": ""
+      },
+      "representative": {
+        "name": "Fariba R.",
+        "bio": "Ms. Fariba Ronnasi, president and founder of Elite Wealth Management, Inc. is a financial consultant in Kirkland Washington who has headed the strategic management of numerous high net-worth individuals. Prior to establishing the firm in October of 2004, Fariba worked as Managing Director for the Private Wealth Division of Columbia Management Company and was responsible for expanding the Private Portfolios Group on the West Coast.\n\nPreviously, Fariba was a Business Development Manager for Citicorp in Private Banking Division. Prior to joining Citicorp, she worked as the Senior Private Banking Manager at Keycorp and established the Technology group for the Private Bank. She has 23 years of solid experience in the field of financial asset management, investment strategies, and retirement planning. Fariba received both her Bachelor's and her Master's degree from Seattle University in the field of Finance with a minor in Economics.",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/MYn8Rys9ysHqSMvAXdnHFA/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "Elite investment was recommended to me by several family and friends."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/elite-wealth-management-kirkland",
+        "share_url": "https://www.yelp.com/biz/elite-wealth-management-kirkland?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "0-MNwe7lYFs5Se3H3_KbvQ",
+      "name": "WaterRock Global Asset Management",
+      "alias": "adam-droker-waterrock-global-asset-management-bellevue",
+      "location": {
+        "address1": "29 148th Ave SE",
+        "address2": "",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98007",
+        "country": "US",
+        "latitude": 47.6088472,
+        "longitude": -122.1434426,
+        "formatted_address": "29 148th Ave SE, Bellevue, WA 98007",
+        "short_address": "29 148th Ave SE, Bellevue"
+      },
+      "contact": {
+        "phone": "4256981463",
+        "formatted_phone": "(425) 698-1463",
+        "website_url": "http://www.waterrockglobal.com"
+      },
+      "ratings": {
+        "average_rating": 4.8,
+        "rounded_rating": 5.0,
+        "review_count": 22
+      },
+      "categories": [
+        "Investing",
+        "Financial Advising"
+      ],
+      "services": [
+        "Virtual Consultations"
+      ],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/YM9xrs_TYAVwRIqgSWAbPQ/ms.jpg",
+        "photo_count": 3,
+        "photo_list": [
+          {
+            "id": "W5xLLC7JZG8ns7cIu0vGXQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/W5xLLC7JZG8ns7cIu0vGXQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/W5xLLC7JZG8ns7cIu0vGXQ/258s.jpg",
+            "width": 717,
+            "height": 1000,
+            "caption": null
+          },
+          {
+            "id": "YM9xrs_TYAVwRIqgSWAbPQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/YM9xrs_TYAVwRIqgSWAbPQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/YM9xrs_TYAVwRIqgSWAbPQ/258s.jpg",
+            "width": 745,
+            "height": 1000,
+            "caption": null
+          },
+          {
+            "id": "Pov7KMpVqAHav5mivKbC6g",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/Pov7KMpVqAHav5mivKbC6g/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/Pov7KMpVqAHav5mivKbC6g/258s.jpg",
+            "width": 1296,
+            "height": 936,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 9:00 am - 5:00 pm"
+        ],
+        "year_established": 2009,
+        "specialties": "WaterRock Global Asset Management, LLC. is a registered investment advisor in WA, OR, CA, AZ, & FL. Advisor may only transact business in states it is registered or exempt from registration.\n\nAny comments or ratings are not to be considered an endorsement of the Adviser.\n\nWe specialize in investment management for gay couples, individuals who work for large companies, and business owners.\nGay couples need a team of experts who understand asset transference rules. We spend significant amounts of time learning and assembling our team.\nIndividuals that work for large companies like Boeing, Microsoft, Amazon, etc. Many have restricted stock grants or stock options, retirement plans (401k), and employee stock purchase plans. Many other advisors don't know or don't care to learn how to take advantage of these plans. At WaterRock we educate ourselves on your company's benefits plan.\nBusiness owners make up the lion's share of our business. Whether you are a wealth creator through deliberate planning or by necessity, we can help. Business owners by necessity include an employee or family member(s) that take over due to the death or disability of the principle owner.\nEvery advisory relationship begins with a conversation. I look forward to your call.",
+        "history": "I began my financial advisory practice at Merrill Lynch in 2005.  After completing the training program I moved my practice to Morgan Stanley (eventually Morgan Stanley Smith Barney).  On April 1st 2011 I joined WaterRock Global Asset Management.  In November of 2014 I acquired the founder's interest in WaterRock Global Asset Management and became the Principal and Chief Investment Officer."
+      },
+      "representative": {
+        "name": "Adam D.",
+        "bio": "Adam is Chief Investment Office at WaterRock Global Asset Management LLC.  Below is a brief history of Adam's education and industry experience.  Thank you for considering WaterRock Global Asset Management LLC.\n\nEducational Background:\nBA Business Washington State University 2003\nMBA Finance Washington State University 2004\n\nPrevious Employers:\nMerrill Lynch Seattle 2005-2007\nMorgan Stanley Seattle 2007-2011\nWaterRock Global Asset Management LLC 2011-Current\n\nAccreditation:\nChartered Retirement Planning Counselor (CRPC®)\nAccredited Investment Fiduciary (AIF®)",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/hlwT5I7C2lD7dRf8OD6fWQ/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": true,
+        "type": "RAQ",
+        "display_text": "Request information",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "Adam Droker, my Financial Advisor, is an excellent investment and retirement planner."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/adam-droker-waterrock-global-asset-management-bellevue",
+        "share_url": "https://www.yelp.com/biz/adam-droker-waterrock-global-asset-management-bellevue?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "AYucftD4SCNB8KZYtVqZSA",
+      "name": "Edward Jones - Financial Advisor: Calen H Johnson",
+      "alias": "edward-jones-financial-advisor-calen-h-johnson-kirkland-2",
+      "location": {
+        "address1": "11250 Kirkland Way",
+        "address2": "Ste 202",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": 47.678785,
+        "longitude": -122.188917,
+        "formatted_address": "11250 Kirkland Way, Ste 202, Kirkland, WA 98033",
+        "short_address": "11250 Kirkland Way, Ste 202, Kirkland"
+      },
+      "contact": {
+        "phone": "4258034632",
+        "formatted_phone": "(425) 803-4632",
+        "website_url": "http://www.edwardjones.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 8
+      },
+      "categories": [
+        "Investing",
+        "Insurance",
+        "Financial Advising"
+      ],
+      "services": [
+        "Virtual Consultations"
+      ],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/TKnSYZUhBYZGEEN_JHoVGA/ms.jpg",
+        "photo_count": 12,
+        "photo_list": [
+          {
+            "id": "TKnSYZUhBYZGEEN_JHoVGA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/TKnSYZUhBYZGEEN_JHoVGA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/TKnSYZUhBYZGEEN_JHoVGA/258s.jpg",
+            "width": 3770,
+            "height": 2637,
+            "caption": null
+          },
+          {
+            "id": "IL8CY-pzETVHRYFxLMmDkg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/IL8CY-pzETVHRYFxLMmDkg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/IL8CY-pzETVHRYFxLMmDkg/258s.jpg",
+            "width": 2000,
+            "height": 1500,
+            "caption": "Office"
+          },
+          {
+            "id": "yZfmcJRROJBkPBhKL7RQtQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/yZfmcJRROJBkPBhKL7RQtQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/yZfmcJRROJBkPBhKL7RQtQ/258s.jpg",
+            "width": 2000,
+            "height": 1500,
+            "caption": "Building on your the corner of 85th and Kirkland Way"
+          },
+          {
+            "id": "apUkxsNdtMB0WSftA7lgew",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/apUkxsNdtMB0WSftA7lgew/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/apUkxsNdtMB0WSftA7lgew/258s.jpg",
+            "width": 500,
+            "height": 500,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": true,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 8:00 am - 5:00 pm"
+        ],
+        "year_established": 2009,
+        "specialties": "During these uncertain times, we're here for you - ready to listen, support and navigate this together. We care about your physical health and your financial health. Please reach out and see how we can help you.\n\nEdward Jones is an investment firm that believes your financial goals deserve a face to face conversation. We can help you prepare for retirement, save for education and be a tax-smart investor.",
+        "history": "Edward Jones has been around since 1922.  I opened this branch in 2009."
+      },
+      "representative": {
+        "name": "Calen J.",
+        "bio": "Calen Johnson - Owner",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/pQKCRhPysqLC6-Ac93HqyQ/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "Calen is a great financial advisor. Super knowledgeable and extremely sharp."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/edward-jones-financial-advisor-calen-h-johnson-kirkland-2",
+        "share_url": "https://www.yelp.com/biz/edward-jones-financial-advisor-calen-h-johnson-kirkland-2?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "BRQ8LMvOZ7vIBhXvQzlWbA",
+      "name": "Joanna Maliva Lee",
+      "alias": "joanna-maliva-lee-kirkland",
+      "location": {
+        "address1": "",
+        "address2": "",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": null,
+        "longitude": null,
+        "formatted_address": "Kirkland, WA 98033",
+        "short_address": "Kirkland"
+      },
+      "contact": {
+        "phone": "",
+        "formatted_phone": "",
+        "website_url": "http://Joannamalivalee.me"
+      },
+      "ratings": {
+        "average_rating": 1.0,
+        "rounded_rating": 1.0,
+        "review_count": 1
+      },
+      "categories": [
+        "Financial Advising"
+      ],
+      "services": [
+        "Virtual Consultations"
+      ],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/Gs9UL_L2Pga0d_s8pcPukg/ms.jpg",
+        "photo_count": 3,
+        "photo_list": [
+          {
+            "id": "ko4AWRaAZPEn7zUHv8p5pg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/ko4AWRaAZPEn7zUHv8p5pg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/ko4AWRaAZPEn7zUHv8p5pg/258s.jpg",
+            "width": 1080,
+            "height": 1350,
+            "caption": null
+          },
+          {
+            "id": "Gs9UL_L2Pga0d_s8pcPukg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/Gs9UL_L2Pga0d_s8pcPukg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/Gs9UL_L2Pga0d_s8pcPukg/258s.jpg",
+            "width": 1080,
+            "height": 1080,
+            "caption": "Financial Adviser"
+          },
+          {
+            "id": "vJRjvvGtJvbXA8vsZYzjbA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/vJRjvvGtJvbXA8vsZYzjbA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/vJRjvvGtJvbXA8vsZYzjbA/258s.jpg",
+            "width": 200,
+            "height": 200,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Sun 7:00 am - 11:45 pm"
+        ],
+        "year_established": null,
+        "specialties": "",
+        "history": ""
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "TOP_REVIEW_SNIPPET",
+          "title": "Scam. Stay away. She has a license but unprofessional and rude so you cant trust her with your money."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/joanna-maliva-lee-kirkland",
+        "share_url": "https://www.yelp.com/biz/joanna-maliva-lee-kirkland?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "LpPdpZuUUOg2RdcB2pfthg",
+      "name": "Jeff LaDue NMLS",
+      "alias": "jeff-ladue-nmls-kirkland-2",
+      "location": {
+        "address1": "4055 Lake Washington Blvd NE",
+        "address2": "Ste 100",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": 47.64700665442167,
+        "longitude": -122.20284950328217,
+        "formatted_address": "4055 Lake Washington Blvd NE, Ste 100, Kirkland, WA 98033",
+        "short_address": "4055 Lake Washington Blvd NE, Ste 100, Kirkland"
+      },
+      "contact": {
+        "phone": "2062268687",
+        "formatted_phone": "(206) 226-8687",
+        "website_url": "http://jeffladue.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 22
+      },
+      "categories": [
+        "Mortgage Brokers",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/iKIT4QQYHcI0pehfhC3hgA/ms.jpg",
+        "photo_count": 1,
+        "photo_list": [
+          {
+            "id": "iKIT4QQYHcI0pehfhC3hgA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/iKIT4QQYHcI0pehfhC3hgA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/iKIT4QQYHcI0pehfhC3hgA/258s.jpg",
+            "width": 1011,
+            "height": 639,
+            "caption": "new cover page"
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Sat 8:00 am - 8:00 pm",
+          "Sun 8:00 am - 2:00 pm"
+        ],
+        "year_established": 1999,
+        "specialties": "Washington First Mortgage Loan Corp. NMLS 854647\nNMLS Access Site: nmlsconsumeraccess.org\n\nSpecialties:. I am the expert on purchase and refinances loans  !! I work with over 60 different lender and banks allowing me to get some of the lowest interest rates in the market on any given day! Don't settle for a high interest rate when you can get a low rate.",
+        "history": "I've been in the industry as a full time TOP producing mortgage broker since 1999."
+      },
+      "representative": {
+        "name": "Jeff L.",
+        "bio": "+ Voted Seattle Magazines best of 2015\n+ Top Originator in 2012  by the Scotsman Guide  \n\nI am a full service Mortgage Professional that puts his clients needs first. \n\nService is a word that a lot of people use but few practice. I provide all of my clients with a high level of personalized service and communication so they never have any questions during the process.\n\nI go above and beyond by always being available by cell phone - Good Customer Service is my way of Life!",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/Gj-B_3M4Wx-lgasiEG9-0g/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": true,
+        "type": "RAQ",
+        "display_text": "Request information",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "SNIPPET",
+          "title": "of a refinance and  was able to get us a great rate to make it more financially advantageous."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/jeff-ladue-nmls-kirkland-2",
+        "share_url": "https://www.yelp.com/biz/jeff-ladue-nmls-kirkland-2?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "fWaWs04lwUfAspU6QQ_-7w",
+      "name": "PCM Encore",
+      "alias": "pcm-encore-bellevue",
+      "location": {
+        "address1": "10900 NE 4th St",
+        "address2": "Ste 2406",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98004",
+        "country": "US",
+        "latitude": 47.6140394,
+        "longitude": -122.1948894,
+        "formatted_address": "10900 NE 4th St, Ste 2406, Bellevue, WA 98004",
+        "short_address": "10900 NE 4th St, Ste 2406, Bellevue"
+      },
+      "contact": {
+        "phone": "4252141755",
+        "formatted_phone": "(425) 214-1755",
+        "website_url": "https://encoreinvestment.com"
+      },
+      "ratings": {
+        "average_rating": 0.0,
+        "rounded_rating": 0.0,
+        "review_count": 0
+      },
+      "categories": [
+        "Financial Advising"
+      ],
+      "services": [
+        "Inheritance Planning",
+        "Insurance Planning",
+        "Trust Planning",
+        "Tax Planning",
+        "Investment Management",
+        "Asset Allocation",
+        "Wealth Management Services",
+        "Virtual Consultations",
+        "Estate Planning",
+        "Financial Planning Services"
+      ],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/rt3hNSy7Y-vlEh_-ZEtHOA/ms.jpg",
+        "photo_count": 14,
+        "photo_list": [
+          {
+            "id": "rt3hNSy7Y-vlEh_-ZEtHOA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/rt3hNSy7Y-vlEh_-ZEtHOA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/rt3hNSy7Y-vlEh_-ZEtHOA/258s.jpg",
+            "width": 3840,
+            "height": 2160,
+            "caption": null
+          },
+          {
+            "id": "PpNhK7HbvxuREugw5EDBaw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/PpNhK7HbvxuREugw5EDBaw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/PpNhK7HbvxuREugw5EDBaw/258s.jpg",
+            "width": 3840,
+            "height": 2160,
+            "caption": null
+          },
+          {
+            "id": "L7bYbowhSvJDLkbg_2OzIg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/L7bYbowhSvJDLkbg_2OzIg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/L7bYbowhSvJDLkbg_2OzIg/258s.jpg",
+            "width": 3840,
+            "height": 2160,
+            "caption": null
+          },
+          {
+            "id": "geKIgA9aFFPDLddZgumdHA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/geKIgA9aFFPDLddZgumdHA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/geKIgA9aFFPDLddZgumdHA/258s.jpg",
+            "width": 3840,
+            "height": 2160,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": true,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Sun 8:00 am - 6:00 pm"
+        ],
+        "year_established": null,
+        "specialties": "Encore Investment is designed from the ground up to put clients first. We are an independent, fiduciary financial advisor who takes an in-depth, comprehensive, and planning based approach to helping you meet your financial goals.\n\nPCM Encore grew out of the multi-billion family office of Michael Paulus and our investment counsel reflects the sophistication and individual client focus of our family office background.",
+        "history": ""
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": true,
+        "type": "RAQ",
+        "display_text": "Request information",
+        "response_time": "20 mins",
+        "reply_rate": "100%"
+      },
+      "annotations": [
+        {
+          "type": "LOCALLY_OWNED_OPERATED",
+          "title": "Locally owned"
+        },
+        {
+          "type": "CERTIFIED_PROFESSIONALS",
+          "title": "Certified professionals"
+        },
+        {
+          "type": "WEBSITE_MENTION",
+          "title": "On their website: registered investment advisor"
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/pcm-encore-bellevue",
+        "share_url": "https://www.yelp.com/biz/pcm-encore-bellevue?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "60i_PglouDRdQ7Y2CWg0EQ",
+      "name": "Capital Planning",
+      "alias": "capital-planning-bellevue-2",
+      "location": {
+        "address1": "10900 NE 4th St",
+        "address2": "Ste 2300",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98004",
+        "country": "US",
+        "latitude": 47.6140394,
+        "longitude": -122.1948894,
+        "formatted_address": "10900 NE 4th St, Ste 2300, Bellevue, WA 98004",
+        "short_address": "10900 NE 4th St, Ste 2300, Bellevue"
+      },
+      "contact": {
+        "phone": "4256431800",
+        "formatted_phone": "(425) 643-1800",
+        "website_url": "https://www.capplanllc.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 4
+      },
+      "categories": [
+        "Investing",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/3n4Wsr34h37aS7Ji8DMlkA/ms.jpg",
+        "photo_count": 5,
+        "photo_list": [
+          {
+            "id": "T4wx7kQ8lIqk9U0DD9K1TA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/T4wx7kQ8lIqk9U0DD9K1TA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/T4wx7kQ8lIqk9U0DD9K1TA/258s.jpg",
+            "width": 5184,
+            "height": 3456,
+            "caption": "Brenda J. Lee, AAMS®, ChFC®  Financial Advisor"
+          },
+          {
+            "id": "yM4Nbcz85hI5VvFJphIgnw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/yM4Nbcz85hI5VvFJphIgnw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/yM4Nbcz85hI5VvFJphIgnw/258s.jpg",
+            "width": 5184,
+            "height": 3456,
+            "caption": "Courtney O. Hanrahan, CFP®  Financial Advisor"
+          },
+          {
+            "id": "guMiw_-Ujf6pkp1HvuRkaw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/guMiw_-Ujf6pkp1HvuRkaw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/guMiw_-Ujf6pkp1HvuRkaw/258s.jpg",
+            "width": 5184,
+            "height": 3456,
+            "caption": "David L. Dunn, CFP®, CPA/PFS  Wealth Advisor"
+          },
+          {
+            "id": "3n4Wsr34h37aS7Ji8DMlkA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/3n4Wsr34h37aS7Ji8DMlkA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/3n4Wsr34h37aS7Ji8DMlkA/258s.jpg",
+            "width": 3456,
+            "height": 3456,
+            "caption": "James E. Kelley, Jr., MBA, CFP®  President & COO Wealth Advisor"
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 7:30 am - 4:00 pm"
+        ],
+        "year_established": 1983,
+        "specialties": "From the beginning, one of Capital Planning's guiding principles has been to deliver independent and unbiased advice to assist our clients as they navigate through significant life decisions that impact their wealth. Our clients rely on our experience and time-tested strategies to help guide them through major life events such as retirement, the sale of a business, or planning their family legacy.\n\nOur senior advisors have an average of over 25 years of wealth management experience and have been with Capital Planning for an average of 15 years. This provides our clients with confidence in the commitment and stability of our advisory team.\n\nWe strongly believe that our structure as a fee-based registered investment advisory firm positions us to offer the best solutions to our clients. As an independently owned organization, we are not affiliated with any other financial institution. Our advisory team represents the interests of our clients through objective, independent investment and wealth planning advice.",
+        "history": "Since 1983, Capital Planning has provided wealth management solutions for corporate executives, business owners, entrepreneurs, and high net worth families. Together, we can develop a wealth plan for your unique needs."
+      },
+      "representative": {
+        "name": "Michael M.",
+        "bio": "\"Helping my executive clients see the potential of a well-designed compensation and benefits strategy is very fulfilling, but the real reward is helping them achieve their goals and leave a legacy to those they love.\"",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/xsv2Nb1XW9IKvody9v3-xg/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "For me it is about always maximizing investment with reasonable risk and fees but trust is so..."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/capital-planning-bellevue-2",
+        "share_url": "https://www.yelp.com/biz/capital-planning-bellevue-2?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "1rChid6jzJkCDnmDQ3p0zg",
+      "name": "Brein Wealth Management",
+      "alias": "brein-wealth-management-bellevue-2",
+      "location": {
+        "address1": "11900 NE 1st St",
+        "address2": "Ste 300",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98005",
+        "country": "US",
+        "latitude": 47.6115118,
+        "longitude": -122.182496,
+        "formatted_address": "11900 NE 1st St, Ste 300, Bellevue, WA 98005",
+        "short_address": "11900 NE 1st St, Ste 300, Bellevue"
+      },
+      "contact": {
+        "phone": "4254426003",
+        "formatted_phone": "(425) 442-6003",
+        "website_url": "http://www.breinwealthmanagement.com/"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 1
+      },
+      "categories": [
+        "Insurance",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/9WgWaf3QRde9YPbFFbqYnw/ms.jpg",
+        "photo_count": 1,
+        "photo_list": [
+          {
+            "id": "9WgWaf3QRde9YPbFFbqYnw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/9WgWaf3QRde9YPbFFbqYnw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/9WgWaf3QRde9YPbFFbqYnw/258s.jpg",
+            "width": 200,
+            "height": 254,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 9:00 am - 5:00 pm"
+        ],
+        "year_established": 2013,
+        "specialties": "Brein Wealth Management is a Registered Investment Advisory firm servicing the greater Seattle and East Side areas.  We specialize in Retirement Planning, Social Security Planning, College Planning, Estate Planning and Financial Analysis.  Whether you're looking to start saving for retirement and need direction on what types of investments you should choose, or are to make sure the current savings you have will carry you into retirement and pass on to your beneficiaries without them paying extra taxes, Brein Wealth Management is available to help be your guide.\n\nAt Brein Wealth Management, we take an education based approach and boast a robust platform offering everything from Life Insurance and Annuity products to Actively Managed Institutional Investment Strategies.  \n\nMake no mistake though, Brein Wealth Management is not your traditional wire-house brokerage firm.  We take an entirely different approach and act as a Fiduciary for out clients- this means we put your interests 100% in front of our own when you work with us.  \n\nWe feel like the traditional Financial Services Industry has really let people down over the last decade or more with their dishonest sales practices, high fees that are nearly impossible to understand and lackluster performance with hard-working people's money and life savings.  Brein Wealth Management is out to change that, one relationship at a time.",
+        "history": "Brein Wealth Management has been operating in the state of Washington since the start of 2013 and was opened by President and Founder Josh Brein as a way to give people more options when it comes to saving and investing.  \n\nBrein Wealth Management has constantly worked to stay ahead of the competition by utilizing the latest technology not only to keep organized but also to help people understand the A-Z of their financials.\n\nAlthough our history is important, we always keep our eyes open for and strive for a great future with our clients!"
+      },
+      "representative": {
+        "name": "Josh B.",
+        "bio": "Josh Brein grew up in the Seattle Area and has been working in Financial Services since 2006.  Josh has been running and independently operating Registered Investment Advisory Firms Since 2010 and prior to that worked as a Registered Representative and Investment Advisor Representative for several large international Insurance Companies and Broker Dealers.\n\nFee based financial planning and investment advisory services are offered by Brein Wealth Management, LLC, a Registered Investment Advisor in the State of Washington. Insurance products and services are offered through Brein Financial, LLC. Brein Wealth Management and Brein Financial are affiliated companies. Brein Wealth Management, LLC and Brein Financial, LLC are not representatives or affiliated with the VA or any Government Agency. VA accredited attorneys are not affiliated with Brein Wealth Management, LLC or Brein Financial, LLC.",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/VtCLWHUqx_zRk4AGm1ZxiQ/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "TOP_REVIEW_SNIPPET",
+          "title": "Really takes the time to listen to your needs and develop a custom plan to address them. Highly recommend Brein Wealth Management."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/brein-wealth-management-bellevue-2",
+        "share_url": "https://www.yelp.com/biz/brein-wealth-management-bellevue-2?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "gRsyspyAVzLDA9VEnrFLLw",
+      "name": "Charles Schwab",
+      "alias": "charles-schwab-redmond",
+      "location": {
+        "address1": "8862 161st Ave NE",
+        "address2": "Ste 106",
+        "address3": "",
+        "city": "Redmond",
+        "state": "WA",
+        "zip": "98052",
+        "country": "US",
+        "latitude": 47.6809132,
+        "longitude": -122.1250237,
+        "formatted_address": "8862 161st Ave NE, Ste 106, Redmond, WA 98052",
+        "short_address": "8862 161st Ave NE, Ste 106, Redmond"
+      },
+      "contact": {
+        "phone": "4255583420",
+        "formatted_phone": "(425) 558-3420",
+        "website_url": "http://www.schwab.com"
+      },
+      "ratings": {
+        "average_rating": 4.5,
+        "rounded_rating": 4.5,
+        "review_count": 2
+      },
+      "categories": [
+        "Investing",
+        "Banks & Credit Unions",
+        "Financial Advising"
+      ],
+      "services": [
+        "Investment Management",
+        "Wealth Management Services",
+        "Savings Accounts",
+        "Retirement Planning",
+        "Mortgages",
+        "Personal Banking",
+        "Checking Accounts",
+        "Investment Accounts"
+      ],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/6xbdbQmooh6RlCARYjYyZg/ms.jpg",
+        "photo_count": 2,
+        "photo_list": [
+          {
+            "id": "6xbdbQmooh6RlCARYjYyZg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/6xbdbQmooh6RlCARYjYyZg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/6xbdbQmooh6RlCARYjYyZg/258s.jpg",
+            "width": 2774,
+            "height": 2104,
+            "caption": null
+          },
+          {
+            "id": "en99j-6aK_4mx2yfEsZBVw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/en99j-6aK_4mx2yfEsZBVw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/en99j-6aK_4mx2yfEsZBVw/258s.jpg",
+            "width": 2692,
+            "height": 2227,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": true,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 8:30 am - 5:00 pm"
+        ],
+        "year_established": 1973,
+        "specialties": "Chuck Schwab started a stock brokerage company with a simple question: isn't there a better way? That question led to the establishment of a new kind of investment firm - with a more contemporary approach to wealth management based on a set of core values and beliefs, not just profits and losses. These core beliefs have led to 40+ years of serving clients, innovating on their behalf, and developing brokerage products and financial services that put them - not us - first. \n\nAt Schwab, we offer a wide range of wealth management services, personalized financial advising and retirement planning, and expert investment research, as well as a number of complimentary workshops covering everything from investing essentials to complex trading strategies. \n\nBrokerage Products: Not FDIC Insured - No Bank Guarantee - May Lose Value",
+        "history": "The Charles Schwab Corporation provides a full range of brokerage, banking and financial advisory services through its operating subsidiaries. Its broker-dealer subsidiary, Charles Schwab & Co., Inc. (member SIPC), and its affiliates offer investment services and products. Its banking subsidiary, Charles Schwab Bank (member FDIC and an Equal Housing Lender), provides deposit and lending services and products. Access to Electronic Services may be limited or unavailable during periods of peak demand, market volatility, systems upgrade, maintenance, or for other reasons. The Charles Schwab Corporation does not endorse third-party comments.\n\nThis page is designed for U.S. residents. Non-U.S. residents are subject to country-specific restrictions. Learn more about our services for non-U.S. residents.\n\n© 2017 The Charles Schwab Corporation, All rights reserved. Unauthorized access is prohibited. Usage will be monitored. (0217-RD3H)"
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        },
+        {
+          "type": "TOP_REVIEW_SNIPPET",
+          "title": "They have since updated the door. They installed new doors that close slowly and don&#39;t slam on your hip bone. Thanks, Bella Botega Charles Schwab!"
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/charles-schwab-redmond",
+        "share_url": "https://www.yelp.com/biz/charles-schwab-redmond?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "-1aNzHQj9_MEEX9mmbyuFw",
+      "name": "KE & Associates",
+      "alias": "ke-and-associates-kirkland",
+      "location": {
+        "address1": "13020 NE 73rd St",
+        "address2": "",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": 47.670552,
+        "longitude": -122.1656,
+        "formatted_address": "13020 NE 73rd St, Kirkland, WA 98033",
+        "short_address": "13020 NE 73rd St, Kirkland"
+      },
+      "contact": {
+        "phone": "2067290795",
+        "formatted_phone": "(206) 729-0795",
+        "website_url": "http://www.keassociates.com/about-us"
+      },
+      "ratings": {
+        "average_rating": 3.9,
+        "rounded_rating": 4.0,
+        "review_count": 25
+      },
+      "categories": [
+        "Accountants",
+        "Tax Services",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/IsU6si2Plvx1t7jH8hyRqA/ms.jpg",
+        "photo_count": 4,
+        "photo_list": [
+          {
+            "id": "IsU6si2Plvx1t7jH8hyRqA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/IsU6si2Plvx1t7jH8hyRqA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/IsU6si2Plvx1t7jH8hyRqA/258s.jpg",
+            "width": 970,
+            "height": 370,
+            "caption": null
+          },
+          {
+            "id": "7OVWaiCZ7PMigGY_b-gSgw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/7OVWaiCZ7PMigGY_b-gSgw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/7OVWaiCZ7PMigGY_b-gSgw/258s.jpg",
+            "width": 960,
+            "height": 370,
+            "caption": null
+          },
+          {
+            "id": "jlSp3x3g_lIQU-jKNbDFxQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/jlSp3x3g_lIQU-jKNbDFxQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/jlSp3x3g_lIQU-jKNbDFxQ/258s.jpg",
+            "width": 960,
+            "height": 370,
+            "caption": null
+          },
+          {
+            "id": "HYDJiA2rX9VWyamZOvkQGA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/HYDJiA2rX9VWyamZOvkQGA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/HYDJiA2rX9VWyamZOvkQGA/258s.jpg",
+            "width": 970,
+            "height": 370,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 9:00 am - 6:00 pm",
+          "Sat-Sun 11:00 am - 3:00 pm"
+        ],
+        "year_established": 1997,
+        "specialties": "Our mission is to help clients maintain financial viability in the present, while taking a proactive approach to achieve future goals. This requires open communication to reach an understanding of our clients' needs through research and sound analysis. KE & Associates is dedicated to meeting these goals with high standards of excellence and professionalism. We have been a staple of the area's business community for years, and pride ourselves on the level of esteem we have earned.\n\nOur dedication to hard work has earned the respect of the business and financial community in and around the area. We believe this to be a direct derivative of our talent and responsiveness to our client base. Whether you are a current or prospective client, rest assured that individuals and businesses who choose KE & Associates receive competent and timely advice.",
+        "history": "For years, KE & Associates has been providing quality, personalized financial guidance to local individuals and businesses. Our expertise ranges from basic tax management and accounting services to more in-depth services such as financial statements, and financial planning.\n\nKE & Associates is one of the leading firms in and throughout the area. By combining our expertise, experience and the team mentality of our staff, we assure that every client receives the close analysis and attention they deserve. Our dedication to high standards, hiring of seasoned tax professionals, and work ethic is the reason our client base returns year after year."
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "WEBSITE_MENTION",
+          "title": "On their website: financial advisor"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "She has been doing my taxes for 4 years now and understands my financial goals."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/ke-and-associates-kirkland",
+        "share_url": "https://www.yelp.com/biz/ke-and-associates-kirkland?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "FGtvfYMj-rRkgicEC1yWPg",
+      "name": "M3 Tax and Accounting",
+      "alias": "m3-tax-and-accounting-kirkland",
+      "location": {
+        "address1": "5400 Carollin Point",
+        "address2": "",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": 47.6550899,
+        "longitude": -122.2062959,
+        "formatted_address": "5400 Carollin Point, Kirkland, WA 98033",
+        "short_address": "5400 Carollin Point, Kirkland"
+      },
+      "contact": {
+        "phone": "",
+        "formatted_phone": "",
+        "website_url": ""
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 1
+      },
+      "categories": [
+        "Financial Advising",
+        "Tax Services",
+        "Accountants"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": null,
+        "photo_count": 0,
+        "photo_list": []
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [],
+        "year_established": null,
+        "specialties": "",
+        "history": ""
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "SNIPPET",
+          "title": "Very professional accounting and financial service. Principal is very friendly and easy going."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/m3-tax-and-accounting-kirkland",
+        "share_url": "https://www.yelp.com/biz/m3-tax-and-accounting-kirkland?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "P4vPLVOYnfu0AzwhGv2IBw",
+      "name": "Huddleston Tax CPAs - Bellevue",
+      "alias": "huddleston-tax-cpas-bellevue-bellevue-3",
+      "location": {
+        "address1": "40 Lake Bellevue",
+        "address2": "Ste 100",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98005",
+        "country": "US",
+        "latitude": 47.6192013,
+        "longitude": -122.1808619,
+        "formatted_address": "40 Lake Bellevue, Ste 100, Bellevue, WA 98005",
+        "short_address": "40 Lake Bellevue, Ste 100, Bellevue"
+      },
+      "contact": {
+        "phone": "2063108363",
+        "formatted_phone": "(206) 310-8363",
+        "website_url": "https://huddlestontaxcpas.com/locations/bellevue"
+      },
+      "ratings": {
+        "average_rating": 3.9,
+        "rounded_rating": 4.0,
+        "review_count": 19
+      },
+      "categories": [
+        "Accountants",
+        "Tax Services",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/BwvPHsF0zObh6hHRlafGGA/ms.jpg",
+        "photo_count": 3,
+        "photo_list": [
+          {
+            "id": "BwvPHsF0zObh6hHRlafGGA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/BwvPHsF0zObh6hHRlafGGA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/BwvPHsF0zObh6hHRlafGGA/258s.jpg",
+            "width": 904,
+            "height": 492,
+            "caption": "Outside our meeting location."
+          },
+          {
+            "id": "6Y-uxMzxtbM2eadrUp20tQ",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/6Y-uxMzxtbM2eadrUp20tQ/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/6Y-uxMzxtbM2eadrUp20tQ/258s.jpg",
+            "width": 694,
+            "height": 762,
+            "caption": "Bellevue CPA John Huddleston"
+          },
+          {
+            "id": "hVrxUgDN4ilLi9esrJW_vA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/hVrxUgDN4ilLi9esrJW_vA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/hVrxUgDN4ilLi9esrJW_vA/258s.jpg",
+            "width": 750,
+            "height": 1000,
+            "caption": "Bellevue Tax Accountant/CPA John Huddleston"
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 9:00 am - 5:00 pm"
+        ],
+        "year_established": 2002,
+        "specialties": "Huddleston Tax CPAs focus on the tax needs of small businesses. Services include QuickBooks training, business consulting, payroll, and bookkeeping.",
+        "history": "Serving small business: meeting their tax and accounting needs."
+      },
+      "representative": {
+        "name": "John H.",
+        "bio": "John Huddleston received his Masters in Tax Law in 1999 from the University of Washington School of Law. He obtained his Law Degree in 1989 from the same institution, where he was a member of the Washington Law Review Executive Board. He graduated from Washington State University in 1986 with an Accounting/Finance degree.",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/oLTmsvYdtbyHIzl_v6resQ/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": true,
+        "type": "RAQ",
+        "display_text": "Request information",
+        "response_time": "50 mins",
+        "reply_rate": "100%"
+      },
+      "annotations": [
+        {
+          "type": "WEBSITE_MENTION",
+          "title": "On their website: financial advisor"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "John even worked directly with me and taught us complex financial reporting requirements to help..."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/huddleston-tax-cpas-bellevue-bellevue-3",
+        "share_url": "https://www.yelp.com/biz/huddleston-tax-cpas-bellevue-bellevue-3?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "jJVfV0bpp-t4vhbMBqndPg",
+      "name": "Omega Financial & Insurance Services",
+      "alias": "omega-financial-and-insurance-services-kirkland",
+      "location": {
+        "address1": "10827 NE 68th St S",
+        "address2": "Ste 200",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": 47.6665102,
+        "longitude": -122.19533032423105,
+        "formatted_address": "10827 NE 68th St S, Ste 200, Kirkland, WA 98033",
+        "short_address": "10827 NE 68th St S, Ste 200, Kirkland"
+      },
+      "contact": {
+        "phone": "4258225722",
+        "formatted_phone": "(425) 822-5722",
+        "website_url": "http://www.omega-financial.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 2
+      },
+      "categories": [
+        "Insurance",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/bDjBj-By-bn7cgigAlJq9Q/ms.jpg",
+        "photo_count": 2,
+        "photo_list": [
+          {
+            "id": "--3Ktp-Fu3e50jOmGO_fvw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/--3Ktp-Fu3e50jOmGO_fvw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/--3Ktp-Fu3e50jOmGO_fvw/258s.jpg",
+            "width": 1224,
+            "height": 1632,
+            "caption": "Omega Financial and  Insurance Services"
+          },
+          {
+            "id": "bDjBj-By-bn7cgigAlJq9Q",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/bDjBj-By-bn7cgigAlJq9Q/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/bDjBj-By-bn7cgigAlJq9Q/258s.jpg",
+            "width": 233,
+            "height": 116,
+            "caption": "Omega Financial and Insurance Services"
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 8:00 am - 4:30 pm"
+        ],
+        "year_established": 1982,
+        "specialties": "Based out of Kirkland, WA, we are a full-service, independent, insurance and investment company. As an independent insurance agency, we are able to represent multiple insurance carriers, affording you the very best coverage to meet your needs.  We insure cars, homes, cycles, RVs, ATVs, classic cars, businesses (commercial) and much more.",
+        "history": "John D. Storbeck founded Omega Financial and Insurance Services in 1982.  The agency is located in the Houghton neighborhood in Kirkland."
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "WEBSITE_MENTION",
+          "title": "On their website: registered investment advisor"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "client sings his praises about her financial expertise to monitor and protect his investments."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/omega-financial-and-insurance-services-kirkland",
+        "share_url": "https://www.yelp.com/biz/omega-financial-and-insurance-services-kirkland?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "-Kzo5KZEZ7f2AmL205boZw",
+      "name": "Edward Jones - Financial Advisor: Loren P Winter",
+      "alias": "edward-jones-financial-advisor-loren-p-winter-kirkland-2",
+      "location": {
+        "address1": "9710 NE 119th Way",
+        "address2": "",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98034",
+        "country": "US",
+        "latitude": 47.7067063,
+        "longitude": -122.2123146,
+        "formatted_address": "9710 NE 119th Way, Kirkland, WA 98034",
+        "short_address": "9710 NE 119th Way, Kirkland"
+      },
+      "contact": {
+        "phone": "4258210285",
+        "formatted_phone": "(425) 821-0285",
+        "website_url": "http://www.edwardjones.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 1
+      },
+      "categories": [
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/JQZgXtzmbFi6nQ9TOzLg7w/ms.jpg",
+        "photo_count": 3,
+        "photo_list": [
+          {
+            "id": "JQZgXtzmbFi6nQ9TOzLg7w",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/JQZgXtzmbFi6nQ9TOzLg7w/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/JQZgXtzmbFi6nQ9TOzLg7w/258s.jpg",
+            "width": 500,
+            "height": 500,
+            "caption": null
+          },
+          {
+            "id": "neJqiEpIoRxDzYdMx69odg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/neJqiEpIoRxDzYdMx69odg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/neJqiEpIoRxDzYdMx69odg/258s.jpg",
+            "width": 450,
+            "height": 450,
+            "caption": null
+          },
+          {
+            "id": "9aBkE329O21Gg-828DztIw",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/9aBkE329O21Gg-828DztIw/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/9aBkE329O21Gg-828DztIw/258s.jpg",
+            "width": 500,
+            "height": 500,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": true,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Thu 8:00 am - 4:30 pm",
+          "Fri 8:00 am - 2:00 pm"
+        ],
+        "year_established": null,
+        "specialties": "During these uncertain times, we're here for you - ready to listen, support and navigate this together. We care about your physical health and your financial health. Please reach out and see how we can help you.\n\nEdward Jones is an investment firm that believes your financial goals deserve a face to face conversation. We can help you prepare for retirement, save for education and be a tax-smart investor.",
+        "history": ""
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "SNIPPET",
+          "title": "who really cares about his clients. My parents are lost when it comes to investing and are really..."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/edward-jones-financial-advisor-loren-p-winter-kirkland-2",
+        "share_url": "https://www.yelp.com/biz/edward-jones-financial-advisor-loren-p-winter-kirkland-2?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "Ic2A6wTvAp44GNTk_6rx6g",
+      "name": "Edward Jones - Financial Advisor: Kagan C. Wolfe",
+      "alias": "edward-jones-financial-advisor-kagan-c-wolfe-kirkland-3",
+      "location": {
+        "address1": "963 6th St S",
+        "address2": "",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98033",
+        "country": "US",
+        "latitude": 47.6670482,
+        "longitude": -122.19689,
+        "formatted_address": "963 6th St S, Kirkland, WA 98033",
+        "short_address": "963 6th St S, Kirkland"
+      },
+      "contact": {
+        "phone": "4258289087",
+        "formatted_phone": "(425) 828-9087",
+        "website_url": "https://www.edwardjones.com"
+      },
+      "ratings": {
+        "average_rating": 0.0,
+        "rounded_rating": 0.0,
+        "review_count": 0
+      },
+      "categories": [
+        "Investing",
+        "Insurance",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/wAuEpOW8dyfET85XSjO9AA/ms.jpg",
+        "photo_count": 3,
+        "photo_list": [
+          {
+            "id": "zi-eDBAYTQmSLNFGJy4hoA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/zi-eDBAYTQmSLNFGJy4hoA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/zi-eDBAYTQmSLNFGJy4hoA/258s.jpg",
+            "width": 450,
+            "height": 450,
+            "caption": null
+          },
+          {
+            "id": "cVkJ-auwlNcRDJ6zQvUXig",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/cVkJ-auwlNcRDJ6zQvUXig/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/cVkJ-auwlNcRDJ6zQvUXig/258s.jpg",
+            "width": 500,
+            "height": 500,
+            "caption": null
+          },
+          {
+            "id": "wAuEpOW8dyfET85XSjO9AA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/wAuEpOW8dyfET85XSjO9AA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/wAuEpOW8dyfET85XSjO9AA/258s.jpg",
+            "width": 928,
+            "height": 965,
+            "caption": "Street View"
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Thu 7:30 am - 4:00 pm",
+          "Fri 7:30 am - 2:00 pm"
+        ],
+        "year_established": null,
+        "specialties": "During these uncertain times, we're here for you - ready to listen, support and navigate this together. We care about your physical health and your financial health. Please reach out and see how we can help you.\n\nEdward Jones is an investment firm that believes your financial goals deserve a face to face conversation. We can help you prepare for retirement, save for education and be a tax-smart investor.",
+        "history": ""
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/edward-jones-financial-advisor-kagan-c-wolfe-kirkland-3",
+        "share_url": "https://www.yelp.com/biz/edward-jones-financial-advisor-kagan-c-wolfe-kirkland-3?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "9Kv4DCB3Lo1RqSLnY_6o5A",
+      "name": "ICON Consulting",
+      "alias": "icon-consulting-bellevue",
+      "location": {
+        "address1": "1412 112th Ave NE",
+        "address2": "Ste 102",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98004",
+        "country": "US",
+        "latitude": 47.6184303187615,
+        "longitude": -122.192152667212,
+        "formatted_address": "1412 112th Ave NE, Ste 102, Bellevue, WA 98004",
+        "short_address": "1412 112th Ave NE, Ste 102, Bellevue"
+      },
+      "contact": {
+        "phone": "4255624266",
+        "formatted_phone": "(425) 562-4266",
+        "website_url": "http://www.iconpersonalcfo.com"
+      },
+      "ratings": {
+        "average_rating": 0.0,
+        "rounded_rating": 0.0,
+        "review_count": 0
+      },
+      "categories": [
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/tZf_8LLmkkeqSTglOnGJvg/ms.jpg",
+        "photo_count": 1,
+        "photo_list": [
+          {
+            "id": "tZf_8LLmkkeqSTglOnGJvg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/tZf_8LLmkkeqSTglOnGJvg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/tZf_8LLmkkeqSTglOnGJvg/258s.jpg",
+            "width": 251,
+            "height": 235,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Thu 7:30 am - 5:00 pm",
+          "Fri 7:30 am - 4:00 pm"
+        ],
+        "year_established": 1998,
+        "specialties": "ICON Consulting was founded with the singular focus of helping clients understand and make informed decisions regarding their financial well being. We have a fundamental understanding and focus that the most important part of our relationship is to protect and look out for our clients' best interests.\n\nAs we cultivate relationships with our clients that last a lifetime, it is our unbiased and expert knowledge that is the key to our shared success. Gaining and retaining wealth requires education, vision, and direction, and it is extremely difficult to navigate in the financial world if you don't have someone you trust teaching you the rules.\n\nWith over 70 years of combined experience, ICON Consulting is one of the Northwest's most sought after independent, fee-based financial planning and wealth management firms. As leaders in our industry with respect to strategic consulting and independent advice, we serve our clients and their families as their trusted Personal CFO.",
+        "history": "ICON's Mission:\nServing as their trusted Personal CFO, we bring vision and direction to the lives of our clients and their families.\n\nOur areas of expertise include, but are not limited to, the following:\n\n1. Comprehensive Financial Planning \n2. Tax Planning & Retirement Cash Flow Analysis \n3. Investment Consulting & Wealth Management \n4. Real Estate Planning (Analysis, Appraisal, etc) \n5. Company Stock Option Analysis & Strategies \n6. Asset Protection & Insurance Planning \n7. Liability Management & Budget Planning \n8. Estate & Business Succession Planning \n9. Philanthropic & Charitable Giving Planning \n10. Intergenerational Wealth Transfer Planning \n11. Portfolio Analysis & Optimization Techniques \n12. Education Planning (529, GET, Financial Aid)"
+      },
+      "representative": {
+        "name": "Matt M.",
+        "bio": "As a lifelong Washingtonian, I'm proud of our firm's strong reputation for it's selfless service to our clients, friends, and neighbors located in and around the greater Seattle area and the Pacific Northwest.\n\nDisclaimer:  Fee based consulting and financial planning services offered through ICON Consulting, an independently owned and operated Registered Investment Advisor. Investment advisory services offered through Private Advisor Group, a registered investment advisor. ICON Consulting and Private Advisor Group are separate entities from LPL Financial. Securities offered through LPL Financial, member FINRA/SIPC.   For account related inquiries or scheduling requests, please contact our Client Operations Manager, Helen Cook or our Director of Client Operations, Shannon Tremper.",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/1-1VTb6sh0E94SJiFfnWGg/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "WEBSITE_MENTION",
+          "title": "On their website: registered investment advisor"
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/icon-consulting-bellevue",
+        "share_url": "https://www.yelp.com/biz/icon-consulting-bellevue?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "b16asns7tqatMZ8R2Rqc1A",
+      "name": "Green Financial",
+      "alias": "green-financial-kirkland",
+      "location": {
+        "address1": "11930 Slater Ave NE",
+        "address2": "Ste 100",
+        "address3": "",
+        "city": "Kirkland",
+        "state": "WA",
+        "zip": "98034",
+        "country": "US",
+        "latitude": 47.706857371203505,
+        "longitude": -122.1731276736619,
+        "formatted_address": "11930 Slater Ave NE, Ste 100, Kirkland, WA 98034",
+        "short_address": "11930 Slater Ave NE, Ste 100, Kirkland"
+      },
+      "contact": {
+        "phone": "4258211111",
+        "formatted_phone": "(425) 821-1111",
+        "website_url": "http://www.greenfinancial.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 1
+      },
+      "categories": [
+        "Financial Advising",
+        "Health Insurance Offices",
+        "Life Insurance"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": null,
+        "photo_count": 0,
+        "photo_list": []
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 8:00 am - 5:00 pm"
+        ],
+        "year_established": null,
+        "specialties": "Located in Kirkland, Washington, Green Financial has been in the insurance and investment business since 1986 offering businesses and individuals in Washington State a full range of financial services.      Whether developing an employee benefit plan or helping an individual find the appropriate medical insurance or financial plan, we provide comprehensive research and in-depth analysis to deliver strategies and solutions in a clear, concise and understandable format.      We build our reputation on serving each client with personal attention as if he or she were our only client.",
+        "history": ""
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "SNIPPET",
+          "title": "He hooked me up with Steve Brown at Green Financial in Kirkland. Steve was AMAZING."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/green-financial-kirkland",
+        "share_url": "https://www.yelp.com/biz/green-financial-kirkland?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "T7ydqxESWzzIwa-9SPNQKQ",
+      "name": "HighTower Bellevue",
+      "alias": "hightower-bellevue-bellevue",
+      "location": {
+        "address1": "777 108th Ave NE",
+        "address2": "Ste 1800",
+        "address3": "",
+        "city": "Bellevue",
+        "state": "WA",
+        "zip": "98004",
+        "country": "US",
+        "latitude": 47.6169164,
+        "longitude": -122.1969003,
+        "formatted_address": "777 108th Ave NE, Ste 1800, Bellevue, WA 98004",
+        "short_address": "777 108th Ave NE, Ste 1800, Bellevue"
+      },
+      "contact": {
+        "phone": "4254556623",
+        "formatted_phone": "(425) 455-6623",
+        "website_url": "http://www.hightoweradvisors.com"
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 1
+      },
+      "categories": [
+        "Investing",
+        "Financial Advising"
+      ],
+      "services": [],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/WsTJ2QdTaSJEIMu0kDNW7w/ms.jpg",
+        "photo_count": 2,
+        "photo_list": [
+          {
+            "id": "gmE5VY3Nf5BI3xNQOmmFXg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/gmE5VY3Nf5BI3xNQOmmFXg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/gmE5VY3Nf5BI3xNQOmmFXg/258s.jpg",
+            "width": 2823,
+            "height": 1135,
+            "caption": null
+          },
+          {
+            "id": "WsTJ2QdTaSJEIMu0kDNW7w",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/WsTJ2QdTaSJEIMu0kDNW7w/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/WsTJ2QdTaSJEIMu0kDNW7w/258s.jpg",
+            "width": 4104,
+            "height": 2345,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": false,
+        "hours": [
+          "Mon-Fri 7:00 am - 4:00 pm"
+        ],
+        "year_established": 1985,
+        "specialties": "HighTower Bellevue, formerly known as Triad offers a variety of wealth management and financial services. \n\nOur vision is to help our clients have a better understanding of their wealth by creating a plan of action that is in alignment with their goals and objectives.\n\nIncluded in our services are personal financial planning, portfolio management, family wealth stewardship and fiduciary services. Our self-discovery process reveals your personal risk tolerance, planning time horizons, and goals. With these determined, we build a portfolio around today's economics.\n\nWe are located in the Symetra building in downtown Bellevue.",
+        "history": "A fiduciary is an investment professional or financial advisor who is legally required to act solely in the interests of their clients. By law, their advice and recommendations must align with a client's specific objectives, timeframe and risk tolerance. We are fiduciaries, and must adhere to a Fiduciary Standard - the highest standard in the financial services industry. We have a legal obligation not to subordinate clients' interests to our own. We act in your best interest and must set aside personal motives and avoid conflict of interest, in favor of pursuing the best solution to your unique situation. Included in the fiduciary standard..."
+      },
+      "representative": {
+        "name": "Larry K.",
+        "bio": "Lars Knudsen leads the team at HighTower Bellevue. He founded his RIA practice 30 years ago on the basis of his belief in wealth stewardship. This vision continues to guide his team today.\n\nAfter graduating from Pacific Lutheran University with a degree in Accounting and Finance, he worked as an accountant before establishing his own financial planning business, which merged with national CPA firm Moss Adams after 14 years of independent success. He later founded Triad Wealth Stewardship, now known as HighTower Bellevue, to deliver a personalized, custom approach to financial planning and family wealth stewardship to clients. \n\nThe term stewardship means to care and be responsible for assets or resources, and reflects the thoughtful, dedicated approach Lars and his team take to serving clients and their families. He and the team derive tremendous pride and purpose from helping clients to bring their personal beliefs, family values and wealth into balance.",
+        "role": "business_owner",
+        "photo_url": "https://s3-media0.fl.yelpcdn.com/buphoto/3pjL75S3iopX4Mu-cCVjzQ/o.jpg"
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [
+        {
+          "type": "RELEVANT_ATTRIBUTE_LIST",
+          "title": "Investment management"
+        },
+        {
+          "type": "SNIPPET",
+          "title": "He has been able to help me make sound forward thinking decisions about my investments and is always..."
+        }
+      ],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/hightower-bellevue-bellevue",
+        "share_url": "https://www.yelp.com/biz/hightower-bellevue-bellevue?utm_source=ishare"
+      },
+      "source": "organic"
+    },
+    {
+      "id": "CYpZ6QZRfjPgTw0unYxabQ",
+      "name": "Blue Mountain Wealth Management",
+      "alias": "blue-mountain-wealth-management-monroe",
+      "location": {
+        "address1": "20026 209th Ave SE",
+        "address2": "",
+        "address3": "",
+        "city": "Monroe",
+        "state": "WA",
+        "zip": "98272",
+        "country": "US",
+        "latitude": 47.81566120230777,
+        "longitude": -121.95261268220929,
+        "formatted_address": "20026 209th Ave SE, Monroe, WA 98272",
+        "short_address": "20026 209th Ave SE, Monroe"
+      },
+      "contact": {
+        "phone": "5093018701",
+        "formatted_phone": "(509) 301-8701",
+        "website_url": ""
+      },
+      "ratings": {
+        "average_rating": 5.0,
+        "rounded_rating": 5.0,
+        "review_count": 2
+      },
+      "categories": [
+        "Financial Advising"
+      ],
+      "services": [
+        "Virtual Consultations",
+        "Financial Planning Services",
+        "Retirement Planning",
+        "Inheritance Planning",
+        "Wealth Management Services",
+        "Estate Planning"
+      ],
+      "photos": {
+        "primary_photo_url": "https://s3-media0.fl.yelpcdn.com/bphoto/Lui3vi2ma_mVd8_hkX8teA/ms.jpg",
+        "photo_count": 4,
+        "photo_list": [
+          {
+            "id": "Lui3vi2ma_mVd8_hkX8teA",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/Lui3vi2ma_mVd8_hkX8teA/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/Lui3vi2ma_mVd8_hkX8teA/258s.jpg",
+            "width": null,
+            "height": null,
+            "caption": null
+          },
+          {
+            "id": "TfuTOdvyw1JVDkm6LG1VTg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/TfuTOdvyw1JVDkm6LG1VTg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/TfuTOdvyw1JVDkm6LG1VTg/258s.jpg",
+            "width": null,
+            "height": null,
+            "caption": null
+          },
+          {
+            "id": "1OxpA7ovLNwh-yz1pguBLg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/1OxpA7ovLNwh-yz1pguBLg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/1OxpA7ovLNwh-yz1pguBLg/258s.jpg",
+            "width": null,
+            "height": null,
+            "caption": null
+          },
+          {
+            "id": "afiOBHuNjX1xjem6Qoikeg",
+            "url": "https://s3-media0.fl.yelpcdn.com/bphoto/afiOBHuNjX1xjem6Qoikeg/o.jpg",
+            "thumbnail_url": "https://s3-media0.fl.yelpcdn.com/bphoto/afiOBHuNjX1xjem6Qoikeg/258s.jpg",
+            "width": null,
+            "height": null,
+            "caption": null
+          }
+        ]
+      },
+      "business_details": {
+        "is_closed": false,
+        "is_chain": false,
+        "is_yelp_guaranteed": null,
+        "hours": [],
+        "year_established": null,
+        "specialties": "",
+        "history": ""
+      },
+      "representative": {
+        "name": "",
+        "bio": "",
+        "role": "",
+        "photo_url": null
+      },
+      "messaging": {
+        "is_enabled": false,
+        "type": "",
+        "display_text": "",
+        "response_time": "",
+        "reply_rate": ""
+      },
+      "annotations": [],
+      "yelp_urls": {
+        "business_url": "https://www.yelp.com/biz/blue-mountain-wealth-management-monroe",
+        "share_url": ""
+      },
+      "source": "sponsored"
+    }
+  ]
+}

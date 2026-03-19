@@ -1,0 +1,28 @@
+# Xcode
+build/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Supabase local
+supabase/.branches
+supabase/.temp
+
+# SPM
+.build/
+Packages/
+
+# Misc
+*.log
+*.swp
+*~

@@ -1,0 +1,49 @@
+name: HushhAgents
+options:
+  bundleIdPrefix: com.hushhone
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "15.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: "2.0.0"
+  GoogleSignIn:
+    url: https://github.com/google/GoogleSignIn-iOS
+    from: "7.0.0"
+
+targets:
+  HushhAgents:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: HushhAgents
+        excludes:
+          - "**/.DS_Store"
+    resources:
+      - path: HushhAgents/Resources/Agents.json
+      - path: HushhAgents/Resources/kirkland_agents_seed.json
+      - path: HushhAgents/Config/Supabase.plist
+      - path: HushhAgents/Resources/Assets.xcassets
+      - path: HushhAgents/Resources/agent_photos
+        buildPhase: resources
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: HushhAgents/Config/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.hushhone.hushh.agent
+        MARKETING_VERSION: "1.0.2"
+        CURRENT_PROJECT_VERSION: "142"
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: "WVDK9JW99C"
+        CODE_SIGN_ENTITLEMENTS: HushhAgents/HushhAgents.entitlements
+    dependencies:
+      - package: Supabase
+      - package: GoogleSignIn
