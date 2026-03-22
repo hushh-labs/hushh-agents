@@ -29,6 +29,20 @@
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>RIA_INTELLIGENCE_API_BASE_URL</key>
+	<string>https://hushh-ria-intelligence-api-53407187172.us-central1.run.app</string>
+	<key>RIA_INTELLIGENCE_API_TIMEOUT_SECONDS</key>
+	<string>360</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PlayfairDisplay-Regular.ttf</string>
+		<string>PlayfairDisplay-SemiBold.ttf</string>
+		<string>PlayfairDisplay-Bold.ttf</string>
+		<string>Manrope-Regular.ttf</string>
+		<string>Manrope-Medium.ttf</string>
+		<string>Manrope-SemiBold.ttf</string>
+		<string>Manrope-Bold.ttf</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UISupportedInterfaceOrientations</key>

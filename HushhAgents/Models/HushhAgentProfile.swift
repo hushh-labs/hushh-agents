@@ -147,17 +147,12 @@ struct HushhAgentProfile: Codable, Identifiable {
     }
 
     var minimumRequiredFieldsComplete: Bool {
-        let hasBusiness = !businessName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let hasRep = !representativeName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let hasRole = !representativeRole.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let hasCategories = !categories.isEmpty
-        let hasSpecialties = !specialties.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-        let hasLocation = !zip.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         let hasContact = !phone.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
 
-        // Core fields are the must-haves; photo is optional for the "complete" gate
-        // so we don't re-trigger onboarding if a photo upload failed but everything else passed.
-        return hasBusiness && hasRep && hasRole && hasCategories && hasSpecialties && hasLocation && hasContact
+        // Query-first onboarding only guarantees a verified name plus a user-supplied phone number.
+        // The rest of the profile can be enriched asynchronously from public records over time.
+        return hasRep && hasContact
     }
 
     // MARK: - Convert to KirklandAgent (for deck display)

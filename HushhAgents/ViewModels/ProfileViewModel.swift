@@ -10,7 +10,19 @@ final class ProfileViewModel: ObservableObject {
     @Published var chatsCount: Int = 0
 
     var userName: String {
-        profile?.representativeName.isEmpty == false ? (profile?.representativeName ?? "RIA") : (user?.displayName ?? "RIA")
+        if let representativeName = trimmed(profile?.representativeName) {
+            return representativeName
+        }
+
+        if let fullName = trimmed(user?.fullName) {
+            return fullName
+        }
+
+        if let email = trimmed(user?.email) {
+            return email
+        }
+
+        return "Your account"
     }
 
     var userEmail: String {
@@ -27,7 +39,11 @@ final class ProfileViewModel: ObservableObject {
     }
 
     var avatarURLString: String? {
-        profile?.displayPhotoURLString
+        if let profilePhoto = trimmed(profile?.displayPhotoURLString) {
+            return profilePhoto
+        }
+
+        return trimmed(user?.avatarUrl)
     }
 
     var avatarURL: URL? {
@@ -37,18 +53,16 @@ final class ProfileViewModel: ObservableObject {
 
     var businessName: String {
         let business = profile?.businessName.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        return business.isEmpty ? "Complete onboarding to publish your RIA profile" : business
+        return business
     }
 
     var roleLine: String {
-        let role = profile?.representativeRole.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        if !role.isEmpty { return role }
-        return "RIA"
+        trimmed(profile?.representativeRole) ?? ""
     }
 
     var categoriesLine: String {
-        guard let categories = profile?.categories, !categories.isEmpty else { return "Not set" }
-        return categories.joined(separator: ", ")
+        guard let categories = profile?.categories, !categories.isEmpty else { return "Not available yet" }
+        return categories.map(Self.displayCategoryLabel(for:)).joined(separator: ", ")
     }
 
     var location: String {
@@ -56,19 +70,20 @@ final class ProfileViewModel: ObservableObject {
         let state = profile?.state.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let zip = profile?.zip.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let joined = [city, state, zip].filter { !$0.isEmpty }.joined(separator: ", ")
-        return joined.isEmpty ? "Not set" : joined
+        return joined.isEmpty ? "Not available yet" : joined
     }
 
     var specialties: String {
         let value = profile?.specialties.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        return value.isEmpty ? "Add specialties during onboarding so other RIAs know what you do best." : value
+        return value.isEmpty ? "Verified during public profile lookup." : value
     }
 
     var visibilityLabel: String {
+        guard profile != nil else { return "" }
         if profile?.isDiscoverable == true {
             return "Discoverable"
         }
-        return "Draft"
+        return "Private"
     }
 
     var appVersion: String {
@@ -122,5 +137,32 @@ final class ProfileViewModel: ObservableObject {
             deleteError = "Failed to delete account: \(error.localizedDescription)"
             print("[ProfileViewModel] Delete account failed: \(error)")
         }
+    }
+
+    private static func displayCategoryLabel(for rawValue: String) -> String {
+        switch rawValue {
+        case "wealth_management":
+            return "Wealth Management"
+        case "financial_planning":
+            return "Financial Planning"
+        case "investment_advisory":
+            return "Investment Advisory"
+        case "retirement_planning":
+            return "Retirement Planning"
+        case "tax_planning":
+            return "Tax Planning"
+        case "insurance":
+            return "Insurance"
+        default:
+            return rawValue
+                .replacingOccurrences(of: "_", with: " ")
+                .capitalized
+        }
+    }
+
+    private func trimmed(_ value: String?) -> String? {
+        guard let value else { return nil }
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
     }
 }

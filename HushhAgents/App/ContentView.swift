@@ -4,7 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var appState: AppState
 
     var body: some View {
-        TabView(selection: $appState.selectedTab) {
+        TabView(selection: tabSelection) {
             DeckView()
                 .environmentObject(appState)
                 .tag(AppTab.deck)
@@ -26,8 +26,10 @@ struct ContentView: View {
                     Label("Profile", systemImage: "person.crop.circle.fill")
                 }
         }
-        .environment(\.symbolVariants, .fill)
-        .sheet(isPresented: $appState.showAuthSheet) {
+        .symbolRenderingMode(.monochrome)
+        .sheet(isPresented: $appState.showAuthSheet, onDismiss: {
+            appState.handleAuthSheetDismissal()
+        }) {
             AuthView()
                 .environmentObject(appState)
                 .presentationDragIndicator(.visible)
@@ -38,6 +40,30 @@ struct ContentView: View {
                 .environmentObject(appState)
         }
         .tint(Color.hushhPrimary)
+    }
+
+    private var tabSelection: Binding<AppTab> {
+        Binding(
+            get: { appState.selectedTab },
+            set: { newValue in
+                guard !appState.isGuestBrowsingMode || newValue == .deck else {
+                    appState.selectedTab = newValue
+
+                    switch newValue {
+                    case .activity:
+                        appState.triggerGatedAction(.openActivity(section: appState.activitySection))
+                    case .profile:
+                        appState.triggerGatedAction(.openProfile)
+                    case .deck:
+                        break
+                    }
+
+                    return
+                }
+
+                appState.selectedTab = newValue
+            }
+        )
     }
 }
 

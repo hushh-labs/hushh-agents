@@ -12,6 +12,7 @@
 		07964A6781FB66C60D829C8D /* yelp_biz_photo_069_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 185DBAD6EA4EDC73D5FDDD75 /* yelp_biz_photo_069_180s.jpg */; };
 		0D82EA480054618D8E063D3A /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4FA7C393F96867D4DEFF11 /* ChatService.swift */; };
 		0DEFD020B16B2D9877DC889D /* yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB15102CF1CFB89AA7B3673C /* yelp_biz_photo_097_c_QPcfrB0yTnqKzu9tnp.jpg */; };
+		11D575B0F995F6B2DB19FF48 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCA4AB4EF1C8034C3897E559 /* Manrope-SemiBold.ttf */; };
 		11DA514407437B8576A06DA1 /* yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0B7D993EF4A6A6C2C6A5E8DB /* yelp_biz_photo_041_6xbdbQmooh6RlCARYjYy.jpg */; };
 		14BFBD6A8521F2F5E8C24210 /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B53BF43EE077B3FAE1E5F0 /* CardStackView.swift */; };
 		157EEEAC337070C340ADB074 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90A48619F0E6CFB07D6A9959 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg */; };
@@ -19,6 +20,7 @@
 		1783E2D00CA46A38014EC23B /* yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 43C1F1989B1195952EE278ED /* yelp_biz_photo_052_Kk988BeMWkjXHVAhx81F.jpg */; };
 		1832C73BCE168F2AC2EFF67A /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1DAE770E431AD77073733 /* DeckView.swift */; };
 		1DD1BA2EFC58F16B763F4512 /* kirkland_agents_seed.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F50C7B0784C77D1810E659F /* kirkland_agents_seed.json */; };
+		1F88BBECD5E66F1CEDA8E72E /* Font+Hushh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3AE4556787F14FDA1AEDF0 /* Font+Hushh.swift */; };
 		20793AE7DD096EECF32C88AF /* SwipeActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9930F47FC214CDADFE2F5 /* SwipeActionButtons.swift */; };
 		24041272A01530BB9AF3CD98 /* HushhAgentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC678E64E4DFD31E2C2DBC98 /* HushhAgentProfile.swift */; };
 		247A81DCDE97D758824540CC /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3847096D149D61B3BDF80F0 /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg */; };
@@ -27,6 +29,7 @@
 		309A758BB80B534E4DC6993E /* yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4AB1096AAB8893B08E89778D /* yelp_biz_photo_048_WsTJ2QdTaSJEIMu0kDNW.jpg */; };
 		3172F6B665EF56A2F597CFD1 /* ActivityHubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB8680BFD1455F5F64D7A8F /* ActivityHubViewModel.swift */; };
 		31D44D8B32905290D349C4D1 /* ActivityHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6774C1995889F35DF0E2D7 /* ActivityHubView.swift */; };
+		34671EEEE3DE02BC011E6584 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C3EFD437B37C6AD892FF6D89 /* Manrope-Bold.ttf */; };
 		3687EE7FE91DEB009827121B /* ProfileImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D835862AEA1B22FF16E414 /* ProfileImageUploadService.swift */; };
 		37458DD25DF8DEF1C5560D46 /* yelp_biz_photo_060_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3B73186AC6B0ADE2F30D758E /* yelp_biz_photo_060_180s.jpg */; };
 		392F8AE1CAA7780E2090B055 /* EmptyDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3C93EFC78D818529AD41FA /* EmptyDeckView.swift */; };
@@ -44,17 +47,20 @@
 		54C982C067001C47E12C165A /* AuthGateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28A3155488C419E6413789D /* AuthGateModifier.swift */; };
 		55F635B4FB8AF1790D0DD236 /* SwipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FBAC9AFBDF02D69BEB69D8 /* SwipeService.swift */; };
 		56AE5C1E6ACBD1A971884091 /* MyClaimsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998191931F7F47FF3C14EC80 /* MyClaimsView.swift */; };
+		587A0FB8158E83EEFED64DD3 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3387F81A1EA71DD19F03FFC5 /* PlayfairDisplay-Regular.ttf */; };
 		5BC48FDFEA80EE0C9C0F5513 /* yelp_biz_photo_068_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D416A7308D31782216437040 /* yelp_biz_photo_068_180s.jpg */; };
 		5DDA198032929339B377E56A /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B080C11F2FC5F76974F1D3F /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg */; };
 		5DDDDD29E8D3ECFF6271A4D1 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC3E6610ACDB0A0D3636073 /* AppUser.swift */; };
 		624A09F2BBBB295DC0C84FD3 /* RatingStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC93EC9E20FC6920DE7E2942 /* RatingStarsView.swift */; };
 		624DB46B68C6F639183026A3 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5AF802A90249A2543BBB28 /* OnboardingViewModel.swift */; };
 		62D362FD9FAAD5F571EFE41F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5267507D13FE904C3A18169E /* SettingsView.swift */; };
+		63F9BBCEC89DD838A1C82078 /* RIAProfileDossier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FCCA15EA1EE7FA625D00D1 /* RIAProfileDossier.swift */; };
 		6413E62B55485181DE3F7582 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B881D36A17C89365469547 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg */; };
 		658ACB4DC39592114D6D0899 /* yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B7020B9845C5DDFF5ACEBCF /* yelp_biz_photo_078_YM9xrs_TYAVwRIqgSWAb.jpg */; };
 		67320084B417402F503E936A /* yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95B2C77AA0D21CF51544CB01 /* yelp_biz_photo_050_Lui3vi2ma_mVd8_hkX8t.jpg */; };
 		69767CFA39794A7BC81379FD /* AgentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950B346993F85105C2D9DE5A /* AgentDetailView.swift */; };
 		6AD8E95B35276C1C0390BB5E /* LikedAgentsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6AF9432EB96645176A4EBB /* LikedAgentsStore.swift */; };
+		6CC0F91CF348237552361219 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A63AF77D0A1C68AEDB505096 /* PlayfairDisplay-Bold.ttf */; };
 		6E3D8AB04CAF8C61ED3D03B2 /* yelp_biz_photo_077_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CB7A581BFD11D6588CFE12D /* yelp_biz_photo_077_180s.jpg */; };
 		6FBA2F5A982C6C6968B3FB6A /* yelp_biz_photo_071_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5BE78583CCB7FCD02D215A8A /* yelp_biz_photo_071_180s.jpg */; };
 		6FBDF5D7917CCDADDD5659BD /* AgentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D7AC5282D42CB2A422FE5 /* AgentCardView.swift */; };
@@ -69,7 +75,9 @@
 		7E558F30290B5BF940833DC5 /* yelp_biz_photo_075_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A300BA6F1DC01F3899AD8BF /* yelp_biz_photo_075_180s.jpg */; };
 		7F4CCD67A757EA4415170D39 /* yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0323DB7337005801A411AC3C /* yelp_biz_photo_080_Gs9UL_L2Pga0d_s8pcPu.jpg */; };
 		7FF7F918D1F0F1FAB87D70E4 /* yelp_biz_photo_070_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 659453CD9EEB22992B892524 /* yelp_biz_photo_070_180s.jpg */; };
+		805951C221737D28565EC408 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDE666A68E9125D2359C01A0 /* Manrope-Regular.ttf */; };
 		82882058ABA40BD878F522EE /* LeadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528F5037794F93686BEFE97D /* LeadRequest.swift */; };
+		828E5EEF6B267CD7E360F697 /* RIAIntelligenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE34D285B0A6BCF637E60AC /* RIAIntelligenceService.swift */; };
 		86A18AABC52E277BCDBCBB52 /* AuthProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B086EE229A93CD0BB5681724 /* AuthProviderConfig.swift */; };
 		889C782FD9C8D745A66EA204 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2A10D34B14633BC3C7DD7918 /* Supabase */; };
 		8988ED8832F8499DEC8B625B /* Color+Hushh.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1606E84E266B1DCB6A66759 /* Color+Hushh.swift */; };
@@ -87,6 +95,7 @@
 		985D87BB4BDF9DE5AC6D661C /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C3501E3AB6BC4C82C3673 /* AuthView.swift */; };
 		9DB022C385D7E0BC647F22DF /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 196FD3CED9B12D5A0E6E5370 /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg */; };
 		9E662B8DE230C2921306215C /* yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8C7DA5CCF66A45626A01DF2 /* yelp_biz_photo_042_IsU6si2Plvx1t7jH8hyR.jpg */; };
+		A20F47E46B426A1131204526 /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7853865566301A000A05380F /* PlayfairDisplay-SemiBold.ttf */; };
 		A22B5796BB2DBE3154CFD0F5 /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E36C8D5C2DD3B37A6CD84A4C /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg */; };
 		A7DA7D0BC59E469ECFABA7A1 /* ProfileHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7815E67B85D3EF833684E201 /* ProfileHomeView.swift */; };
 		AB47DD4C6C1C246163AAD920 /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6744A30138C9AD6ACE2445F /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg */; };
@@ -101,6 +110,7 @@
 		C2012287A7D7047E911C75DB /* HushhAgentConversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA0F3A6A703925BECF78661 /* HushhAgentConversation.swift */; };
 		C38B1804530167C6CD362751 /* yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCEC7ACF96A6B4794DFF7C47 /* yelp_biz_photo_094_weklpPPv_nr63jrMBLtK.jpg */; };
 		C6DFFBA46EBBA9BF66816822 /* yelp_biz_photo_061_180s.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5BA36DC67A8FC112FF5432 /* yelp_biz_photo_061_180s.jpg */; };
+		C8E26AE3EED8E13222D46599 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198254786FD4EFBAB4C32674 /* Manrope-Medium.ttf */; };
 		C950E5D4A15B019E06F03349 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0EBC6D76EFBF21CDFC396315 /* GoogleSignIn */; };
 		CE6035BB95B869D3181BB443 /* DeckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C856C005AEF56009D8EF8AFD /* DeckViewModel.swift */; };
 		CE8E4179091584EC65CC2FD0 /* yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3D12531D273162F4346AC373 /* yelp_biz_photo_091_tZf_8LLmkkeqSTglOnGJ.jpg */; };
@@ -148,6 +158,7 @@
 		185DBAD6EA4EDC73D5FDDD75 /* yelp_biz_photo_069_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_069_180s.jpg; sourceTree = "<group>"; };
 		188FC8E1E92B371B7B68FDDD /* LegalSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalSheetView.swift; sourceTree = "<group>"; };
 		196FD3CED9B12D5A0E6E5370 /* yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_018_LioAYoRfv__Xep0Et_aa.jpg; sourceTree = "<group>"; };
+		198254786FD4EFBAB4C32674 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
 		1B080C11F2FC5F76974F1D3F /* yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_040_9WgWaf3QRde9YPbFFbqY.jpg; sourceTree = "<group>"; };
 		1B3AF42AED976E9D15145218 /* yelp_biz_photo_074_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_074_180s.jpg; sourceTree = "<group>"; };
 		1B4FA7C393F96867D4DEFF11 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
@@ -158,6 +169,8 @@
 		21D78C4244D69E1A5858DBE8 /* yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_035_TKnSYZUhBYZGEEN_JHoV.jpg; sourceTree = "<group>"; };
 		29419BE94376F1D66F052BA5 /* Supabase.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Supabase.plist; sourceTree = "<group>"; };
 		296516CA1ED092167FA87E05 /* yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_085_6xbdbQmooh6RlCARYjYy.jpg; sourceTree = "<group>"; };
+		2D3AE4556787F14FDA1AEDF0 /* Font+Hushh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Hushh.swift"; sourceTree = "<group>"; };
+		3387F81A1EA71DD19F03FFC5 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		37D835862AEA1B22FF16E414 /* ProfileImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageUploadService.swift; sourceTree = "<group>"; };
 		384C3501E3AB6BC4C82C3673 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		39538E391D6B0A3DD10D16C6 /* AgentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentService.swift; sourceTree = "<group>"; };
@@ -190,6 +203,7 @@
 		7374D86EAE8210107B6F7A63 /* AgentImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentImageView.swift; sourceTree = "<group>"; };
 		7441E2BD7D34007D599AD096 /* CategoryBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBadge.swift; sourceTree = "<group>"; };
 		7815E67B85D3EF833684E201 /* ProfileHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeView.swift; sourceTree = "<group>"; };
+		7853865566301A000A05380F /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
 		7D5AF802A90249A2543BBB28 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		7DB4AE16CB3118199DB3EFDC /* yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_032_SfWptRgnIlREsGTXUtw7.jpg; sourceTree = "<group>"; };
 		7FC9930F47FC214CDADFE2F5 /* SwipeActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeActionButtons.swift; sourceTree = "<group>"; };
@@ -197,6 +211,7 @@
 		8304AFE1C255E341A66A767F /* yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_081_iKIT4QQYHcI0pehfhC3h.jpg; sourceTree = "<group>"; };
 		8661A82DD1A89C426582E3A9 /* yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_092_WsTJ2QdTaSJEIMu0kDNW.jpg; sourceTree = "<group>"; };
 		8A300BA6F1DC01F3899AD8BF /* yelp_biz_photo_075_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_075_180s.jpg; sourceTree = "<group>"; };
+		8AE34D285B0A6BCF637E60AC /* RIAIntelligenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIAIntelligenceService.swift; sourceTree = "<group>"; };
 		904A3FE9B0710F9A5BA1C001 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		90A42D2A365F56813EE70E82 /* yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_037_iKIT4QQYHcI0pehfhC3h.jpg; sourceTree = "<group>"; };
 		90A48619F0E6CFB07D6A9959 /* yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_086_IsU6si2Plvx1t7jH8hyR.jpg; sourceTree = "<group>"; };
@@ -211,6 +226,7 @@
 		A21D3C9D615AA01FFD49EC35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A30FE8F164339696A7B07E47 /* yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_012_yRs31HBvAIlAImLXjsm6.jpg; sourceTree = "<group>"; };
 		A3847096D149D61B3BDF80F0 /* yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_046_wAuEpOW8dyfET85XSjO9.jpg; sourceTree = "<group>"; };
+		A63AF77D0A1C68AEDB505096 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		A6744A30138C9AD6ACE2445F /* yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_031_ZICxBk4t2Y-px5ukoqth.jpg"; sourceTree = "<group>"; };
 		A6A7AC3749705F848486DE7F /* HushhAgentsDeviceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HushhAgentsDeviceDebug.entitlements; sourceTree = "<group>"; };
 		A6E2D038F6055EC7C5AB7782 /* yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_084_9WgWaf3QRde9YPbFFbqY.jpg; sourceTree = "<group>"; };
@@ -226,12 +242,14 @@
 		B0E1DAE770E431AD77073733 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		B53E377365FF7198289B3881 /* yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_036_Gs9UL_L2Pga0d_s8pcPu.jpg; sourceTree = "<group>"; };
 		B92CDC4C9BBDAC4BBDD501DB /* UserAgentSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgentSelection.swift; sourceTree = "<group>"; };
+		B9FCCA15EA1EE7FA625D00D1 /* RIAProfileDossier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RIAProfileDossier.swift; sourceTree = "<group>"; };
 		BA0AD9A336A5F63104650EE1 /* yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_099_3i0zpPIo9qndCNXWW8Hy.jpg; sourceTree = "<group>"; };
 		BA756D19890D65B96247C907 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		BB698E779CB0C6933C244F95 /* yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_087_BwvPHsF0zObh6hHRlafG.jpg; sourceTree = "<group>"; };
 		BEEF00BA2AB5EAE8AF7F842A /* ChatThreadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatThreadView.swift; sourceTree = "<group>"; };
 		C1606E84E266B1DCB6A66759 /* Color+Hushh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hushh.swift"; sourceTree = "<group>"; };
 		C3B881D36A17C89365469547 /* yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_083_rt3hNSy7Y-vlEh_-ZEtH.jpg"; sourceTree = "<group>"; };
+		C3EFD437B37C6AD892FF6D89 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		C698D552E934A8DEE4731993 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		C856C005AEF56009D8EF8AFD /* DeckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewModel.swift; sourceTree = "<group>"; };
 		C908DB14B2AD3D28A5CF5530 /* yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_089_JQZgXtzmbFi6nQ9TOzLg.jpg; sourceTree = "<group>"; };
@@ -255,11 +273,13 @@
 		EA4D4F301D83A8B42DE83674 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC678E64E4DFD31E2C2DBC98 /* HushhAgentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HushhAgentProfile.swift; sourceTree = "<group>"; };
 		EDACFB10E3E19338A022D788 /* yelp_biz_photo_064_180s.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_064_180s.jpg; sourceTree = "<group>"; };
+		EDE666A68E9125D2359C01A0 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
 		EEA0F3A6A703925BECF78661 /* HushhAgentConversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HushhAgentConversation.swift; sourceTree = "<group>"; };
 		F2320AA8E889CFB1A4BF2950 /* yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "yelp_biz_photo_044_bDjBj-By-bn7cgigAlJq.jpg"; sourceTree = "<group>"; };
 		F335E8C4192441AF3F3D8DD5 /* yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_043_BwvPHsF0zObh6hHRlafG.jpg; sourceTree = "<group>"; };
 		F4BC820628C6CE327E2928D7 /* yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_079_TKnSYZUhBYZGEEN_JHoV.jpg; sourceTree = "<group>"; };
 		F58772CBC8F9120B0D06C6F8 /* yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yelp_biz_photo_034_YM9xrs_TYAVwRIqgSWAb.jpg; sourceTree = "<group>"; };
+		FCA4AB4EF1C8034C3897E559 /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
 		FDFFCF693C9A61E645B4365B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFCB70CF321FD6391EDAFE50 /* HushhAgents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HushhAgents.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -380,6 +400,7 @@
 				1EEFBF4D1C2787912C1BB706 /* HushhAgentSwipe.swift */,
 				0C5F47C7F1492AAD23767DD8 /* KirklandAgent.swift */,
 				528F5037794F93686BEFE97D /* LeadRequest.swift */,
+				B9FCCA15EA1EE7FA625D00D1 /* RIAProfileDossier.swift */,
 				5709656D0DB84AF1F277776A /* SwipeDirection.swift */,
 				B92CDC4C9BBDAC4BBDD501DB /* UserAgentSelection.swift */,
 			);
@@ -396,6 +417,7 @@
 				B04A1BFB690DA4A0824D1AC4 /* LeadService.swift */,
 				5F6AF9432EB96645176A4EBB /* LikedAgentsStore.swift */,
 				37D835862AEA1B22FF16E414 /* ProfileImageUploadService.swift */,
+				8AE34D285B0A6BCF637E60AC /* RIAIntelligenceService.swift */,
 				09916F6E2E1946205A9B9AA2 /* SupabaseService.swift */,
 				E8FBAC9AFBDF02D69BEB69D8 /* SwipeService.swift */,
 				BA756D19890D65B96247C907 /* UserService.swift */,
@@ -508,6 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				C1606E84E266B1DCB6A66759 /* Color+Hushh.swift */,
+				2D3AE4556787F14FDA1AEDF0 /* Font+Hushh.swift */,
 				DE0F769E21F26DBD3CB9A436 /* View+Haptics.swift */,
 			);
 			path = Extensions;
@@ -534,6 +557,20 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		DB8D7E03A423B9F3E6D27038 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C3EFD437B37C6AD892FF6D89 /* Manrope-Bold.ttf */,
+				198254786FD4EFBAB4C32674 /* Manrope-Medium.ttf */,
+				EDE666A68E9125D2359C01A0 /* Manrope-Regular.ttf */,
+				FCA4AB4EF1C8034C3897E559 /* Manrope-SemiBold.ttf */,
+				A63AF77D0A1C68AEDB505096 /* PlayfairDisplay-Bold.ttf */,
+				3387F81A1EA71DD19F03FFC5 /* PlayfairDisplay-Regular.ttf */,
+				7853865566301A000A05380F /* PlayfairDisplay-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DD23411698A77F853EE4838B /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,6 +586,7 @@
 				FDFFCF693C9A61E645B4365B /* Assets.xcassets */,
 				9F50C7B0784C77D1810E659F /* kirkland_agents_seed.json */,
 				579DE18A8F26E6E9C208F35C /* agent_photos */,
+				DB8D7E03A423B9F3E6D27038 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -631,6 +669,13 @@
 			files = (
 				DF4029E2D074595CCD4FA7B8 /* Agents.json in Resources */,
 				E0F74AF0DC1F073FB56BD17A /* Assets.xcassets in Resources */,
+				34671EEEE3DE02BC011E6584 /* Manrope-Bold.ttf in Resources */,
+				C8E26AE3EED8E13222D46599 /* Manrope-Medium.ttf in Resources */,
+				805951C221737D28565EC408 /* Manrope-Regular.ttf in Resources */,
+				11D575B0F995F6B2DB19FF48 /* Manrope-SemiBold.ttf in Resources */,
+				6CC0F91CF348237552361219 /* PlayfairDisplay-Bold.ttf in Resources */,
+				587A0FB8158E83EEFED64DD3 /* PlayfairDisplay-Regular.ttf in Resources */,
+				A20F47E46B426A1131204526 /* PlayfairDisplay-SemiBold.ttf in Resources */,
 				F0A2F170C036A86BF3B81B73 /* Supabase.plist in Resources */,
 				1DD1BA2EFC58F16B763F4512 /* kirkland_agents_seed.json in Resources */,
 				A22B5796BB2DBE3154CFD0F5 /* yelp_biz_photo_011_M9vGwBjxltHPDlLpgndE.jpg in Resources */,
@@ -733,6 +778,7 @@
 				1832C73BCE168F2AC2EFF67A /* DeckView.swift in Sources */,
 				CE6035BB95B869D3181BB443 /* DeckViewModel.swift in Sources */,
 				392F8AE1CAA7780E2090B055 /* EmptyDeckView.swift in Sources */,
+				1F88BBECD5E66F1CEDA8E72E /* Font+Hushh.swift in Sources */,
 				8FDE61412000AFCEC1C648A3 /* GatedAction.swift in Sources */,
 				C2012287A7D7047E911C75DB /* HushhAgentConversation.swift in Sources */,
 				24041272A01530BB9AF3CD98 /* HushhAgentProfile.swift in Sources */,
@@ -751,6 +797,8 @@
 				A7DA7D0BC59E469ECFABA7A1 /* ProfileHomeView.swift in Sources */,
 				3687EE7FE91DEB009827121B /* ProfileImageUploadService.swift in Sources */,
 				7827CC4CA41931D6D055E27E /* ProfileViewModel.swift in Sources */,
+				828E5EEF6B267CD7E360F697 /* RIAIntelligenceService.swift in Sources */,
+				63F9BBCEC89DD838A1C82078 /* RIAProfileDossier.swift in Sources */,
 				624A09F2BBBB295DC0C84FD3 /* RatingStarsView.swift in Sources */,
 				D0B1CF12E57847815072EF83 /* SelectedAgentsView.swift in Sources */,
 				62D362FD9FAAD5F571EFE41F /* SettingsView.swift in Sources */,
