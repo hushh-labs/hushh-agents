@@ -879,7 +879,7 @@
 				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgents.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 142;
+				CURRENT_PROJECT_VERSION = 143;
 				DEVELOPMENT_TEAM = WVDK9JW99C;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = HushhAgents/Config/Info.plist;
@@ -966,7 +966,7 @@
 				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgents.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 142;
+				CURRENT_PROJECT_VERSION = 143;
 				DEVELOPMENT_TEAM = WVDK9JW99C;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = HushhAgents/Config/Info.plist;
