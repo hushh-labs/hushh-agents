@@ -182,6 +182,24 @@ final class UserService {
     /// Permanently deletes the user's Hushh Agents data via server-side RPC.
     /// Does NOT delete the shared auth.users row (other projects may use it).
     func deleteAccount() async throws {
+        // 1. Clean up profile images via the Storage API
+        //    (Supabase blocks direct SQL deletes on storage.objects).
+        if let uid = SupabaseService.shared.client.auth.currentUser?.id {
+            let bucket = SupabaseService.shared.client.storage
+                .from("hushh-agent-profile-images")
+            do {
+                let files = try await bucket.list(path: uid.uuidString)
+                if !files.isEmpty {
+                    let paths = files.map { "\(uid.uuidString)/\($0.name)" }
+                    try await bucket.remove(paths: paths)
+                }
+            } catch {
+                // Storage cleanup is best-effort; log but don't block deletion.
+                print("[UserService] Storage cleanup warning: \(error.localizedDescription)")
+            }
+        }
+
+        // 2. Delete all database rows via server-side RPC.
         try await SupabaseService.shared.client
             .rpc("hushh_agents_delete_user_account")
             .execute()

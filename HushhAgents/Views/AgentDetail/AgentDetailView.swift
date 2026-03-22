@@ -19,6 +19,10 @@ struct AgentDetailView: View {
         }
     }
 
+    private var conversationButtonTitle: String {
+        appState.isGuestBrowsingMode ? "Sign In to Start Conversation" : "Open Conversation"
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -162,13 +166,20 @@ struct AgentDetailView: View {
                             appState.triggerGatedAction(.openConversation(agentId: agent.deckTargetKey))
                         }
                     } label: {
-                        Text("Open Conversation")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.hushhPrimary)
-                            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        HStack(spacing: 8) {
+                            if appState.isGuestBrowsingMode {
+                                Image(systemName: "lock.fill")
+                                    .font(.subheadline.weight(.semibold))
+                            }
+
+                            Text(conversationButtonTitle)
+                                .font(.headline)
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.hushhPrimary)
+                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 24)

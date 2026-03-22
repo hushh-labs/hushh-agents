@@ -29,6 +29,28 @@ struct DeckView: View {
                 .padding(.top, 2)
                 .padding(.bottom, 8)
 
+                if appState.isGuestBrowsingMode {
+                    DeckSurfaceNotice(
+                        icon: "person.crop.circle.badge.plus",
+                        title: "Browsing as guest",
+                        message: "Your swipes stay on this device until you sign in.",
+                        actionTitle: "Sign In"
+                    ) {
+                        appState.presentGuestSignIn()
+                    }
+                    .padding(.horizontal, hPad)
+                    .padding(.bottom, 8)
+                } else if appState.needsVerifiedProfileCompletion {
+                    DeckSurfaceNotice(
+                        icon: "person.crop.circle.badge.exclamationmark",
+                        title: "Finish your profile",
+                        message: "Resume lookup before you publish your advisor identity.",
+                        actionTitle: "Resume"
+                    )
+                    .padding(.horizontal, hPad)
+                    .padding(.bottom, 8)
+                }
+
                 // ── Card Stack (fills remaining space) ──────
                 GeometryReader { geo in
                     if deckVM.isLoading {
@@ -47,7 +69,7 @@ struct DeckView: View {
 
                 // ── Action Dock (fixed at bottom) ───────────
                 if !deckVM.isLoading && !deckVM.topCards.isEmpty {
-                    SwipeActionDock {
+                    SwipeActionButtons.SwipeActionDock {
                         SwipeActionButtons(deckVM: deckVM)
                             .environmentObject(appState)
                     }
@@ -73,6 +95,16 @@ struct DeckView: View {
                                 Circle()
                                     .fill(Color(.secondarySystemGroupedBackground))
                             )
+                            .overlay(alignment: .topTrailing) {
+                                if appState.isGuestBrowsingMode {
+                                    Image(systemName: "lock.fill")
+                                        .font(.system(size: 9, weight: .bold))
+                                        .foregroundStyle(.white)
+                                        .padding(4)
+                                        .background(Circle().fill(Color.hushhPrimary))
+                                        .offset(x: 4, y: -4)
+                                }
+                            }
                     }
                 }
             }
@@ -104,6 +136,65 @@ struct DeckView: View {
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+}
+
+private struct DeckSurfaceNotice: View {
+    @EnvironmentObject var appState: AppState
+
+    let icon: String
+    let title: String
+    let message: String
+    let actionTitle: String
+    var action: (() -> Void)? = nil
+
+    var body: some View {
+        HStack(spacing: 12) {
+            ZStack {
+                Circle()
+                    .fill(Color.hushhPrimary.opacity(0.12))
+                    .frame(width: 36, height: 36)
+
+                Image(systemName: icon)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(Color.hushhPrimary)
+            }
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(.subheadline, design: .rounded, weight: .semibold))
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+
+                Text(message)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(2)
+            }
+
+            Spacer(minLength: 8)
+
+            Button(actionTitle) {
+                if let action {
+                    action()
+                } else {
+                    appState.resumeVerifiedProfileCompletion()
+                }
+            }
+            .font(.system(.footnote, design: .rounded, weight: .semibold))
+            .foregroundStyle(Color.hushhPrimary)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 12)
+        .background(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(.regularMaterial)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(Color.white.opacity(0.82), lineWidth: 1)
+        )
+        .shadow(color: .black.opacity(0.04), radius: 12, y: 6)
     }
 }
 

@@ -40,3 +40,8 @@ enum OnboardingStatus: Equatable {
     case incomplete
     case complete
 }
+
+enum OnboardingPresentationMode: Equatable {
+    case initial
+    case editProfile
+}

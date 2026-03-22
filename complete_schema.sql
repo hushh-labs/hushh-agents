@@ -190,14 +190,17 @@ CREATE TABLE public.devices (
 CREATE TABLE public.hushh_agents_agent_swipes (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
   actor_user_id uuid NOT NULL,
-  target_agent_id text NOT NULL,
+  target_agent_id text,
   status text NOT NULL CHECK (status = ANY (ARRAY['selected'::text, 'rejected'::text])),
   swiped_at timestamp with time zone NOT NULL DEFAULT now(),
   created_at timestamp with time zone NOT NULL DEFAULT now(),
   updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  target_kind text NOT NULL DEFAULT 'catalog'::text CHECK (target_kind = ANY (ARRAY['catalog'::text, 'profile'::text])),
+  target_profile_user_id uuid,
   CONSTRAINT hushh_agents_agent_swipes_pkey PRIMARY KEY (id),
   CONSTRAINT hushh_agents_agent_swipes_actor_user_id_fkey FOREIGN KEY (actor_user_id) REFERENCES auth.users(id),
-  CONSTRAINT hushh_agents_agent_swipes_target_agent_id_fkey FOREIGN KEY (target_agent_id) REFERENCES public.kirkland_agents(id)
+  CONSTRAINT hushh_agents_agent_swipes_target_agent_id_fkey FOREIGN KEY (target_agent_id) REFERENCES public.kirkland_agents(id),
+  CONSTRAINT hushh_agents_agent_swipes_target_profile_user_id_fkey FOREIGN KEY (target_profile_user_id) REFERENCES public.hushh_agents_profiles(user_id)
 );
 CREATE TABLE public.hushh_agents_chat_logs (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
@@ -236,7 +239,7 @@ CREATE TABLE public.hushh_agents_consumer_profiles (
 CREATE TABLE public.hushh_agents_conversations (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
   owner_user_id uuid NOT NULL,
-  target_agent_id text NOT NULL,
+  target_agent_id text,
   target_agent_name text NOT NULL DEFAULT ''::text,
   target_agent_location text NOT NULL DEFAULT ''::text,
   target_agent_photo_url text,
@@ -245,9 +248,12 @@ CREATE TABLE public.hushh_agents_conversations (
   last_message_at timestamp with time zone,
   created_at timestamp with time zone NOT NULL DEFAULT now(),
   updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  target_kind text NOT NULL DEFAULT 'catalog'::text CHECK (target_kind = ANY (ARRAY['catalog'::text, 'profile'::text])),
+  target_profile_user_id uuid,
   CONSTRAINT hushh_agents_conversations_pkey PRIMARY KEY (id),
   CONSTRAINT hushh_agents_conversations_owner_user_id_fkey FOREIGN KEY (owner_user_id) REFERENCES auth.users(id),
-  CONSTRAINT hushh_agents_conversations_target_agent_id_fkey FOREIGN KEY (target_agent_id) REFERENCES public.kirkland_agents(id)
+  CONSTRAINT hushh_agents_conversations_target_agent_id_fkey FOREIGN KEY (target_agent_id) REFERENCES public.kirkland_agents(id),
+  CONSTRAINT hushh_agents_conversations_target_profile_user_id_fkey FOREIGN KEY (target_profile_user_id) REFERENCES public.hushh_agents_profiles(user_id)
 );
 CREATE TABLE public.hushh_agents_daily_stats (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
@@ -271,12 +277,15 @@ CREATE TABLE public.hushh_agents_daily_stats (
 CREATE TABLE public.hushh_agents_matches (
   id uuid NOT NULL DEFAULT gen_random_uuid(),
   owner_user_id uuid NOT NULL,
-  target_agent_id text NOT NULL,
+  target_agent_id text,
   status text NOT NULL DEFAULT 'active'::text CHECK (status = ANY (ARRAY['active'::text, 'archived'::text])),
   matched_at timestamp with time zone NOT NULL DEFAULT now(),
   created_at timestamp with time zone NOT NULL DEFAULT now(),
   updated_at timestamp with time zone NOT NULL DEFAULT now(),
+  target_kind text NOT NULL DEFAULT 'catalog'::text CHECK (target_kind = ANY (ARRAY['catalog'::text, 'profile'::text])),
+  target_profile_user_id uuid,
   CONSTRAINT hushh_agents_matches_pkey PRIMARY KEY (id),
+  CONSTRAINT hushh_agents_matches_target_profile_user_id_fkey FOREIGN KEY (target_profile_user_id) REFERENCES public.hushh_agents_profiles(user_id),
   CONSTRAINT hushh_agents_matches_owner_user_id_fkey FOREIGN KEY (owner_user_id) REFERENCES auth.users(id),
   CONSTRAINT hushh_agents_matches_target_agent_id_fkey FOREIGN KEY (target_agent_id) REFERENCES public.kirkland_agents(id)
 );

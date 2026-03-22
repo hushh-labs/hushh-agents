@@ -31,6 +31,8 @@ targets:
       - path: HushhAgents/Resources/Assets.xcassets
       - path: HushhAgents/Resources/agent_photos
         buildPhase: resources
+      - path: HushhAgents/Resources/Fonts
+        buildPhase: resources
     settings:
       base:
         GENERATE_INFOPLIST_FILE: NO
