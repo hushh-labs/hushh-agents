@@ -57,6 +57,12 @@ final class AuthService {
         )
     }
 
+    // MARK: - Sign In with Email and Password
+
+    func signIn(email: String, password: String) async throws {
+        try await auth.signIn(email: email, password: password)
+    }
+
     // MARK: - Sign Out
 
     func signOut() async throws {

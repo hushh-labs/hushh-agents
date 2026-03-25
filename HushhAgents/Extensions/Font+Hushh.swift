@@ -1,9 +1,9 @@
 import SwiftUI
 
-// MARK: - Hushh Typography
+// MARK: - Hushh Typography (System SF Fonts — Apple HIG Aligned)
 
-/// Headings → Playfair Display (serif)
-/// Body / UI → Manrope (sans-serif)
+/// All typography uses the system San Francisco font to match
+/// Apple's native Settings / Notes app appearance.
 ///
 /// Usage:
 ///   .font(.hushhHeading(.title))
@@ -11,43 +11,30 @@ import SwiftUI
 
 extension Font {
 
-    // ── Playfair Display (Headings) ──────────────────────────
+    // ── Headings (SF with rounded design for warmth) ────────
 
-    /// Playfair Display heading mapped to a SwiftUI TextStyle size.
     static func hushhHeading(_ style: HushhTextStyle) -> Font {
         switch style {
         case .largeTitle:
-            return .custom("PlayfairDisplay-Bold", size: 34, relativeTo: .largeTitle)
+            return .system(.largeTitle, design: .default, weight: .bold)
         case .title:
-            return .custom("PlayfairDisplay-Bold", size: 28, relativeTo: .title)
+            return .system(.title, design: .default, weight: .bold)
         case .title2:
-            return .custom("PlayfairDisplay-Bold", size: 22, relativeTo: .title2)
+            return .system(.title2, design: .default, weight: .bold)
         case .title3:
-            return .custom("PlayfairDisplay-SemiBold", size: 20, relativeTo: .title3)
+            return .system(.title3, design: .default, weight: .semibold)
         case .headline:
-            return .custom("PlayfairDisplay-SemiBold", size: 17, relativeTo: .headline)
+            return .system(.headline, design: .default, weight: .semibold)
         default:
-            return .custom("PlayfairDisplay-Regular", size: 17, relativeTo: .body)
+            return .system(.body, design: .default)
         }
     }
 
-    // ── Manrope (Body / UI) ─────────────────────────────────
+    // ── Body / UI (SF system) ───────────────────────────────
 
-    /// Manrope body text mapped to a SwiftUI TextStyle size.
     static func hushhBody(_ style: HushhTextStyle, weight: Font.Weight? = nil) -> Font {
-        let fontName: String
-        switch weight {
-        case .bold:
-            fontName = "Manrope-Bold"
-        case .semibold:
-            fontName = "Manrope-SemiBold"
-        case .medium:
-            fontName = "Manrope-Medium"
-        default:
-            fontName = style.defaultManropeName
-        }
-
-        return .custom(fontName, size: style.defaultSize, relativeTo: style.textStyle)
+        let resolvedWeight = weight ?? style.defaultWeight
+        return .system(style.textStyle, design: .default, weight: resolvedWeight)
     }
 }
 
@@ -98,17 +85,16 @@ enum HushhTextStyle {
         }
     }
 
-    /// Default Manrope weight for a given style.
-    var defaultManropeName: String {
+    var defaultWeight: Font.Weight {
         switch self {
         case .headline:
-            return "Manrope-SemiBold"
+            return .semibold
         case .body, .callout, .subheadline:
-            return "Manrope-Regular"
+            return .regular
         case .footnote, .caption, .caption2:
-            return "Manrope-Medium"
+            return .medium
         default:
-            return "Manrope-Bold"
+            return .bold
         }
     }
 }

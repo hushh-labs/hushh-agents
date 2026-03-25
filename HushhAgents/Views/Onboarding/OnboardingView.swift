@@ -1,5 +1,7 @@
 import SwiftUI
 
+// MARK: - Flow Layout (unchanged — used for category chips)
+
 struct FlowLayout: Layout {
     var spacing: CGFloat = 10
 
@@ -44,12 +46,12 @@ struct FlowLayout: Layout {
     }
 }
 
+// MARK: - Onboarding View
+
 struct OnboardingView: View {
     @StateObject private var vm: OnboardingViewModel
     @EnvironmentObject var appState: AppState
     @FocusState private var focusedField: Field?
-
-    private let hPad: CGFloat = 16
 
     private enum Field {
         case query
@@ -73,46 +75,22 @@ struct OnboardingView: View {
                     loadingState
                 case .nameEntry:
                     nameEntryForm
-                default:
-                    ScrollView {
-                        VStack(alignment: .leading, spacing: 16) {
-                            previewHeroSection
-
-                            switch vm.phase {
-                            case .preview:
-                                previewSection
-                            case .noMatch:
-                                noMatchSection
-                            case .error:
-                                errorSection
-                            default:
-                                EmptyView()
-                            }
-                        }
-                        .padding(.horizontal, hPad)
-                        .padding(.top, 8)
-                        .padding(.bottom, 140)
-                    }
-                    .scrollIndicators(.hidden)
-                    .background(nameEntryBackground.ignoresSafeArea())
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(.hidden, for: .navigationBar)
+                case .preview:
+                    previewForm
+                case .noMatch:
+                    noMatchForm
+                case .error:
+                    errorForm
                 }
             }
+            .navigationTitle(navigationTitle)
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 if canSkipOnboarding {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Skip") {
                             appState.skipOnboarding()
                         }
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(
-                            Capsule(style: .continuous)
-                                .fill(.regularMaterial)
-                        )
                     }
                 }
             }
@@ -139,539 +117,254 @@ struct OnboardingView: View {
         }
     }
 
+    // MARK: - Navigation
+
+    private var navigationTitle: String {
+        switch vm.phase {
+        case .nameEntry: return "Set Up Your Profile"
+        case .loading:   return "Searching…"
+        case .preview:   return "Your Profile Preview"
+        case .noMatch:   return "No Match Found"
+        case .error:     return "Something Went Wrong"
+        }
+    }
+
     private var canSkipOnboarding: Bool {
         appState.onboardingPresentationMode == .initial && vm.phase == .nameEntry
     }
 
     private var primaryActionTitle: String {
         switch vm.phase {
-        case .nameEntry:
-            return "Find My RIA Profile"
-        case .preview:
-            return appState.onboardingPrimaryActionTitle
-        case .noMatch:
-            return "Search Again"
-        case .error:
-            return "Try Again"
-        case .loading:
-            return ""
+        case .nameEntry: return "Search Public Records"
+        case .preview:   return appState.onboardingPrimaryActionTitle
+        case .noMatch:   return "Search Again"
+        case .error:     return "Try Again"
+        case .loading:   return ""
         }
     }
 
     private var primaryActionDisabled: Bool {
         switch vm.phase {
-        case .nameEntry:
-            return !vm.canSubmitQuery
-        case .preview:
-            return !vm.canSavePreview
-        case .noMatch, .error:
-            return false
-        case .loading:
-            return true
+        case .nameEntry: return !vm.canSubmitQuery
+        case .preview:   return !vm.canSavePreview
+        case .noMatch, .error: return false
+        case .loading:   return true
         }
     }
 
-    private var heroSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 14) {
-                Image("HushhLogo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 56, height: 56)
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(heroTitle)
-                        .font(.hushhHeading(.title))
-                    Text(heroSubtitle)
-                        .font(.hushhBody(.subheadline))
-                        .foregroundStyle(.secondary)
-                }
-            }
-
-            if vm.phase == .preview, let preview = vm.previewContent {
-                Text("Based on public records for \(preview.fullName).")
-                    .font(.caption.weight(.medium))
-                    .foregroundStyle(Color.hushhPrimary)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
-                    .background(
-                        Capsule()
-                            .fill(Color.hushhPrimary.opacity(0.12))
-                    )
-            }
-        }
-    }
-
-    private var heroTitle: String {
-        switch vm.phase {
-        case .nameEntry:
-            return "Build Your RIA Profile"
-        case .loading:
-            return "Preparing your dossier"
-        case .preview:
-            return "Review Your Verified Profile"
-        case .noMatch:
-            return "We Couldn't Match That Name"
-        case .error:
-            return "Profile Lookup Paused"
-        }
-    }
-
-    private var heroSubtitle: String {
-        switch vm.phase {
-        case .nameEntry:
-            if appState.pendingGatedAction != nil {
-                return "Enter your public name first. We’ll verify your profile, fetch your image, and then continue to \(appState.pendingDestinationLabel.lowercased())."
-            }
-            return "Enter your public name and we'll verify your profile, fetch your image, and prepare your deck presence."
-        case .loading:
-            return "We're handling verification, research, and image ranking in the background."
-        case .preview:
-            return "Confirm the public profile we found, add your phone number, and continue."
-        case .noMatch:
-            return "Try a different spelling or firm-associated name so we can verify the right public record."
-        case .error:
-            return "The research service hit a temporary issue. Retry the lookup when you're ready."
-        }
-    }
+    // MARK: - Name Entry
 
     private var nameEntryForm: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                nameEntryHero
-                nameEntryInputCard
-                nameEntryAssuranceCard
-
-                if appState.pendingGatedAction != nil {
-                    nameEntryContinuationCard
-                }
-            }
-            .padding(.horizontal, 20)
-            .padding(.top, 12)
-            .padding(.bottom, 156)
-        }
-        .scrollIndicators(.hidden)
-        .scrollDismissesKeyboard(.interactively)
-        .background(nameEntryBackground.ignoresSafeArea())
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.hidden, for: .navigationBar)
-    }
-
-    // MARK: - Preview Hero (for non-nameEntry phases)
-
-    private var nameEntryBackground: some View {
-        ZStack {
-            Color(.systemGroupedBackground)
-
-            LinearGradient(
-                colors: [
-                    Color(.systemBackground),
-                    Color(.systemGroupedBackground)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-
-            Circle()
-                .fill(Color.hushhPrimary.opacity(0.08))
-                .frame(width: 260, height: 260)
-                .blur(radius: 24)
-                .offset(x: 130, y: -180)
-
-            Circle()
-                .fill(Color.white.opacity(0.8))
-                .frame(width: 220, height: 220)
-                .blur(radius: 18)
-                .offset(x: -150, y: -120)
-        }
-    }
-
-    private var nameEntryHero: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 22, style: .continuous)
-                    .fill(.ultraThinMaterial)
-                    .frame(width: 72, height: 72)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 22, style: .continuous)
-                            .stroke(Color.white.opacity(0.75), lineWidth: 1)
-                    )
-
-                Image("HushhLogo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 38, height: 38)
-            }
-            .shadow(color: .black.opacity(0.08), radius: 16, y: 8)
-
-            VStack(alignment: .leading, spacing: 10) {
-                Text(heroTitle)
-                    .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                    .foregroundStyle(.primary)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                Text(heroSubtitle)
-                    .font(.body)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .padding(.top, 8)
-    }
-
-    private var nameEntryInputCard: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Public advisor or firm name")
-                    .font(.headline.weight(.semibold))
-                    .foregroundStyle(.primary)
-
-                Text("Use the exact name that appears in FINRA, SEC, or firm-facing public profiles.")
+        Form {
+            Section {
+                Text(nameEntrySubtitle)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
             }
 
-            HStack(spacing: 14) {
-                Image(systemName: "magnifyingglass")
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(focusedField == .query ? Color.hushhPrimary : .secondary)
-                    .frame(width: 24)
+            Section {
+                HStack(spacing: 10) {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundStyle(.secondary)
 
-                TextField(
-                    "",
-                    text: Binding(
-                        get: { vm.query },
-                        set: vm.updateQuery
-                    ),
-                    prompt: Text("ANA ROUMENOVA CARTER")
-                        .foregroundStyle(.tertiary)
-                )
-                .focused($focusedField, equals: .query)
-                .textInputAutocapitalization(.words)
-                .autocorrectionDisabled()
-                .submitLabel(.go)
-                .font(.title3.weight(.semibold))
-                .onSubmit {
-                    Task { await vm.startLookup() }
-                }
-            }
-            .padding(.horizontal, 18)
-            .padding(.vertical, 18)
-            .background(
-                RoundedRectangle(cornerRadius: 22, style: .continuous)
-                    .fill(Color(.systemBackground))
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 22, style: .continuous)
-                    .stroke(
-                        focusedField == .query ? Color.hushhPrimary.opacity(0.9) : Color.black.opacity(0.06),
-                        lineWidth: focusedField == .query ? 2 : 1
+                    TextField(
+                        "ANA ROUMENOVA CARTER",
+                        text: Binding(
+                            get: { vm.query },
+                            set: vm.updateQuery
+                        )
                     )
-            )
-            .shadow(color: .black.opacity(0.03), radius: 10, y: 4)
+                    .focused($focusedField, equals: .query)
+                    .textInputAutocapitalization(.words)
+                    .autocorrectionDisabled()
+                    .submitLabel(.go)
+                    .onSubmit {
+                        Task { await vm.startLookup() }
+                    }
+                }
 
-            VStack(alignment: .leading, spacing: 10) {
                 if let queryValidationMessage = vm.queryValidationMessage {
-                    validationMessage(queryValidationMessage)
+                    Label(queryValidationMessage, systemImage: "exclamationmark.circle.fill")
+                        .font(.footnote)
+                        .foregroundStyle(.red)
+                }
+            } header: {
+                Text("Your name or firm")
+            } footer: {
+                Text("Match the spelling used in FINRA BrokerCheck or SEC IAPD for the best results. We only access publicly available records.")
+            }
+
+            Section("What happens next") {
+                Label {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Cross-reference regulatory filings")
+                            .font(.subheadline.weight(.medium))
+                        Text("We check FINRA BrokerCheck, SEC IAPD, and state records to confirm your identity.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                } icon: {
+                    Image(systemName: "checkmark.shield.fill")
+                        .foregroundStyle(.green)
                 }
 
-                Text("We only use public record data to verify the right advisor or firm before generating your profile.")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+                Label {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Assemble your professional dossier")
+                            .font(.subheadline.weight(.medium))
+                        Text("Firm history, credentials, specialties, and key facts — compiled from verified sources.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                } icon: {
+                    Image(systemName: "sparkles.rectangle.stack.fill")
+                        .foregroundStyle(.blue)
+                }
+
+                Label {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Select your best photo")
+                            .font(.subheadline.weight(.medium))
+                        Text("We scan public sources for professional headshots and rank them by quality.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                } icon: {
+                    Image(systemName: "photo.on.rectangle.angled")
+                        .foregroundStyle(.orange)
+                }
+            }
+
+            if appState.pendingGatedAction != nil {
+                Section {
+                    Label {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Continue after setup")
+                                .font(.subheadline.weight(.medium))
+                            Text("Once verified, we'll continue to \(appState.pendingDestinationLabel.lowercased()).")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    } icon: {
+                        Image(systemName: "arrow.turn.down.right")
+                            .foregroundStyle(.blue)
+                    }
+                }
             }
         }
-        .padding(22)
-        .background(
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .stroke(Color.white.opacity(0.85), lineWidth: 1)
-        )
-        .shadow(color: .black.opacity(0.05), radius: 18, y: 10)
+        .scrollDismissesKeyboard(.interactively)
     }
 
-    private var nameEntryAssuranceCard: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("What happens next")
-                .font(.headline.weight(.semibold))
-                .foregroundStyle(.primary)
-
-            VStack(spacing: 14) {
-                OnboardingFeatureRow(
-                    icon: "checkmark.shield.fill",
-                    title: "Verify regulatory records",
-                    message: "We confirm the public match before anything is added to your profile."
-                )
-
-                OnboardingFeatureRow(
-                    icon: "sparkles.rectangle.stack.fill",
-                    title: "Build the profile for you",
-                    message: "Public facts, firm details, and availability are prepared automatically."
-                )
-
-                OnboardingFeatureRow(
-                    icon: "photo.on.rectangle.angled",
-                    title: "Find the best public image",
-                    message: "We prefer a trusted headshot and fall back safely when one is not available."
-                )
-            }
+    private var nameEntrySubtitle: String {
+        if appState.pendingGatedAction != nil {
+            return "Type your name or firm exactly as it appears in regulatory filings. Our research engine pulls verified data from FINRA, SEC, and trusted public sources — then we'll continue to \(appState.pendingDestinationLabel.lowercased())."
         }
-        .padding(22)
-        .background(
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .stroke(Color.white.opacity(0.82), lineWidth: 1)
-        )
-        .shadow(color: .black.opacity(0.05), radius: 18, y: 8)
+        return "Type your name or firm exactly as it appears in regulatory filings — our research engine does the rest. We pull verified data from FINRA, SEC, and trusted public sources to build your profile automatically."
     }
 
-    private var nameEntryContinuationCard: some View {
-        HStack(alignment: .top, spacing: 12) {
-            Image(systemName: "arrow.turn.down.right")
-                .font(.headline.weight(.semibold))
-                .foregroundStyle(Color.hushhPrimary)
-                .frame(width: 24)
+    // MARK: - Preview
 
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Continue after setup")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
-
-                Text("Once your verified profile is ready, we’ll continue to \(appState.pendingDestinationLabel.lowercased()).")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .padding(18)
-        .background(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .stroke(Color.white.opacity(0.8), lineWidth: 1)
-        )
-        .shadow(color: .black.opacity(0.04), radius: 14, y: 6)
-    }
-
-    private var previewHeroSection: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 22, style: .continuous)
-                    .fill(.ultraThinMaterial)
-                    .frame(width: 70, height: 70)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 22, style: .continuous)
-                            .stroke(Color.white.opacity(0.78), lineWidth: 1)
-                    )
-
-                Image("HushhLogo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 36, height: 36)
-            }
-            .shadow(color: .black.opacity(0.08), radius: 16, y: 8)
-
-            VStack(alignment: .leading, spacing: 10) {
-                Text(heroTitle)
-                    .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                    .foregroundStyle(.primary)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                Text(heroSubtitle)
-                    .font(.body)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            if vm.phase == .preview, let preview = vm.previewContent {
-                Text("Based on public records for \(preview.fullName).")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(Color.hushhPrimary)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 9)
-                    .background(
-                        Capsule()
-                            .fill(Color.hushhPrimary.opacity(0.12))
-                    )
-            }
-        }
-        .padding(.top, 6)
-    }
-
-    private var nameEntrySection: some View {
-        GroupCard {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("What's your public advisor name?")
-                    .font(.headline)
-                Text("Use the name you expect to appear in FINRA, SEC, or firm-facing public profiles.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-
-            FormField(
-                title: "Name",
-                placeholder: "Example: ANA ROUMENOVA CARTER",
-                text: Binding(
-                    get: { vm.query },
-                    set: vm.updateQuery
-                )
-            )
-            .focused($focusedField, equals: .query)
-            .textInputAutocapitalization(.words)
-            .autocorrectionDisabled()
-            .submitLabel(.go)
-            .onSubmit {
-                Task { await vm.startLookup() }
-            }
-
-            if let queryValidationMessage = vm.queryValidationMessage {
-                validationMessage(queryValidationMessage)
-            }
-
-            HStack(spacing: 10) {
-                Image(systemName: "sparkles.rectangle.stack.fill")
-                    .foregroundStyle(Color.hushhPrimary)
-                Text("We'll verify regulatory records first, then build the rest of your profile automatically.")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-            }
-            .padding(.top, 4)
-        }
-    }
-
-    private var previewSection: some View {
-        VStack(alignment: .leading, spacing: 16) {
+    private var previewForm: some View {
+        Form {
             if let preview = vm.previewContent {
-                GroupCard {
-                    HStack(alignment: .center, spacing: 16) {
+                // Profile header
+                Section {
+                    HStack(spacing: 14) {
                         PreviewAvatar(imageURL: preview.imageURL, initials: preview.initials)
 
-                        VStack(alignment: .leading, spacing: 5) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text(preview.fullName)
-                                .font(.system(.title3, design: .rounded, weight: .bold))
+                                .font(.headline)
 
                             if !preview.firmName.isEmpty {
                                 Text(preview.firmName)
-                                    .font(.hushhBody(.subheadline, weight: .medium))
+                                    .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }
 
                             if !preview.locationLine.isEmpty {
                                 Label(preview.locationLine, systemImage: "mappin.and.ellipse")
-                                    .font(.hushhBody(.caption))
+                                    .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
 
                             Label(preview.representativeRole, systemImage: "person.text.rectangle")
-                                .font(.hushhBody(.caption, weight: .medium))
-                                .foregroundStyle(Color.hushhPrimary)
+                                .font(.caption)
+                                .foregroundStyle(.blue)
                         }
                     }
+                    .padding(.vertical, 4)
 
-                    // CRD badge — prominent if present
                     if let crd = preview.crdNumber, !crd.isEmpty {
-                        HStack(spacing: 8) {
-                            Image(systemName: "checkmark.seal.fill")
-                                .foregroundStyle(.green)
-                            Text("CRD #\(crd)")
-                                .font(.hushhBody(.subheadline, weight: .semibold))
-                                .foregroundStyle(.primary)
+                        HStack {
+                            Label("CRD #\(crd)", systemImage: "checkmark.seal.fill")
+                                .font(.subheadline.weight(.medium))
                             Spacer()
                             Text("Verified")
-                                .font(.hushhBody(.caption, weight: .medium))
+                                .font(.caption.weight(.medium))
                                 .foregroundStyle(.green)
                         }
-                        .padding(12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(Color.green.opacity(0.08))
-                        )
                     }
+                } footer: {
+                    Text("Based on public records for \(preview.fullName).")
                 }
 
-                GroupCard {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Executive Summary")
-                            .font(.system(.headline, design: .rounded, weight: .semibold))
-                        Text(
-                            preview.executiveSummary.isEmpty
-                                ? "Verified during public profile lookup."
-                                : preview.executiveSummary
-                        )
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                    }
+                // Executive Summary
+                Section("Executive Summary") {
+                    Text(
+                        preview.executiveSummary.isEmpty
+                            ? "Verified during public profile lookup."
+                            : preview.executiveSummary
+                    )
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                }
 
-                    if !preview.keyFacts.isEmpty {
-                        Divider()
-
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Key Facts")
-                                .font(.system(.headline, design: .rounded, weight: .semibold))
-
-                            ForEach(preview.keyFacts, id: \.self) { fact in
-                                HStack(alignment: .top, spacing: 8) {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundStyle(Color.hushhPrimary)
-                                        .font(.caption)
-                                        .padding(.top, 2)
-                                    Text(fact)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
-                                }
+                // Key Facts
+                if !preview.keyFacts.isEmpty {
+                    Section("Key Facts") {
+                        ForEach(preview.keyFacts, id: \.self) { fact in
+                            Label {
+                                Text(fact)
+                                    .font(.subheadline)
+                            } icon: {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(.green)
+                                    .font(.caption)
                             }
                         }
                     }
                 }
 
+                // Categories
                 if !preview.categories.isEmpty {
-                    GroupCard {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Derived Categories")
-                                .font(.system(.headline, design: .rounded, weight: .semibold))
-                            FlowLayout(spacing: 10) {
-                                ForEach(preview.categories) { category in
-                                    ReadonlyChip(title: category.label, systemImage: category.icon)
-                                }
+                    Section("Categories") {
+                        FlowLayout(spacing: 8) {
+                            ForEach(preview.categories) { category in
+                                Label(category.label, systemImage: category.icon)
+                                    .font(.footnote.weight(.medium))
+                                    .foregroundStyle(.blue)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 6)
+                                    .background(Color(.tertiarySystemFill))
+                                    .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
                             }
                         }
+                        .padding(.vertical, 4)
                     }
                 }
 
-                GroupCard {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Contact for Your Deck Card")
-                            .font(.system(.headline, design: .rounded, weight: .semibold))
-                        Text("Add your phone number to publish this profile on the deck.")
-                            .font(.hushhBody(.subheadline))
-                            .foregroundStyle(.secondary)
-                    }
-
-                    // Phone field with +1 country code
-                    VStack(alignment: .leading, spacing: 8) {
+                // Contact
+                Section {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text("Phone")
-                            .font(.caption.weight(.semibold))
+                            .font(.caption)
                             .foregroundStyle(.secondary)
 
                         HStack(spacing: 0) {
                             Text("+1")
-                                .font(.body)
                                 .foregroundStyle(.primary)
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 14)
-                                .background(
-                                    Color(.tertiarySystemFill)
-                                )
+                                .padding(.trailing, 8)
 
                             TextField("8135551212", text: Binding(
                                 get: { vm.phone },
@@ -680,242 +373,237 @@ struct OnboardingView: View {
                             .focused($focusedField, equals: .phone)
                             .keyboardType(.phonePad)
                             .textContentType(.telephoneNumber)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 14)
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                .fill(Color(.secondarySystemGroupedBackground))
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                                .stroke(Color(.separator), lineWidth: 0.5)
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                     }
 
                     if let phoneValidationMessage = vm.phoneValidationMessage {
-                        validationMessage(phoneValidationMessage)
+                        Label(phoneValidationMessage, systemImage: "exclamationmark.circle.fill")
+                            .font(.footnote)
+                            .foregroundStyle(.red)
                     }
 
-                    // Clickable website
                     if !preview.websiteURL.isEmpty {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Website")
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(.secondary)
-                            if let url = URL(string: preview.websiteURL) {
-                                Link(destination: url) {
-                                    HStack(spacing: 6) {
-                                        Text(preview.websiteURL)
-                                            .font(.hushhBody(.subheadline))
-                                            .foregroundStyle(Color.hushhPrimary)
-                                            .lineLimit(1)
-                                        Image(systemName: "arrow.up.right.square")
-                                            .font(.caption)
-                                            .foregroundStyle(Color.hushhPrimary)
-                                    }
+                        if let url = URL(string: preview.websiteURL) {
+                            Link(destination: url) {
+                                HStack {
+                                    Text("Website")
+                                        .foregroundStyle(.primary)
+                                    Spacer()
+                                    Text(preview.websiteURL)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.blue)
+                                        .lineLimit(1)
+                                    Image(systemName: "arrow.up.right")
+                                        .font(.caption)
+                                        .foregroundStyle(.tertiary)
                                 }
-                            } else {
-                                Text(preview.websiteURL)
-                                    .font(.hushhBody(.subheadline))
-                                    .foregroundStyle(.primary)
                             }
                         }
                     }
+                } header: {
+                    Text("Contact")
+                } footer: {
+                    Text("Add your phone number to publish this profile on the deck.")
                 }
 
-                // Verified Sources — show as a list
+                // Verified Sources
                 if !preview.verifiedSources.isEmpty {
-                    GroupCard {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Verified Sources")
-                                .font(.system(.headline, design: .rounded, weight: .semibold))
-                            Text("\(preview.verifiedSources.count) source\(preview.verifiedSources.count == 1 ? "" : "s") confirmed this profile.")
-                                .font(.hushhBody(.caption))
-                                .foregroundStyle(.secondary)
-                        }
-
+                    Section {
                         ForEach(preview.verifiedSources) { source in
                             if let url = URL(string: source.url) {
                                 Link(destination: url) {
                                     HStack(spacing: 10) {
                                         Image(systemName: "checkmark.shield.fill")
                                             .foregroundStyle(.green)
-                                            .font(.body)
 
-                                        VStack(alignment: .leading, spacing: 2) {
+                                        VStack(alignment: .leading, spacing: 1) {
                                             Text(source.platform)
-                                                .font(.hushhBody(.subheadline, weight: .semibold))
+                                                .font(.subheadline)
                                                 .foregroundStyle(.primary)
                                             Text(source.label)
-                                                .font(.hushhBody(.caption))
+                                                .font(.caption)
                                                 .foregroundStyle(.secondary)
                                                 .lineLimit(1)
                                         }
 
                                         Spacer(minLength: 0)
 
-                                        Image(systemName: "arrow.up.right.square")
+                                        Image(systemName: "arrow.up.right")
                                             .font(.caption2)
-                                            .foregroundStyle(Color.hushhPrimary)
+                                            .foregroundStyle(.tertiary)
                                     }
-                                    .padding(.vertical, 4)
                                 }
                             } else {
                                 HStack(spacing: 10) {
                                     Image(systemName: "checkmark.shield.fill")
                                         .foregroundStyle(.green)
-                                        .font(.body)
-                                    VStack(alignment: .leading, spacing: 2) {
+                                    VStack(alignment: .leading, spacing: 1) {
                                         Text(source.platform)
-                                            .font(.hushhBody(.subheadline, weight: .semibold))
+                                            .font(.subheadline)
                                         Text(source.label)
-                                            .font(.hushhBody(.caption))
+                                            .font(.caption)
                                             .foregroundStyle(.secondary)
                                     }
                                     Spacer()
                                 }
-                                .padding(.vertical, 4)
+                            }
+                        }
+                    } header: {
+                        Text("Verified Sources")
+                    } footer: {
+                        Text("\(preview.verifiedSources.count) source\(preview.verifiedSources.count == 1 ? "" : "s") confirmed this profile.")
+                    }
+                }
+            }
+        }
+        .scrollDismissesKeyboard(.interactively)
+    }
+
+    // MARK: - No Match
+
+    private var noMatchForm: some View {
+        Form {
+            Section {
+                Label {
+                    Text("We couldn't find a match")
+                        .font(.headline)
+                } icon: {
+                    Image(systemName: "magnifyingglass.circle.fill")
+                        .foregroundStyle(.orange)
+                        .font(.title2)
+                }
+
+                Text(vm.noMatchMessage ?? "No strong match was found in FINRA or SEC databases. This can happen with alternate spellings, maiden names, or very recent registrations.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+
+            if !vm.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                Section {
+                    HStack {
+                        Text("Searched")
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Text(vm.query)
+                    }
+                }
+            }
+
+            if !vm.suggestedNames.isEmpty {
+                Section {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Did you mean?")
+                            .font(.subheadline.weight(.semibold))
+
+                        FlowLayout(spacing: 8) {
+                            ForEach(vm.suggestedNames, id: \.self) { name in
+                                Button {
+                                    Task { await vm.selectSuggestion(name) }
+                                } label: {
+                                    Text(name)
+                                        .font(.subheadline)
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 6)
+                                        .background(.ultraThinMaterial)
+                                        .clipShape(Capsule())
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
                 }
             }
-        }
-    }
 
-    private var noMatchSection: some View {
-        GroupCard {
-            VStack(alignment: .leading, spacing: 14) {
-                Label {
-                    Text("No confident match yet")
-                        .font(.system(.title3, design: .rounded, weight: .bold))
-                } icon: {
-                    Image(systemName: "magnifyingglass.circle.fill")
-                        .foregroundStyle(Color.hushhPrimary)
-                }
-
-                Text(vm.noMatchMessage ?? "We couldn't confidently match that name to FINRA or SEC records.")
-                    .font(.body)
+            Section {
+                Text("Try your full legal name, or the exact firm name from your BrokerCheck listing.")
+                    .font(.footnote)
                     .foregroundStyle(.secondary)
-
-                if !vm.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    LabeledValue(title: "Searched", value: vm.query)
-                }
             }
         }
     }
 
-    private var errorSection: some View {
-        GroupCard {
-            VStack(alignment: .leading, spacing: 14) {
+    // MARK: - Error
+
+    private var errorForm: some View {
+        Form {
+            Section {
                 Label {
-                    Text("Temporary service issue")
-                        .font(.system(.title3, design: .rounded, weight: .bold))
+                    Text("Lookup temporarily unavailable")
+                        .font(.headline)
                 } icon: {
                     Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.orange)
+                        .font(.title2)
                 }
 
-                Text(vm.errorStateMessage ?? "We couldn't complete the profile lookup right now.")
-                    .font(.body)
+                Text(vm.errorStateMessage ?? "Our research engine is briefly offline. This doesn't affect any data already saved — just try again in a moment.")
+                    .font(.subheadline)
                     .foregroundStyle(.secondary)
+            }
 
-                if !vm.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    LabeledValue(title: "Lookup Name", value: vm.query)
+            if !vm.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                Section {
+                    HStack {
+                        Text("Searched for")
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Text(vm.query)
+                    }
                 }
             }
         }
     }
+
+    // MARK: - Loading
 
     private var loadingState: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 24) {
             Spacer()
 
-            VStack(spacing: 28) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(.ultraThinMaterial)
-                        .frame(width: 86, height: 86)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                                .stroke(Color.white.opacity(0.8), lineWidth: 1)
-                        )
+            Image("HushhLogo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 48, height: 48)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
 
-                    Image("HushhLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 44, height: 44)
-                }
-                .shadow(color: .black.opacity(0.08), radius: 16, y: 8)
+            VStack(spacing: 8) {
+                Text(vm.loadingTitle)
+                    .font(.title2.bold())
+                    .multilineTextAlignment(.center)
 
-                VStack(spacing: 12) {
-                    Text(vm.loadingTitle)
-                        .font(.system(.title2, design: .rounded, weight: .bold))
-                        .multilineTextAlignment(.center)
-                        .foregroundStyle(.primary)
-
-                    Text(vm.loadingSubtitle)
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-
-                VStack(spacing: 16) {
-                    ProgressView()
-                        .tint(Color.hushhPrimary)
-                        .scaleEffect(1.15)
-
-                    if !vm.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                        Text("Searching for \(vm.query)")
-                            .font(.footnote.weight(.medium))
-                            .foregroundStyle(.secondary)
-                    }
-                }
-
-                HStack(spacing: 8) {
-                    ForEach(0..<3, id: \.self) { index in
-                        Capsule()
-                            .fill(index == 1 ? Color.hushhPrimary : Color.hushhPrimary.opacity(0.22))
-                            .frame(width: index == 1 ? 30 : 16, height: 6)
-                    }
-                }
+                Text(vm.loadingSubtitle)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
             }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 34)
-            .background(
-                RoundedRectangle(cornerRadius: 32, style: .continuous)
-                    .fill(.regularMaterial)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 32, style: .continuous)
-                    .stroke(Color.white.opacity(0.82), lineWidth: 1)
-            )
-            .shadow(color: .black.opacity(0.06), radius: 24, y: 12)
+
+            ProgressView()
+                .controlSize(.regular)
+
+            if !vm.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                Text("Searching for \(vm.query)")
+                    .font(.footnote)
+                    .foregroundStyle(.tertiary)
+            }
 
             Spacer()
         }
+        .padding(.horizontal, 32)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding(.horizontal, 24)
-        .background(nameEntryBackground.ignoresSafeArea())
+        .background(Color(.systemGroupedBackground).ignoresSafeArea())
     }
 
+    // MARK: - Bottom Action Bar
+
     private var bottomActionBar: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 8) {
             if vm.phase == .preview {
                 Button("Search Again") {
                     focusedField = nil
                     vm.searchAgain()
                 }
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.secondary)
-                .padding(.horizontal, 14)
-                .padding(.vertical, 8)
-                .background(
-                    Capsule(style: .continuous)
-                        .fill(Color(.systemBackground).opacity(0.88))
-                )
+                .font(.subheadline)
+                .foregroundStyle(.blue)
             }
 
             Button {
@@ -946,178 +634,32 @@ struct OnboardingView: View {
                     break
                 }
             } label: {
-                if vm.isBusy {
-                    HStack(spacing: 10) {
+                HStack(spacing: 8) {
+                    if vm.isBusy {
                         ProgressView()
                             .tint(.white)
-                        Text(primaryActionTitle)
                     }
-                    .font(.body.weight(.semibold))
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                } else {
                     Text(primaryActionTitle)
-                        .font(.system(.body, design: .rounded, weight: .semibold))
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
                 }
+                .font(.body.weight(.semibold))
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background(Color.accentColor)
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
             }
-            .background(
-                LinearGradient(
-                    colors: [
-                        Color.hushhPrimary,
-                        Color.hushhPrimary.opacity(0.82)
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .buttonStyle(.plain)
             .disabled(primaryActionDisabled)
             .opacity(primaryActionDisabled ? 0.45 : 1)
-            .shadow(color: Color.hushhPrimary.opacity(0.22), radius: 14, y: 8)
         }
-        .padding(.horizontal, hPad)
-        .padding(.top, 10)
+        .padding(.horizontal, 16)
+        .padding(.top, 8)
         .padding(.bottom, 16)
-        .background(.ultraThinMaterial)
-    }
-
-    @ViewBuilder
-    private func validationMessage(_ text: String) -> some View {
-        HStack(spacing: 8) {
-            Image(systemName: "exclamationmark.circle.fill")
-                .foregroundStyle(.red)
-            Text(text)
-                .font(.footnote)
-                .foregroundStyle(.red)
-        }
+        .background(.bar)
     }
 }
 
-private struct GroupCard<Content: View>: View {
-    @ViewBuilder var content: Content
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            content
-        }
-        .padding(18)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            RoundedRectangle(cornerRadius: 26, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 26, style: .continuous)
-                .stroke(Color.white.opacity(0.82), lineWidth: 1)
-        )
-        .shadow(color: .black.opacity(0.05), radius: 18, y: 8)
-    }
-}
-
-private struct OnboardingFeatureRow: View {
-    let icon: String
-    let title: String
-    let message: String
-
-    var body: some View {
-        HStack(alignment: .top, spacing: 14) {
-            ZStack {
-                Circle()
-                    .fill(Color.hushhPrimary.opacity(0.12))
-                    .frame(width: 34, height: 34)
-
-                Image(systemName: icon)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(Color.hushhPrimary)
-            }
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
-
-                Text(message)
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            Spacer(minLength: 0)
-        }
-    }
-}
-
-private struct FormField: View {
-    let title: String
-    let placeholder: String
-    @Binding var text: String
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title)
-                .font(.caption.weight(.semibold))
-                .foregroundStyle(.secondary)
-
-            TextField(placeholder, text: $text)
-                .padding(.horizontal, 14)
-                .padding(.vertical, 14)
-                .background(
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .fill(Color(.secondarySystemGroupedBackground))
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .stroke(Color(.separator), lineWidth: 0.5)
-                )
-        }
-    }
-}
-
-private struct ReadonlyChip: View {
-    let title: String
-    let systemImage: String
-
-    var body: some View {
-        HStack(spacing: 8) {
-            Image(systemName: systemImage)
-            Text(title)
-        }
-        .font(.footnote.weight(.semibold))
-        .foregroundStyle(Color.hushhPrimary)
-        .padding(.horizontal, 14)
-        .padding(.vertical, 9)
-        .background(
-            Capsule()
-                .fill(Color.hushhPrimary.opacity(0.12))
-        )
-    }
-}
-
-private struct LabeledValue: View {
-    let title: String
-    let value: String
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.footnote.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Text(value)
-                .font(.body)
-                .foregroundStyle(.primary)
-        }
-        .padding(14)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Color(.secondarySystemBackground).opacity(0.8))
-        )
-    }
-}
+// MARK: - Preview Avatar
 
 private struct PreviewAvatar: View {
     let imageURL: String?
@@ -1131,23 +673,20 @@ private struct PreviewAvatar: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             default:
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(Color.hushhPrimary.opacity(0.12))
+                Color(.systemGray5)
                     .overlay(
                         Text(initials)
-                            .font(.title2.bold())
-                            .foregroundStyle(Color.hushhPrimary)
+                            .font(.title3.bold())
+                            .foregroundStyle(.secondary)
                     )
             }
         }
-        .frame(width: 92, height: 92)
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(Color.white.opacity(0.7), lineWidth: 1)
-        )
+        .frame(width: 72, height: 72)
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 }
+
+// MARK: - Previews
 
 #Preview("Name Entry") {
     OnboardingView(viewModel: .previewViewModel(phase: .nameEntry))

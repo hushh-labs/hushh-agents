@@ -11,9 +11,9 @@ struct AgentDetailView: View {
     private var statusLabel: (title: String, icon: String, tint: Color)? {
         switch swipeStatus {
         case "selected":
-            return ("Saved", "heart.fill", .hushhLike)
+            return ("Saved", "heart.fill", .green)
         case "rejected":
-            return ("Passed", "xmark.circle.fill", .hushhPass)
+            return ("Passed", "xmark.circle.fill", .red)
         default:
             return nil
         }
@@ -25,14 +25,14 @@ struct AgentDetailView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    // MARK: – Hero photo
+            List {
+                // Hero photo
+                Section {
                     AsyncImage(url: agent.primaryPhotoURL) { phase in
                         switch phase {
                         case .empty:
                             Rectangle()
-                                .fill(Color.gray.opacity(0.2))
+                                .fill(Color(.systemGray6))
                                 .overlay(ProgressView())
                         case .success(let image):
                             image
@@ -40,35 +40,32 @@ struct AgentDetailView: View {
                                 .aspectRatio(contentMode: .fill)
                         case .failure:
                             Rectangle()
-                                .fill(Color.gray.opacity(0.2))
+                                .fill(Color(.systemGray6))
                                 .overlay(
                                     Image(systemName: "person.crop.rectangle")
-                                        .font(.system(size: 40))
-                                        .foregroundColor(.gray)
+                                        .font(.system(size: 36))
+                                        .foregroundStyle(.secondary)
                                 )
                         @unknown default:
                             EmptyView()
                         }
                     }
-                    .frame(height: 300)
+                    .frame(height: 280)
                     .frame(maxWidth: .infinity)
                     .clipped()
+                    .listRowInsets(EdgeInsets())
+                }
 
-                    // MARK: – Name & rating
+                // Name & status
+                Section {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(agent.name)
-                            .font(.title.bold())
+                            .font(.title2.bold())
 
                         if let statusLabel {
                             Label(statusLabel.title, systemImage: statusLabel.icon)
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(statusLabel.tint)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
-                                .background(
-                                    Capsule()
-                                        .fill(statusLabel.tint.opacity(0.12))
-                                )
                         }
 
                         RatingStarsView(
@@ -76,115 +73,94 @@ struct AgentDetailView: View {
                             reviewCount: agent.reviewCount
                         )
                     }
-                    .padding(.horizontal)
+                    .padding(.vertical, 4)
+                }
 
-                    // MARK: – Categories
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
+                // Categories
+                if !agent.categories.isEmpty {
+                    Section("Categories") {
+                        FlowLayout(spacing: 8) {
                             ForEach(agent.categories, id: \.self) { category in
                                 CategoryBadge(category: category)
                             }
                         }
-                        .padding(.horizontal)
+                        .padding(.vertical, 4)
+                    }
+                }
+
+                // Contact
+                Section("Contact") {
+                    if let phone = agent.localizedPhone, !phone.isEmpty {
+                        Label(phone, systemImage: "phone.fill")
                     }
 
-                    Divider().padding(.horizontal)
-
-                    // MARK: – Contact info
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Contact")
-                            .font(.headline)
-
-                        if let phone = agent.localizedPhone, !phone.isEmpty {
-                            Label(phone, systemImage: "phone.fill")
-                                .font(.subheadline)
-                        }
-
-                        if let website = agent.website, !website.isEmpty {
-                            Label {
-                                Text(website)
-                                    .lineLimit(1)
-                            } icon: {
-                                Image(systemName: "globe")
-                            }
-                            .font(.subheadline)
-                        }
-
-                        if let address = formattedShortAddress {
-                            Label(address, systemImage: "mappin.and.ellipse")
-                                .font(.subheadline)
-                        }
-                    }
-                    .padding(.horizontal)
-
-                    // MARK: – Bio
-                    if let bio = agent.bio, !bio.isEmpty {
-                        Divider().padding(.horizontal)
-
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("About")
-                                .font(.headline)
-                            Text(bio)
-                                .font(.body)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding(.horizontal)
-                    }
-
-                    // MARK: – Services
-                    if !agent.services.isEmpty {
-                        Divider().padding(.horizontal)
-
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Services")
-                                .font(.headline)
-
-                            ForEach(agent.services, id: \.self) { service in
-                                HStack(spacing: 8) {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.hushhLike)
-                                        .font(.subheadline)
-                                    Text(service)
-                                        .font(.subheadline)
+                    if let website = agent.website, !website.isEmpty {
+                        if let url = URL(string: website) {
+                            Link(destination: url) {
+                                Label {
+                                    Text(website)
+                                        .lineLimit(1)
+                                } icon: {
+                                    Image(systemName: "globe")
                                 }
                             }
                         }
-                        .padding(.horizontal)
                     }
 
-                    // MARK: – Map
-                    if let lat = agent.latitude, let lng = agent.longitude {
-                        Divider().padding(.horizontal)
+                    if let address = formattedShortAddress {
+                        Label(address, systemImage: "mappin.and.ellipse")
+                    }
+                }
 
+                // About
+                if let bio = agent.bio, !bio.isEmpty {
+                    Section("About") {
+                        Text(bio)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
+                // Services
+                if !agent.services.isEmpty {
+                    Section("Services") {
+                        ForEach(agent.services, id: \.self) { service in
+                            Label(service, systemImage: "checkmark.circle.fill")
+                                .font(.subheadline)
+                        }
+                    }
+                }
+
+                // Map
+                if let lat = agent.latitude, let lng = agent.longitude {
+                    Section("Location") {
                         mapSection(latitude: lat, longitude: lng)
+                            .listRowInsets(EdgeInsets())
                     }
+                }
 
-                    // MARK: – Conversation button
+                // Conversation button
+                Section {
                     Button {
                         dismiss()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                             appState.triggerGatedAction(.openConversation(agentId: agent.deckTargetKey))
                         }
                     } label: {
-                        HStack(spacing: 8) {
+                        HStack {
+                            Spacer()
                             if appState.isGuestBrowsingMode {
                                 Image(systemName: "lock.fill")
-                                    .font(.subheadline.weight(.semibold))
+                                    .font(.subheadline)
                             }
-
                             Text(conversationButtonTitle)
-                                .font(.headline)
+                                .font(.body.weight(.semibold))
+                            Spacer()
                         }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.hushhPrimary)
-                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                     }
-                    .padding(.horizontal)
-                    .padding(.bottom, 24)
                 }
             }
+            .listStyle(.insetGrouped)
             .navigationTitle(agent.name)
             .navigationBarTitleDisplayMode(.inline)
             .task(id: "\(appState.authenticatedUserId?.uuidString ?? "guest")::\(agent.deckTargetKey)") {
@@ -198,7 +174,7 @@ struct AgentDetailView: View {
         }
     }
 
-    // MARK: – Helpers
+    // MARK: - Helpers
 
     private var formattedShortAddress: String? {
         let parts = [agent.address1, agent.city, agent.state, agent.zip].compactMap { $0 }
@@ -228,8 +204,6 @@ struct AgentDetailView: View {
             Marker(agent.name, coordinate: coordinate)
         }
         .frame(height: 200)
-        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-        .padding(.horizontal)
     }
 }
 

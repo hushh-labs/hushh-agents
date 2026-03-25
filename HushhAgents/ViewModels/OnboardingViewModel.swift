@@ -70,11 +70,12 @@ final class OnboardingViewModel: ObservableObject {
     @Published var query = ""
     @Published var phone = ""
     @Published private(set) var previewContent: PreviewContent?
-    @Published private(set) var loadingTitle = "Verifying your public records"
-    @Published private(set) var loadingSubtitle = "Checking FINRA and SEC sources before building your dossier."
+    @Published private(set) var loadingTitle = "Checking regulatory databases"
+    @Published private(set) var loadingSubtitle = "Scanning FINRA BrokerCheck and SEC IAPD for your registration details."
     @Published var queryValidationMessage: String?
     @Published var phoneValidationMessage: String?
     @Published var noMatchMessage: String?
+    @Published private(set) var suggestedNames: [String] = []
     @Published var errorStateMessage: String?
     @Published var alertMessage: String?
     @Published var isSaving = false
@@ -184,7 +185,15 @@ final class OnboardingViewModel: ObservableObject {
         queryValidationMessage = nil
         phoneValidationMessage = nil
         noMatchMessage = nil
+        suggestedNames = []
         errorStateMessage = nil
+    }
+
+    func selectSuggestion(_ name: String) async {
+        query = name
+        suggestedNames = []
+        noMatchMessage = nil
+        await startLookup()
     }
 
     func submit(userId: UUID) async throws -> HushhAgentProfile {
@@ -228,9 +237,10 @@ final class OnboardingViewModel: ObservableObject {
         case .blankQuery:
             phase = .nameEntry
             queryValidationMessage = error.errorDescription
-        case .noMatch(let reason):
+        case .noMatch(let reason, let suggestions):
             phase = .noMatch
             noMatchMessage = reason ?? error.errorDescription
+            suggestedNames = suggestions
         case .upstreamFailure, .networkFailure:
             phase = .error
             errorStateMessage = error.errorDescription
@@ -669,32 +679,32 @@ final class OnboardingViewModel: ObservableObject {
 
     nonisolated private static let loadingMessages: [LoadingMessage] = [
         LoadingMessage(
-            title: "Verifying your public records",
-            subtitle: "Checking FINRA and SEC sources before building your dossier."
+            title: "Checking regulatory databases",
+            subtitle: "Scanning FINRA BrokerCheck and SEC IAPD for your registration details."
         ),
         LoadingMessage(
-            title: "Researching your dossier",
-            subtitle: "Pulling together public profile signals and source-backed facts."
+            title: "Compiling your dossier",
+            subtitle: "Gathering credentials, firm history, and key facts from multiple verified sources."
         ),
         LoadingMessage(
-            title: "Selecting your best image",
-            subtitle: "Ranking validated public images for the strongest deck preview."
+            title: "Finding your best photo",
+            subtitle: "Scanning public profiles and firm websites for a professional headshot."
         ),
         LoadingMessage(
             title: "Cross-referencing sources",
-            subtitle: "Matching regulatory records with verified web data."
+            subtitle: "Matching records across FINRA, SEC, firm websites, and public directories."
         ),
         LoadingMessage(
             title: "Building your profile",
-            subtitle: "This deep research takes a moment — hang tight."
+            subtitle: "Deep research across multiple sources — this usually takes 30–90 seconds."
         ),
         LoadingMessage(
-            title: "Almost there",
-            subtitle: "Finalizing your dossier and validating images."
+            title: "Almost ready",
+            subtitle: "Putting the finishing touches on your verified profile."
         ),
         LoadingMessage(
-            title: "Still working on it",
-            subtitle: "Deep lookups can take several minutes when fallback research kicks in."
+            title: "Still researching",
+            subtitle: "Some profiles require deeper lookups — we're pulling from fallback sources. Thanks for your patience."
         )
     ]
 

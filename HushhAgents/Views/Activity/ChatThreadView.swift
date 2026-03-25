@@ -26,15 +26,11 @@ struct ChatThreadView: View {
                        let url = URL(string: "tel://\(phone)") {
                         Link(destination: url) {
                             Image(systemName: "phone.fill")
-                                .symbolRenderingMode(.monochrome)
-                                .foregroundStyle(Color.hushhPrimary)
                         }
                     }
                     if let website = agent.websiteURL {
                         Link(destination: website) {
                             Image(systemName: "globe")
-                                .symbolRenderingMode(.monochrome)
-                                .foregroundStyle(Color.hushhPrimary)
                         }
                     }
                 }
@@ -53,7 +49,6 @@ struct ChatThreadView: View {
 
     private func conversationBody(userId: UUID) -> some View {
         VStack(spacing: 0) {
-            // Error banner
             if let loadError = vm.loadError {
                 VStack(spacing: 8) {
                     Text("Failed to load conversation")
@@ -65,24 +60,20 @@ struct ChatThreadView: View {
                         Task { await vm.load(userId: userId, agent: agent) }
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(Color.hushhPrimary)
                 }
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.red.opacity(0.08))
             }
 
-            // Messages
             ScrollViewReader { proxy in
                 ScrollView {
                     LazyVStack(spacing: 4) {
-                        // Loading indicator
                         if vm.isLoading {
                             ProgressView("Setting up conversation…")
                                 .padding(.vertical, 40)
                         }
 
-                        // Welcome header
                         if vm.messages.isEmpty && !vm.isLoading && vm.loadError == nil {
                             chatEmptyHeader
                         }
@@ -105,7 +96,6 @@ struct ChatThreadView: View {
                 }
             }
 
-            // Send error
             if let sendError = vm.sendError {
                 HStack(spacing: 6) {
                     Image(systemName: "exclamationmark.triangle.fill")
@@ -122,7 +112,6 @@ struct ChatThreadView: View {
                 .background(Color.red.opacity(0.06))
             }
 
-            // Composer (disabled when conversation not ready)
             chatComposer(userId: userId)
         }
         .background(Color(.systemGroupedBackground))
@@ -138,11 +127,11 @@ struct ChatThreadView: View {
                     image.resizable().aspectRatio(contentMode: .fill)
                 default:
                     Circle()
-                        .fill(Color.hushhPrimary.opacity(0.12))
+                        .fill(Color(.systemGray5))
                         .overlay(
                             Text(String(agent.name.prefix(2)).uppercased())
                                 .font(.title3.bold())
-                                .foregroundStyle(Color.hushhPrimary)
+                                .foregroundStyle(.secondary)
                         )
                 }
             }
@@ -187,18 +176,14 @@ struct ChatThreadView: View {
                     .foregroundStyle(
                         vm.draftMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
                             ? Color(.tertiaryLabel)
-                            : Color.hushhPrimary
+                            : .accentColor
                     )
             }
             .disabled(vm.draftMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || vm.isSending)
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
-        .background(
-            Rectangle()
-                .fill(.bar)
-                .shadow(color: .black.opacity(0.04), radius: 1, y: -1)
-        )
+        .background(.bar)
     }
 }
 
@@ -219,8 +204,6 @@ private struct ChatBubble: View {
         }
     }
 
-    // MARK: - System Bubble (centered)
-
     private var systemBubble: some View {
         HStack {
             Spacer()
@@ -238,8 +221,6 @@ private struct ChatBubble: View {
         .padding(.vertical, 4)
     }
 
-    // MARK: - Message Bubble (left/right)
-
     private var messageBubble: some View {
         HStack(alignment: .bottom, spacing: 6) {
             if isOwner { Spacer(minLength: 60) }
@@ -252,7 +233,7 @@ private struct ChatBubble: View {
                     .padding(.vertical, 10)
                     .background(
                         isOwner
-                            ? Color.hushhPrimary
+                            ? Color.accentColor
                             : Color(.secondarySystemGroupedBackground)
                     )
                     .clipShape(ChatBubbleShape(isOwner: isOwner))
@@ -272,7 +253,6 @@ private struct ChatBubble: View {
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         guard let date = formatter.date(from: message.createdAt) else {
-            // Try without fractional seconds
             formatter.formatOptions = [.withInternetDateTime]
             guard let date2 = formatter.date(from: message.createdAt) else {
                 return ""
@@ -299,14 +279,12 @@ private struct ChatBubbleShape: Shape {
         let tailSize: CGFloat = 6
 
         if isOwner {
-            // Owner bubble - rounded with bottom-right tail
             var path = Path()
             path.addRoundedRect(
                 in: CGRect(x: 0, y: 0, width: rect.width - tailSize, height: rect.height),
                 cornerSize: CGSize(width: radius, height: radius),
                 style: .continuous
             )
-            // Small tail at bottom right
             path.move(to: CGPoint(x: rect.width - tailSize, y: rect.height - radius))
             path.addQuadCurve(
                 to: CGPoint(x: rect.width, y: rect.height),
@@ -318,14 +296,12 @@ private struct ChatBubbleShape: Shape {
             )
             return path
         } else {
-            // Other bubble - rounded with bottom-left tail
             var path = Path()
             path.addRoundedRect(
                 in: CGRect(x: tailSize, y: 0, width: rect.width - tailSize, height: rect.height),
                 cornerSize: CGSize(width: radius, height: radius),
                 style: .continuous
             )
-            // Small tail at bottom left
             path.move(to: CGPoint(x: tailSize, y: rect.height - radius))
             path.addQuadCurve(
                 to: CGPoint(x: 0, y: rect.height),
