@@ -1,0 +1,3 @@
+[submodule "ria-intelligence-api"]
+	path = ria-intelligence-api
+	url = https://github.com/hushh-labs/hushh-ria-intelligence-api.git

@@ -22,6 +22,13 @@ supabase/.temp
 .build/
 Packages/
 
+# Python (ria-intelligence-api submodule)
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+
 # Misc
 *.log
 *.swp
