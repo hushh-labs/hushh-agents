@@ -309,6 +309,65 @@ struct OnboardingView: View {
                     Text("Based on public records for \(preview.fullName).")
                 }
 
+                // Phone — prominent, required
+                Section {
+                    HStack(spacing: 12) {
+                        Image(systemName: "phone.fill")
+                            .font(.title3)
+                            .foregroundStyle(vm.phone.isEmpty ? .orange : .green)
+                            .frame(width: 28)
+
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Phone Number")
+                                .font(.subheadline.weight(.medium))
+
+                            HStack(spacing: 0) {
+                                Text("+1 ")
+                                    .foregroundStyle(.secondary)
+
+                                TextField("(813) 555-1212", text: Binding(
+                                    get: { vm.phone },
+                                    set: vm.updatePhoneInput
+                                ))
+                                .focused($focusedField, equals: .phone)
+                                .keyboardType(.phonePad)
+                                .textContentType(.telephoneNumber)
+                                .font(.body.monospacedDigit())
+                            }
+                        }
+                    }
+                    .padding(.vertical, 2)
+
+                    if let phoneValidationMessage = vm.phoneValidationMessage {
+                        Label(phoneValidationMessage, systemImage: "exclamationmark.circle.fill")
+                            .font(.footnote)
+                            .foregroundStyle(.red)
+                    }
+
+                    if vm.phone.isEmpty {
+                        Label {
+                            Text("Required to publish your profile")
+                                .font(.footnote)
+                        } icon: {
+                            Image(systemName: "info.circle")
+                                .font(.footnote)
+                        }
+                        .foregroundStyle(.orange)
+                    }
+                } header: {
+                    HStack {
+                        Text("Almost There")
+                        Spacer()
+                        if !vm.phone.isEmpty {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(.green)
+                                .font(.footnote)
+                        }
+                    }
+                } footer: {
+                    Text("Enter your 10-digit phone number to activate your profile on the deck.")
+                }
+
                 // Executive Summary
                 Section("Executive Summary") {
                     Text(
@@ -336,74 +395,48 @@ struct OnboardingView: View {
                     }
                 }
 
-                // Categories
+                // Categories — simple list rows, no FlowLayout in Form
                 if !preview.categories.isEmpty {
                     Section("Categories") {
-                        FlowLayout(spacing: 8) {
-                            ForEach(preview.categories) { category in
-                                Label(category.label, systemImage: category.icon)
-                                    .font(.footnote.weight(.medium))
+                        ForEach(preview.categories) { category in
+                            Label {
+                                Text(category.label)
+                                    .font(.subheadline)
+                            } icon: {
+                                Image(systemName: category.icon)
                                     .foregroundStyle(.blue)
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 6)
-                                    .background(Color(.tertiarySystemFill))
-                                    .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+                                    .font(.body)
+                                    .frame(width: 24)
                             }
                         }
-                        .padding(.vertical, 4)
                     }
                 }
 
-                // Contact
-                Section {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Phone")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-
-                        HStack(spacing: 0) {
-                            Text("+1")
-                                .foregroundStyle(.primary)
-                                .padding(.trailing, 8)
-
-                            TextField("8135551212", text: Binding(
-                                get: { vm.phone },
-                                set: vm.updatePhoneInput
-                            ))
-                            .focused($focusedField, equals: .phone)
-                            .keyboardType(.phonePad)
-                            .textContentType(.telephoneNumber)
-                        }
-                    }
-
-                    if let phoneValidationMessage = vm.phoneValidationMessage {
-                        Label(phoneValidationMessage, systemImage: "exclamationmark.circle.fill")
-                            .font(.footnote)
-                            .foregroundStyle(.red)
-                    }
-
-                    if !preview.websiteURL.isEmpty {
-                        if let url = URL(string: preview.websiteURL) {
+                // Website
+                if !preview.websiteURL.isEmpty {
+                    if let url = URL(string: preview.websiteURL) {
+                        Section("Website") {
                             Link(destination: url) {
                                 HStack {
-                                    Text("Website")
-                                        .foregroundStyle(.primary)
+                                    Label {
+                                        Text(url.host ?? preview.websiteURL)
+                                            .font(.subheadline)
+                                            .foregroundStyle(.primary)
+                                            .lineLimit(1)
+                                    } icon: {
+                                        Image(systemName: "globe")
+                                            .foregroundStyle(.blue)
+                                    }
+
                                     Spacer()
-                                    Text(preview.websiteURL)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.blue)
-                                        .lineLimit(1)
+
                                     Image(systemName: "arrow.up.right")
-                                        .font(.caption)
+                                        .font(.caption2)
                                         .foregroundStyle(.tertiary)
                                 }
                             }
                         }
                     }
-                } header: {
-                    Text("Contact")
-                } footer: {
-                    Text("Add your phone number to publish this profile on the deck.")
                 }
 
                 // Verified Sources
@@ -490,26 +523,28 @@ struct OnboardingView: View {
             }
 
             if !vm.suggestedNames.isEmpty {
-                Section {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Did you mean?")
-                            .font(.subheadline.weight(.semibold))
+                Section("Did you mean?") {
+                    ForEach(vm.suggestedNames, id: \.self) { name in
+                        Button {
+                            Task { await vm.selectSuggestion(name) }
+                        } label: {
+                            HStack(spacing: 10) {
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundStyle(.blue)
+                                    .font(.subheadline)
 
-                        FlowLayout(spacing: 8) {
-                            ForEach(vm.suggestedNames, id: \.self) { name in
-                                Button {
-                                    Task { await vm.selectSuggestion(name) }
-                                } label: {
-                                    Text(name)
-                                        .font(.subheadline)
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
-                                        .background(.ultraThinMaterial)
-                                        .clipShape(Capsule())
-                                }
-                                .buttonStyle(.plain)
+                                Text(name)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.primary)
+
+                                Spacer()
+
+                                Image(systemName: "arrow.right.circle.fill")
+                                    .foregroundStyle(.blue)
+                                    .font(.body)
                             }
                         }
+                        .buttonStyle(.plain)
                     }
                 }
             }
