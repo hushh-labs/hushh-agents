@@ -59,6 +59,39 @@ final class AuthViewModel: ObservableObject {
         }
     }
 
+    // MARK: - Internal Admin Access
+
+    func signInWithAdminPasscode(passcode: String) async -> AppUser? {
+        isLoading = true
+        errorMessage = nil
+
+        guard let internalAdmin = AuthProviderConfig.internalAdmin else {
+            errorMessage = "Internal admin access is not configured yet. Set DEV_ADMIN_EMAIL to enable it."
+            isLoading = false
+            return nil
+        }
+
+        let normalizedPasscode = passcode.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard normalizedPasscode == internalAdmin.expectedPasscode else {
+            errorMessage = "Incorrect passcode."
+            isLoading = false
+            return nil
+        }
+
+        do {
+            try await authService.signIn(email: internalAdmin.email, password: normalizedPasscode)
+            return try await finalizeSignIn(
+                fallbackEmail: internalAdmin.email,
+                fallbackFullName: nil,
+                fallbackAvatarURL: nil
+            )
+        } catch {
+            errorMessage = error.localizedDescription
+            isLoading = false
+            return nil
+        }
+    }
+
     // MARK: - Sign Out
 
     func signOut() async {

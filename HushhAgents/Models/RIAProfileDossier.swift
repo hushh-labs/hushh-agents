@@ -95,6 +95,7 @@ struct RIAProfileDossier: Codable {
     let publicImages: [PublicImage]
     let keyFacts: [KeyFact]
     let unverifiedOrNotFound: [String]
+    let suggestedNames: [String]
     let promptsUsed: [String]
 
     enum CodingKeys: String, CodingKey {
@@ -104,6 +105,7 @@ struct RIAProfileDossier: Codable {
         case publicImages = "public_images"
         case keyFacts = "key_facts"
         case unverifiedOrNotFound = "unverified_or_not_found"
+        case suggestedNames = "suggested_names"
         case promptsUsed = "prompts_used"
     }
 
@@ -114,6 +116,7 @@ struct RIAProfileDossier: Codable {
         publicImages: [PublicImage] = [],
         keyFacts: [KeyFact] = [],
         unverifiedOrNotFound: [String] = [],
+        suggestedNames: [String] = [],
         promptsUsed: [String] = []
     ) {
         self.subject = subject
@@ -122,6 +125,7 @@ struct RIAProfileDossier: Codable {
         self.publicImages = publicImages
         self.keyFacts = keyFacts
         self.unverifiedOrNotFound = unverifiedOrNotFound
+        self.suggestedNames = suggestedNames
         self.promptsUsed = promptsUsed
     }
 
@@ -133,6 +137,7 @@ struct RIAProfileDossier: Codable {
         publicImages = try container.decodeIfPresent([PublicImage].self, forKey: .publicImages) ?? []
         keyFacts = try container.decodeIfPresent([KeyFact].self, forKey: .keyFacts) ?? []
         unverifiedOrNotFound = try container.decodeIfPresent([String].self, forKey: .unverifiedOrNotFound) ?? []
+        suggestedNames = try container.decodeIfPresent([String].self, forKey: .suggestedNames) ?? []
         promptsUsed = try container.decodeIfPresent([String].self, forKey: .promptsUsed) ?? []
     }
 

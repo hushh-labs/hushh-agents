@@ -8,7 +8,7 @@ struct EmptyDeckView: View {
             if appState.isGuestBrowsingMode {
                 GuestBrowsingCard(
                     title: "Keep your guest deck moving",
-                    message: "Sign in to sync your saved and passed cards, unlock chats and activity, and start building your verified profile.",
+                    message: "Sign in to sync your saved and passed cards, unlock chats, and start building your verified profile.",
                     buttonTitle: "Sign In to Continue"
                 ) {
                     appState.presentGuestSignIn()
@@ -20,41 +20,23 @@ struct EmptyDeckView: View {
                     buttonTitle: "Resume Lookup"
                 )
             } else {
-                VStack(spacing: 16) {
-                    Image(systemName: "checkmark.circle")
-                        .font(.system(size: 56, weight: .thin))
-                        .foregroundStyle(.secondary)
-                        .symbolRenderingMode(.monochrome)
-
-                    Text("You reached the end of the deck")
-                        .font(.hushhHeading(.title3))
-                        .foregroundStyle(.primary)
-                        .multilineTextAlignment(.center)
-
-                    Text("Jump into your saved RIAs or restart the stack.")
-                        .font(.hushhBody(.subheadline))
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-
-                    Button {
+                ContentUnavailableView {
+                    Label("End of Deck", systemImage: "checkmark.circle")
+                } description: {
+                    Text("You've seen all available RIAs. Jump into your saved advisors or restart the stack.")
+                } actions: {
+                    Button("Open Saved RIAs") {
                         appState.triggerGatedAction(.openActivity(section: .saved))
-                    } label: {
-                        Text("Open Saved RIAs")
-                            .font(.body.weight(.semibold))
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                            .background(Color.hushhPrimary)
-                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
-                    .padding(.horizontal, 32)
-                    .padding(.top, 4)
+                    .buttonStyle(.borderedProminent)
                 }
             }
         }
         .padding(16)
     }
 }
+
+// MARK: - Guest Browsing Card
 
 enum GuestBrowsingCardStyle {
     case prominent
@@ -68,87 +50,39 @@ struct GuestBrowsingCard: View {
     var style: GuestBrowsingCardStyle = .prominent
     let action: () -> Void
 
-    private var iconSize: CGFloat {
-        style == .prominent ? 48 : 36
-    }
-
-    private var titleFont: Font {
-        style == .prominent
-            ? .system(.title3, design: .rounded, weight: .bold)
-            : .system(.headline, design: .rounded, weight: .semibold)
-    }
-
-    private var messageFont: Font {
-        style == .prominent ? .system(.subheadline) : .system(.footnote)
-    }
-
-    private var horizontalPadding: CGFloat {
-        style == .prominent ? 18 : 14
-    }
-
-    private var verticalPadding: CGFloat {
-        style == .prominent ? 18 : 14
-    }
-
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack(spacing: 12) {
-                ZStack {
-                    Circle()
-                        .fill(Color.hushhPrimary.opacity(0.12))
-                        .frame(width: iconSize + 10, height: iconSize + 10)
-
-                    Image(systemName: "person.crop.circle.badge.plus")
-                        .font(.system(size: iconSize, weight: .semibold))
-                        .foregroundStyle(Color.hushhPrimary)
-                        .symbolRenderingMode(.hierarchical)
-                }
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(title)
-                        .font(titleFont)
-                        .foregroundStyle(.primary)
-
-                    Text(message)
-                        .font(messageFont)
-                        .foregroundStyle(.secondary)
-                }
+        VStack(alignment: .leading, spacing: 12) {
+            Label {
+                Text(title)
+                    .font(style == .prominent ? .headline : .subheadline.weight(.semibold))
+            } icon: {
+                Image(systemName: "person.crop.circle.badge.plus")
+                    .foregroundStyle(.blue)
+                    .font(style == .prominent ? .title2 : .body)
             }
+
+            Text(message)
+                .font(style == .prominent ? .subheadline : .footnote)
+                .foregroundStyle(.secondary)
 
             Button(action: action) {
                 Text(buttonTitle)
-                    .font(.system(.body, design: .rounded, weight: .semibold))
+                    .font(.body.weight(.semibold))
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .background(
-                        LinearGradient(
-                            colors: [
-                                Color.hushhPrimary,
-                                Color.hushhPrimary.opacity(0.82)
-                            ],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .padding(.vertical, 12)
+                    .background(Color.accentColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
             .buttonStyle(.plain)
         }
-        .padding(.horizontal, horizontalPadding)
-        .padding(.vertical, verticalPadding)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(Color.white.opacity(0.8), lineWidth: 1)
-        )
-        .shadow(color: .black.opacity(0.05), radius: 16, y: 8)
+        .padding(16)
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 }
+
+// MARK: - Verified Profile Completion Card
 
 enum VerifiedProfileCompletionCardStyle {
     case prominent
@@ -163,87 +97,37 @@ struct VerifiedProfileCompletionCard: View {
     let buttonTitle: String
     var style: VerifiedProfileCompletionCardStyle = .prominent
 
-    private var iconSize: CGFloat {
-        style == .prominent ? 48 : 36
-    }
-
-    private var titleFont: Font {
-        style == .prominent
-            ? .system(.title3, design: .rounded, weight: .bold)
-            : .system(.headline, design: .rounded, weight: .semibold)
-    }
-
-    private var messageFont: Font {
-        style == .prominent ? .system(.subheadline) : .system(.footnote)
-    }
-
-    private var horizontalPadding: CGFloat {
-        style == .prominent ? 18 : 14
-    }
-
-    private var verticalPadding: CGFloat {
-        style == .prominent ? 18 : 14
-    }
-
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack(spacing: 12) {
-                ZStack {
-                    Circle()
-                        .fill(Color.hushhPrimary.opacity(0.12))
-                        .frame(width: iconSize + 10, height: iconSize + 10)
-
-                    Image(systemName: "person.crop.circle.badge.exclamationmark")
-                        .font(.system(size: iconSize, weight: .semibold))
-                        .foregroundStyle(Color.hushhPrimary)
-                        .symbolRenderingMode(.hierarchical)
-                }
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(title)
-                        .font(titleFont)
-                        .foregroundStyle(.primary)
-
-                    Text(message)
-                        .font(messageFont)
-                        .foregroundStyle(.secondary)
-                }
+        VStack(alignment: .leading, spacing: 12) {
+            Label {
+                Text(title)
+                    .font(style == .prominent ? .headline : .subheadline.weight(.semibold))
+            } icon: {
+                Image(systemName: "person.crop.circle.badge.exclamationmark")
+                    .foregroundStyle(.orange)
+                    .font(style == .prominent ? .title2 : .body)
             }
+
+            Text(message)
+                .font(style == .prominent ? .subheadline : .footnote)
+                .foregroundStyle(.secondary)
 
             Button {
                 appState.resumeVerifiedProfileCompletion()
             } label: {
                 Text(buttonTitle)
-                    .font(.system(.body, design: .rounded, weight: .semibold))
+                    .font(.body.weight(.semibold))
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .background(
-                        LinearGradient(
-                            colors: [
-                                Color.hushhPrimary,
-                                Color.hushhPrimary.opacity(0.82)
-                            ],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .padding(.vertical, 12)
+                    .background(Color.accentColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
             .buttonStyle(.plain)
         }
-        .padding(.horizontal, horizontalPadding)
-        .padding(.vertical, verticalPadding)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(Color.white.opacity(0.8), lineWidth: 1)
-        )
-        .shadow(color: .black.opacity(0.05), radius: 16, y: 8)
+        .padding(16)
+        .background(Color(.secondarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
     }
 }
 

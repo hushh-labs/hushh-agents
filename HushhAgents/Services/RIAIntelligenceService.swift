@@ -6,7 +6,7 @@ protocol RIAIntelligenceServicing {
 
 enum RIAIntelligenceLookupError: LocalizedError, Equatable {
     case blankQuery
-    case noMatch(reason: String?)
+    case noMatch(reason: String?, suggestedNames: [String])
     case upstreamFailure(message: String?)
     case networkFailure(message: String?)
 
@@ -14,7 +14,7 @@ enum RIAIntelligenceLookupError: LocalizedError, Equatable {
         switch self {
         case .blankQuery:
             return "Enter a name to look up your public RIA profile."
-        case .noMatch(let reason):
+        case .noMatch(let reason, _):
             return reason ?? "We couldn't confidently match that name to FINRA or SEC records."
         case .upstreamFailure(let message):
             return message ?? "The profile lookup service is temporarily unavailable."
@@ -114,7 +114,10 @@ final class RIAIntelligenceService: RIAIntelligenceServicing {
             case 200:
                 let dossier = try decodeLookupResponse(from: data, submittedQuery: trimmedQuery)
                 if dossier.noConfidentMatch {
-                    throw RIAIntelligenceLookupError.noMatch(reason: dossier.unverifiedOrNotFound.first)
+                    throw RIAIntelligenceLookupError.noMatch(
+                        reason: dossier.unverifiedOrNotFound.first,
+                        suggestedNames: dossier.suggestedNames
+                    )
                 }
                 return dossier
             case 400, 422:

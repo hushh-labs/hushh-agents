@@ -24,23 +24,133 @@ struct ProfileHomeView: View {
     // MARK: - Authenticated Content
 
     private func content(userId: UUID) -> some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 22) {
+        Form {
+            // Profile Header
+            Section {
                 if appState.needsVerifiedProfileCompletion {
-                    incompleteProfileContent
+                    incompleteHeaderRow
                 } else {
-                    completeProfileContent
+                    headerRow
+                }
+            }
+
+            // Complete profile prompt
+            if appState.needsVerifiedProfileCompletion {
+                Section {
+                    VerifiedProfileCompletionCard(
+                        title: "Complete your verified profile",
+                        message: "Resume your lookup so the app reflects your real advisor identity.",
+                        buttonTitle: "Resume Lookup",
+                        style: .compact
+                    )
+                }
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            }
+
+            // Stats
+            if hasRecordedActivity {
+                Section("Activity") {
+                    HStack(spacing: 0) {
+                        statItem(title: "Saved", value: "\(vm.selectedAgentsCount)", tint: .green)
+                        Divider()
+                        statItem(title: "Passed", value: "\(vm.passedAgentsCount)", tint: .red)
+                        Divider()
+                        statItem(title: "Chats", value: "\(vm.chatsCount)", tint: .blue)
+                    }
+                }
+            }
+
+            // Profile details (only if complete)
+            if !appState.needsVerifiedProfileCompletion {
+                Section("Details") {
+                    profileDetailRow("Categories", value: vm.categoriesLine)
+                    profileDetailRow("Location", value: vm.location)
+                    profileDetailRow("Specialties", value: vm.specialties)
+                    if !vm.userEmail.isEmpty {
+                        profileDetailRow("Email", value: vm.userEmail)
+                    }
                 }
 
-                legalSectionCard
-                accountSectionCard
+                Section {
+                    Button {
+                        appState.presentOnboarding(mode: .editProfile)
+                    } label: {
+                        Label("Refresh Verified RIA Profile", systemImage: "arrow.clockwise.circle.fill")
+                    }
+                }
+            } else {
+                // Account email for incomplete profiles
+                Section("Account") {
+                    if let email = appState.authenticatedIdentityEmail ?? (vm.userEmail.isEmpty ? nil : vm.userEmail) {
+                        profileDetailRow("Email", value: email)
+                    }
+                    profileDetailRow("Profile Status", value: "Verified profile incomplete")
+                }
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 12)
-            .padding(.bottom, 120)
+
+            // Legal
+            Section("Legal") {
+                Button {
+                    showPrivacySheet = true
+                } label: {
+                    Label("Privacy Policy", systemImage: "hand.raised.fill")
+                        .foregroundStyle(.primary)
+                }
+
+                Button {
+                    showTermsSheet = true
+                } label: {
+                    Label("Terms of Service", systemImage: "doc.text.fill")
+                        .foregroundStyle(.primary)
+                }
+
+                HStack {
+                    Label("App Version", systemImage: "info.circle.fill")
+                    Spacer()
+                    Text(vm.appVersion)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            // Account actions
+            Section {
+                if appState.isInternalAdminSession {
+                    HStack {
+                        Text("Access")
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                        Text("Internal Test Access")
+                    }
+                }
+
+                Button(role: .destructive) {
+                    Task {
+                        await vm.signOut(appState: appState)
+                    }
+                } label: {
+                    Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
+                }
+
+                if !appState.isInternalAdminSession {
+                    Button(role: .destructive) {
+                        showDeleteConfirmation = true
+                    } label: {
+                        if vm.isDeleting {
+                            HStack(spacing: 8) {
+                                ProgressView()
+                                    .tint(.red)
+                                Text("Deleting…")
+                            }
+                        } else {
+                            Label("Delete Account", systemImage: "trash.fill")
+                        }
+                    }
+                    .disabled(vm.isDeleting)
+                }
+            } footer: {
+                Text(accountFooterText)
+            }
         }
-        .scrollIndicators(.hidden)
-        .background(profileBackground.ignoresSafeArea())
         .sheet(isPresented: $showPrivacySheet) {
             LegalSheetView(
                 title: "Privacy Policy",
@@ -144,496 +254,154 @@ struct ProfileHomeView: View {
         }
     }
 
-    private var profileBackground: some View {
-        ZStack {
-            Color(.systemGroupedBackground)
-
-            LinearGradient(
-                colors: [
-                    Color(.systemBackground),
-                    Color(.systemGroupedBackground)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-
-            Circle()
-                .fill(Color.hushhPrimary.opacity(0.08))
-                .frame(width: 320, height: 320)
-                .blur(radius: 30)
-                .offset(x: 170, y: -260)
-
-            Circle()
-                .fill(Color.white.opacity(0.9))
-                .frame(width: 240, height: 240)
-                .blur(radius: 20)
-                .offset(x: -150, y: -150)
-        }
-    }
-
-    private var incompleteProfileContent: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            ProfileSectionCard {
-                incompleteAccountHeaderRow
-            }
-
-            VerifiedProfileCompletionCard(
-                title: "Complete your verified profile",
-                message: "You’re signed in, but your advisor identity is still unfinished. Resume the lookup you skipped so Hushh reflects the right public profile instead of placeholders.",
-                buttonTitle: "Resume Lookup"
-            )
-
-            if hasRecordedActivity {
-                VStack(alignment: .leading, spacing: 10) {
-                    sectionLabel("Activity")
-                    statsRow
-                }
-            }
-
-            VStack(alignment: .leading, spacing: 10) {
-                sectionLabel("Account")
-                ProfileSectionCard {
-                    VStack(spacing: 0) {
-                        if let accountEmail = appState.authenticatedIdentityEmail ?? (vm.userEmail.isEmpty ? nil : vm.userEmail) {
-                            profileRow(label: "Email", value: accountEmail)
-                            divider
-                        }
-                        profileRow(label: "Profile Status", value: "Verified profile incomplete")
-                    }
-                }
-            }
-        }
-    }
-
-    private var completeProfileContent: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            ProfileSectionCard {
-                headerRow
-            }
-
-            VStack(alignment: .leading, spacing: 10) {
-                sectionLabel("Activity")
-                statsRow
-            }
-
-            VStack(alignment: .leading, spacing: 10) {
-                sectionLabel("Profile")
-                ProfileSectionCard {
-                    VStack(spacing: 0) {
-                        profileRow(label: "Categories", value: vm.categoriesLine)
-                        divider
-                        profileRow(label: "Location", value: vm.location)
-                        divider
-                        profileRow(label: "Specialties", value: vm.specialties)
-                        if !vm.userEmail.isEmpty {
-                            divider
-                            profileRow(label: "Email", value: vm.userEmail)
-                        }
-                    }
-                }
-            }
-
-            ProfileSectionCard {
-                Button {
-                    appState.presentOnboarding(mode: .editProfile)
-                } label: {
-                    HStack(spacing: 10) {
-                        Image(systemName: "arrow.clockwise.circle.fill")
-                        Text("Refresh Verified RIA Profile")
-                    }
-                    .font(.system(.body, design: .rounded, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(
-                        LinearGradient(
-                            colors: [
-                                Color.hushhPrimary,
-                                Color.hushhPrimary.opacity(0.82)
-                            ],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                }
-                .buttonStyle(.plain)
-            }
-        }
-    }
-
-    private var legalSectionCard: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            sectionLabel("Legal")
-
-            ProfileSectionCard {
-                VStack(spacing: 0) {
-                    settingsRow(
-                        title: "Privacy Policy",
-                        systemImage: "hand.raised.fill"
-                    ) {
-                        showPrivacySheet = true
-                    }
-
-                    divider
-
-                    settingsRow(
-                        title: "Terms of Service",
-                        systemImage: "doc.text.fill"
-                    ) {
-                        showTermsSheet = true
-                    }
-
-                    divider
-
-                    HStack {
-                        Label("App Version", systemImage: "info.circle.fill")
-                            .font(.body)
-                            .foregroundStyle(.primary)
-                        Spacer()
-                        Text(vm.appVersion)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-                    .padding(.vertical, 14)
-                }
-            }
-        }
-    }
-
-    private var accountSectionCard: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            sectionLabel("Account")
-
-            ProfileSectionCard {
-                VStack(spacing: 0) {
-                    destructiveRow(
-                        title: "Sign Out",
-                        systemImage: "rectangle.portrait.and.arrow.right"
-                    ) {
-                        Task {
-                            await vm.signOut(appState: appState)
-                        }
-                    }
-
-                    divider
-
-                    destructiveRow(
-                        title: vm.isDeleting ? "Deleting…" : "Delete Account",
-                        systemImage: "trash.fill",
-                        showsProgress: vm.isDeleting
-                    ) {
-                        showDeleteConfirmation = true
-                    }
-                    .disabled(vm.isDeleting)
-                }
-            }
-
-            Text("Deleting your account permanently removes your profile, swipes, conversations, and all associated data.")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-        }
-    }
-
-    private var hasRecordedActivity: Bool {
-        vm.selectedAgentsCount > 0 || vm.passedAgentsCount > 0 || vm.chatsCount > 0
-    }
-
-    // MARK: - Header Row (Apple Settings style)
+    // MARK: - Header Row
 
     private var headerRow: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 10) {
             AsyncImage(url: vm.avatarURL) { phase in
                 switch phase {
                 case .success(let image):
                     image.resizable().aspectRatio(contentMode: .fill)
                 default:
                     Circle()
-                        .fill(Color.hushhPrimary.opacity(0.12))
+                        .fill(Color(.systemGray5))
                         .overlay(
                             Text(vm.avatarInitials)
-                                .font(.system(size: 34, weight: .semibold, design: .rounded))
-                                .foregroundStyle(Color.hushhPrimary)
+                                .font(.system(size: 28, weight: .semibold, design: .rounded))
+                                .foregroundStyle(.secondary)
                         )
                 }
             }
-            .frame(width: 90, height: 90)
+            .frame(width: 80, height: 80)
             .clipShape(Circle())
             .id(vm.avatarURLString ?? vm.avatarInitials)
-            .overlay(
-                Circle()
-                    .stroke(Color.white.opacity(0.75), lineWidth: 1)
-            )
 
-            VStack(spacing: 4) {
+            VStack(spacing: 3) {
                 Text(vm.userName)
-                    .font(.system(.title2, design: .rounded, weight: .bold))
-                    .multilineTextAlignment(.center)
+                    .font(.title3.bold())
 
                 if !vm.businessName.isEmpty {
                     Text(vm.businessName)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.center)
-                }
-
-                if !vm.roleLine.isEmpty {
-                    Text(vm.roleLine)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
                 }
 
                 if !vm.visibilityLabel.isEmpty {
-                    Label(vm.visibilityLabel, systemImage: vm.visibilityLabel == "Discoverable" ? "eye.fill" : "eye.slash.fill")
-                        .font(.footnote.weight(.semibold))
-                        .foregroundStyle(vm.visibilityLabel == "Discoverable" ? Color.green : .secondary)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 7)
-                        .background(
-                            Capsule()
-                                .fill((vm.visibilityLabel == "Discoverable" ? Color.green : Color.secondary).opacity(0.1))
-                        )
-                        .padding(.top, 4)
+                    Text(vm.visibilityLabel)
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(vm.visibilityLabel == "Discoverable" ? .green : .secondary)
                 }
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 10)
+        .padding(.vertical, 6)
     }
 
-    private var incompleteAccountHeaderRow: some View {
-        VStack(spacing: 12) {
+    private var incompleteHeaderRow: some View {
+        VStack(spacing: 10) {
             AsyncImage(url: appState.authenticatedIdentityAvatarURL) { phase in
                 switch phase {
                 case .success(let image):
                     image.resizable().aspectRatio(contentMode: .fill)
                 default:
                     Circle()
-                        .fill(Color.hushhPrimary.opacity(0.12))
+                        .fill(Color(.systemGray5))
                         .overlay(
                             Text(appState.authenticatedIdentityInitials)
-                                .font(.system(size: 34, weight: .semibold, design: .rounded))
-                                .foregroundStyle(Color.hushhPrimary)
+                                .font(.system(size: 28, weight: .semibold, design: .rounded))
+                                .foregroundStyle(.secondary)
                         )
                 }
             }
-            .frame(width: 90, height: 90)
+            .frame(width: 80, height: 80)
             .clipShape(Circle())
-            .overlay(
-                Circle()
-                    .stroke(Color.white.opacity(0.75), lineWidth: 1)
-            )
 
-            VStack(spacing: 6) {
+            VStack(spacing: 3) {
                 Text(appState.authenticatedIdentityName)
-                    .font(.system(.title2, design: .rounded, weight: .bold))
-                    .multilineTextAlignment(.center)
+                    .font(.title3.bold())
 
                 if let email = appState.authenticatedIdentityEmail {
                     Text(email)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
                 }
 
-                Text("Signed in account")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
-
-                Label("Verified profile incomplete", systemImage: "person.crop.circle.badge.exclamationmark")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(Color.hushhPrimary)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 7)
-                    .background(
-                        Capsule()
-                            .fill(Color.hushhPrimary.opacity(0.12))
-                    )
-                    .padding(.top, 4)
+                Text("Verified profile incomplete")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(.orange)
             }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 6)
+    }
+
+    // MARK: - Helpers
+
+    private func profileDetailRow(_ label: String, value: String) -> some View {
+        HStack(alignment: .top) {
+            Text(label)
+                .foregroundStyle(.secondary)
+            Spacer()
+            Text(value)
+                .multilineTextAlignment(.trailing)
+        }
+    }
+
+    private func statItem(title: String, value: String, tint: Color) -> some View {
+        VStack(spacing: 4) {
+            Text(value)
+                .font(.title2.bold())
+            Text(title)
+                .font(.caption)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 8)
     }
 
-    // MARK: - Stats Row
-
-    private var statsRow: some View {
-        HStack(spacing: 10) {
-            StatCard(title: "Saved", value: "\(vm.selectedAgentsCount)", tint: .hushhLike)
-            StatCard(title: "Passed", value: "\(vm.passedAgentsCount)", tint: .hushhPass)
-            StatCard(title: "Chats", value: "\(vm.chatsCount)", tint: .hushhPrimary)
-        }
+    private var hasRecordedActivity: Bool {
+        vm.selectedAgentsCount > 0 || vm.passedAgentsCount > 0 || vm.chatsCount > 0
     }
 
-    // MARK: - Profile Row
-
-    private func profileRow(label: String, value: String) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(label)
-                .font(.footnote.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Text(value)
-                .font(.body)
-                .foregroundStyle(.primary)
-                .fixedSize(horizontal: false, vertical: true)
+    private var accountFooterText: String {
+        if appState.isInternalAdminSession {
+            return "Internal test access uses a shared account. Deleting is disabled to protect shared data."
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical, 14)
+        return "Deleting your account permanently removes your profile, swipes, conversations, and all associated data."
     }
 
     // MARK: - Guest State
 
     private var guestState: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 22) {
-                VStack(alignment: .leading, spacing: 18) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 24, style: .continuous)
-                            .fill(.ultraThinMaterial)
-                            .frame(width: 86, height: 86)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                                    .stroke(Color.white.opacity(0.8), lineWidth: 1)
-                            )
-
-                        Image(systemName: "person.crop.circle")
-                            .font(.system(size: 40, weight: .regular))
-                            .foregroundStyle(Color.hushhPrimary)
-                    }
-                    .shadow(color: .black.opacity(0.08), radius: 16, y: 8)
-
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Build your verified profile")
-                            .font(.system(.largeTitle, design: .rounded, weight: .bold))
-
-                        Text("Sign in to turn guest browsing into a real Hushh Agents account. We’ll sync your deck activity, then guide you through publishing your verified advisor profile.")
-                            .font(.body)
-                            .foregroundStyle(.secondary)
-                    }
+        Form {
+            Section {
+                Label {
+                    Text("Build your verified profile")
+                        .font(.headline)
+                } icon: {
+                    Image(systemName: "person.crop.circle")
+                        .foregroundStyle(.blue)
+                        .font(.title2)
                 }
 
-                GuestBrowsingCard(
-                    title: "Your account starts here",
-                    message: "Keep browsing freely for now. When you sign in, your deck history can follow you and your verified profile can power the rest of the app.",
-                    buttonTitle: "Sign In"
-                ) {
+                Text("Sign in to turn guest browsing into a real Hushh Agents account. We'll sync your deck activity and guide you through publishing your verified advisor profile.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+
+            Section {
+                Button {
                     appState.triggerGatedAction(.openProfile)
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Sign In")
+                            .font(.body.weight(.semibold))
+                        Spacer()
+                    }
                 }
             }
-            .padding(.horizontal, 20)
-            .padding(.top, 20)
-            .padding(.bottom, 40)
         }
-        .background(profileBackground.ignoresSafeArea())
-    }
-
-    private func sectionLabel(_ title: String) -> some View {
-        Text(title)
-            .font(.footnote.weight(.semibold))
-            .foregroundStyle(.secondary)
-            .textCase(.uppercase)
-            .tracking(0.6)
-    }
-
-    private var divider: some View {
-        Divider()
-            .overlay(Color.black.opacity(0.06))
-    }
-
-    private func settingsRow(title: String, systemImage: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack(spacing: 12) {
-                Label(title, systemImage: systemImage)
-                    .font(.body)
-                    .foregroundStyle(.primary)
-
-                Spacer()
-
-                Image(systemName: "chevron.right")
-                    .font(.footnote.weight(.bold))
-                    .foregroundStyle(.tertiary)
-            }
-            .padding(.vertical, 14)
-        }
-        .buttonStyle(.plain)
-    }
-
-    private func destructiveRow(
-        title: String,
-        systemImage: String,
-        showsProgress: Bool = false,
-        action: @escaping () -> Void
-    ) -> some View {
-        Button(action: action) {
-            HStack(spacing: 12) {
-                if showsProgress {
-                    ProgressView()
-                        .tint(.red)
-                } else {
-                    Image(systemName: systemImage)
-                }
-
-                Text(title)
-                    .font(.body.weight(.semibold))
-
-                Spacer()
-            }
-            .foregroundStyle(.red)
-            .padding(.vertical, 14)
-        }
-        .buttonStyle(.plain)
-    }
-}
-
-// MARK: - StatCard
-
-private struct ProfileSectionCard<Content: View>: View {
-    @ViewBuilder let content: Content
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            content
-        }
-        .padding(20)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .fill(.regularMaterial)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .stroke(Color.white.opacity(0.82), lineWidth: 1)
-        )
-        .shadow(color: .black.opacity(0.05), radius: 18, y: 8)
-    }
-}
-
-private struct StatCard: View {
-    let title: String
-    let value: String
-    let tint: Color
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(value)
-                .font(.system(.title2, design: .rounded, weight: .bold))
-                .foregroundStyle(.primary)
-            Text(title)
-                .font(.footnote.weight(.semibold))
-                .foregroundStyle(.secondary)
-        }
-        .padding(16)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(tint.opacity(0.12))
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(Color.white.opacity(0.6), lineWidth: 1)
-        )
     }
 }
 

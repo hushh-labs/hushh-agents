@@ -10,8 +10,8 @@ NC='\033[0m'
 
 ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 PROJECT_PATH="$ROOT_DIR/HushhAgents.xcodeproj"
-SCHEME="HushhAgents"
-CONFIGURATION="Release"
+SCHEME="${IOS_TESTFLIGHT_SCHEME:-HushhAgents-Prod}"
+CONFIGURATION="${IOS_TESTFLIGHT_CONFIGURATION:-Release Prod}"
 ARCHIVE_PATH="$ROOT_DIR/build/HushhAgent.xcarchive"
 EXPORT_PATH="$ROOT_DIR/build/export"
 EXPORT_OPTIONS_PATH="$ROOT_DIR/ExportOptions.plist"
@@ -19,8 +19,8 @@ UPLOAD_WORKDIR="$ROOT_DIR/build/appstore-upload"
 
 EXPECTED_APP_NAME="Hushh Agent"
 EXPECTED_BUNDLE_ID="com.hushhone.hushh.agent"
-EXPECTED_VERSION="1.0.2"
-EXPECTED_BUILD="142"
+EXPECTED_VERSION="${IOS_TESTFLIGHT_EXPECTED_VERSION:-1.0.2}"
+EXPECTED_BUILD="${IOS_TESTFLIGHT_EXPECTED_BUILD:-143}"
 EXPECTED_APPLE_ID="6736459877"
 TEAM_ID="${APP_STORE_TEAM_ID:-WVDK9JW99C}"
 
@@ -207,20 +207,20 @@ if [ -n "$API_KEY_FILE" ] && [ -z "$API_KEY_ID" ]; then
 fi
 API_ISSUER_ID="${APP_STORE_ISSUER_ID:-}"
 
-CURRENT_BUNDLE_ID="$(project_yaml_value PRODUCT_BUNDLE_IDENTIFIER)"
-CURRENT_VERSION="$(project_yaml_value MARKETING_VERSION)"
-CURRENT_BUILD="$(project_yaml_value CURRENT_PROJECT_VERSION)"
+CURRENT_BUNDLE_ID="$(setting_value PRODUCT_BUNDLE_IDENTIFIER)"
+CURRENT_VERSION="$(setting_value MARKETING_VERSION)"
+CURRENT_BUILD="$(setting_value CURRENT_PROJECT_VERSION)"
 
 if [ -z "$CURRENT_BUNDLE_ID" ]; then
-    CURRENT_BUNDLE_ID="$(setting_value PRODUCT_BUNDLE_IDENTIFIER)"
+    CURRENT_BUNDLE_ID="$(project_yaml_value PRODUCT_BUNDLE_IDENTIFIER)"
 fi
 
 if [ -z "$CURRENT_VERSION" ]; then
-    CURRENT_VERSION="$(setting_value MARKETING_VERSION)"
+    CURRENT_VERSION="$(project_yaml_value MARKETING_VERSION)"
 fi
 
 if [ -z "$CURRENT_BUILD" ]; then
-    CURRENT_BUILD="$(setting_value CURRENT_PROJECT_VERSION)"
+    CURRENT_BUILD="$(project_yaml_value CURRENT_PROJECT_VERSION)"
 fi
 
 echo -e "${YELLOW}Project settings${NC}"

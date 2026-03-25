@@ -6,13 +6,13 @@ struct CategoryBadge: View {
     var body: some View {
         Text(category)
             .font(.caption2.weight(.medium))
-            .foregroundColor(.blue)
+            .foregroundStyle(.secondary)
             .lineLimit(1)
             .minimumScaleFactor(0.85)
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
-            .background(Color.blue.opacity(0.1))
-            .clipShape(Capsule())
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .background(Color(.tertiarySystemFill))
+            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
     }
 }
 

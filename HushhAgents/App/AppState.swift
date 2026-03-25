@@ -27,6 +27,10 @@ final class AppState: ObservableObject {
         !isAuthenticated
     }
 
+    var isInternalAdminAuthModeEnabled: Bool {
+        AuthProviderConfig.isInternalAdminModeEnabled
+    }
+
     var authenticatedUserId: UUID? {
         guard case let .authenticated(userId) = sessionStatus else { return nil }
         return userId
@@ -65,6 +69,14 @@ final class AppState: ObservableObject {
 
     var authenticatedIdentityInitials: String {
         initials(from: authenticatedIdentityName)
+    }
+
+    var isInternalAdminSession: Bool {
+        guard let configuredEmail = AuthProviderConfig.internalAdmin?.email.lowercased() else {
+            return false
+        }
+
+        return trimmed(currentUser?.email)?.lowercased() == configuredEmail
     }
 
     var pendingDestinationLabel: String {

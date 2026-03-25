@@ -17,8 +17,8 @@ struct AgentCardView: View {
 
     private var statusBadge: (title: String, icon: String, tint: Color)? {
         switch swipeStatus {
-        case "selected": return ("Saved", "heart.fill", .hushhLike)
-        case "rejected": return ("Passed", "xmark.circle.fill", .hushhPass)
+        case "selected": return ("Saved", "heart.fill", .green)
+        case "rejected": return ("Passed", "xmark.circle.fill", .red)
         default: return nil
         }
     }
@@ -39,16 +39,15 @@ struct AgentCardView: View {
             }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .top)
             .background(Color(.secondarySystemGroupedBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .contentShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .shadow(color: .black.opacity(0.1), radius: 16, x: 0, y: 6)
+        .shadow(color: .black.opacity(0.08), radius: 10, x: 0, y: 4)
     }
 
     private func heroSection(height: CGFloat) -> some View {
         ZStack {
-            // Text overlay at bottom-left
             VStack(alignment: .leading, spacing: 4) {
                 Spacer()
 
@@ -79,7 +78,6 @@ struct AgentCardView: View {
             .padding(.bottom, 14)
             .padding(.top, 40)
 
-            // Status badge at top-right
             if let badge = statusBadge {
                 VStack {
                     HStack {
@@ -91,11 +89,7 @@ struct AgentCardView: View {
                             .foregroundStyle(.white)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 5)
-                            .background(
-                                Capsule()
-                                    .fill(badge.tint)
-                            )
-                            .shadow(color: .black.opacity(0.15), radius: 4, y: 2)
+                            .background(Capsule().fill(badge.tint))
                     }
                     .padding(.top, 12)
                     .padding(.trailing, 12)
@@ -168,12 +162,12 @@ struct AgentCardView: View {
                         .font(.caption.weight(.bold))
                 }
                 .font(.subheadline.weight(.semibold))
-                .foregroundStyle(Color.hushhPrimary)
+                .foregroundStyle(.blue)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 12)
                 .background(
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .fill(Color.hushhPrimary.opacity(0.08))
+                        .fill(Color(.tertiarySystemFill))
                 )
             }
             .layoutPriority(3)

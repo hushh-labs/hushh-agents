@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Custom image view that loads agent photos from bundled local files first,
-/// then falls back to network, then shows gradient initials.
+/// then falls back to network, then shows initials placeholder.
 struct AgentImageView: View {
     let candidates: [DeckImageCandidate]
     let fallbackName: String
@@ -36,18 +36,6 @@ struct AgentImageView: View {
         return String(fallbackName.prefix(2)).uppercased()
     }
 
-    private static let gradients: [LinearGradient] = [
-        LinearGradient(colors: [.blue.opacity(0.6), .blue.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing),
-        LinearGradient(colors: [.purple.opacity(0.6), .blue.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing),
-        LinearGradient(colors: [.orange.opacity(0.6), .red.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing),
-        LinearGradient(colors: [.green.opacity(0.6), .teal.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing),
-    ]
-
-    private var gradient: LinearGradient {
-        let index = abs(fallbackName.hashValue) % Self.gradients.count
-        return Self.gradients[index]
-    }
-
     private var loadTaskID: String {
         candidates.map(\.id).joined(separator: "|") + "|\(fallbackName)"
     }
@@ -68,86 +56,41 @@ struct AgentImageView: View {
     }
 
     private var loadingPlaceholder: some View {
-        editorialBackground
-            .overlay(
+        Color(.secondarySystemGroupedBackground)
+            .overlay {
                 VStack(spacing: 8) {
-                    placeholderBadge
+                    initialsBadge
                     ProgressView()
-                        .tint(.blue.opacity(0.7))
                         .scaleEffect(0.8)
                 }
-            )
+            }
     }
 
     private var failurePlaceholder: some View {
-        editorialBackground
-            .overlay(
+        Color(.secondarySystemGroupedBackground)
+            .overlay {
                 VStack(spacing: 10) {
-                    placeholderBadge
+                    initialsBadge
                     Text(fallbackName)
                         .font(.caption.weight(.medium))
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
                         .padding(.horizontal, 24)
                 }
-            )
+            }
     }
 
-    private var placeholderBadge: some View {
+    private var initialsBadge: some View {
         ZStack {
             Circle()
-                .fill(gradient)
-                .frame(width: 110, height: 110)
+                .fill(Color(.systemGray4))
+                .frame(width: 90, height: 90)
 
             Text(initials)
-                .font(.system(size: 44, weight: .bold, design: .rounded))
-                .foregroundColor(.white.opacity(0.96))
+                .font(.system(size: 36, weight: .semibold, design: .rounded))
+                .foregroundStyle(.white)
         }
-        .shadow(color: .black.opacity(0.08), radius: 14, x: 0, y: 10)
-    }
-
-    private var editorialBackground: some View {
-        ZStack {
-            LinearGradient(
-                colors: [
-                    Color(uiColor: .secondarySystemGroupedBackground),
-                    Color.white,
-                    Color(uiColor: .systemGray5).opacity(0.9)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-
-            Circle()
-                .fill(Color.white.opacity(0.9))
-                .frame(width: 260, height: 260)
-                .blur(radius: 38)
-                .offset(y: -34)
-
-            Circle()
-                .fill(Color.blue.opacity(0.08))
-                .frame(width: 210, height: 210)
-                .blur(radius: 46)
-                .offset(x: -90, y: 86)
-
-            Circle()
-                .fill(Color.orange.opacity(0.06))
-                .frame(width: 200, height: 200)
-                .blur(radius: 44)
-                .offset(x: 110, y: 94)
-        }
-        .overlay(
-            LinearGradient(
-                colors: [
-                    Color.white.opacity(0.08),
-                    Color.clear,
-                    Color.black.opacity(0.04)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        )
     }
 
     @ViewBuilder
@@ -161,7 +104,7 @@ struct AgentImageView: View {
                     .clipped()
             }
         } else {
-            editorialBackground
+            Color(.secondarySystemGroupedBackground)
                 .overlay(alignment: .top) {
                     Image(uiImage: image)
                         .resizable()
@@ -170,7 +113,6 @@ struct AgentImageView: View {
                         .padding(.horizontal, 24)
                         .padding(.top, 18)
                         .padding(.bottom, 12)
-                        .shadow(color: .black.opacity(0.14), radius: 18, x: 0, y: 10)
                 }
                 .clipped()
         }
@@ -183,9 +125,7 @@ struct AgentImageView: View {
         }
 
         guard !candidates.isEmpty else {
-            await MainActor.run {
-                isLoading = false
-            }
+            await MainActor.run { isLoading = false }
             return
         }
 
@@ -209,9 +149,7 @@ struct AgentImageView: View {
             }
         }
 
-        await MainActor.run {
-            isLoading = false
-        }
+        await MainActor.run { isLoading = false }
     }
 
     private func fetchRemoteImage(from url: URL) async -> UIImage? {
@@ -230,22 +168,16 @@ struct AgentImageView: View {
         }
     }
 
-    /// Extract the Yelp photo ID from the URL and look for a matching file
-    /// in the app bundle's agent_photos folder.
     private func findBundledImage(for candidate: DeckImageCandidate) -> UIImage? {
         let urlString = candidate.url.absoluteString
 
-        // Extract photo ID from Yelp URL: .../bphoto/PHOTO_ID/...
         guard urlString.contains("bphoto/") else { return nil }
         let parts = urlString.components(separatedBy: "bphoto/")
         guard parts.count >= 2 else { return nil }
         let photoIdFull = parts[1].components(separatedBy: "/").first ?? ""
-        // The local files have truncated IDs (first ~20 chars)
         let photoIdPrefix = String(photoIdFull.prefix(20))
 
         guard !photoIdPrefix.isEmpty else { return nil }
-
-        // Search in the bundle for a file whose name contains this ID prefix
         guard let bundlePath = Bundle.main.resourcePath else { return nil }
         let photosDir = (bundlePath as NSString).appendingPathComponent("agent_photos")
 
