@@ -950,7 +950,7 @@
 				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgents.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 143;
+				CURRENT_PROJECT_VERSION = 144;
 				DEVELOPMENT_TEAM = WVDK9JW99C;
 				DEV_ADMIN_EMAIL = "";
 				DEV_ADMIN_ENABLED = NO;
@@ -1033,7 +1033,7 @@
 				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgentsDeviceDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 143;
+				CURRENT_PROJECT_VERSION = 144;
 				DEVELOPMENT_TEAM = WVDK9JW99C;
 				DEV_ADMIN_EMAIL = "admin@hushhagents.dev";
 				DEV_ADMIN_ENABLED = YES;
@@ -1116,7 +1116,7 @@
 				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgents.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 143;
+				CURRENT_PROJECT_VERSION = 144;
 				DEVELOPMENT_TEAM = WVDK9JW99C;
 				DEV_ADMIN_EMAIL = "";
 				DEV_ADMIN_ENABLED = NO;
@@ -1143,7 +1143,7 @@
 				CODE_SIGN_ENTITLEMENTS = HushhAgents/HushhAgentsDeviceDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 143;
+				CURRENT_PROJECT_VERSION = 144;
 				DEVELOPMENT_TEAM = WVDK9JW99C;
 				DEV_ADMIN_EMAIL = "admin@hushhagents.dev";
 				DEV_ADMIN_ENABLED = YES;
